@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flutter Templates Playground</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a1628;color:#e0e0e0;min-height:100vh}
+::selection{background:#2563eb;color:#fff}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#2563eb;border-radius:3px}
+
+nav{position:sticky;top:0;z-index:100;background:#0a1628ee;border-bottom:1px solid #1e2d4a;padding:12px 20px;backdrop-filter:blur(10px)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:18px;color:#fff}
+.logo b{color:#60a5fa}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:#64748b;text-decoration:none;font-size:13px}
+.nav-links a:hover{color:#fff}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+.hero{padding:60px 0 40px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:900;line-height:1.1;margin-bottom:12px}
+.hero h1 b{color:#60a5fa}
+.hero p{color:#64748b;font-size:15px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.search{position:relative;max-width:480px;margin:0 auto 16px}
+.search input{width:100%;padding:12px 16px 12px 42px;border-radius:10px;border:1px solid #1e2d4a;background:#0f1d32;color:#fff;font-size:14px;outline:none;font-family:inherit}
+.search input:focus{border-color:#2563eb}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#475569;width:16px;height:16px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.pill{padding:5px 12px;border-radius:6px;font-size:12px;border:1px solid #1e2d4a;background:transparent;color:#64748b;cursor:pointer}
+.pill:hover,.pill.on{background:#2563eb22;color:#60a5fa;border-color:#2563eb44}
+
+.terminal-section{margin:32px 0}
+.term-box{background:#0c1929;border:1px solid #1e2d4a;border-radius:10px;overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #1e2d4a}
+.term-bar span{width:10px;height:10px;border-radius:50%}
+.term-bar .r{background:#ef4444}.term-bar .y{background:#eab308}.term-bar .g{background:#22c55e}
+.term-bar b{margin-left:8px;font-size:12px;color:#64748b;font-weight:400}
+.term-code{padding:16px;font-family:'JetBrains Mono','Fira Code',monospace;font-size:13px;line-height:1.7;overflow-x:auto}
+.term-code .g{color:#4ade80}.term-code .b{color:#60a5fa}.term-code .y{color:#fbbf24}.term-code .w{color:#e2e8f0}
+
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin:24px 0 16px;position:sticky;top:46px;z-index:50;background:#0a1628;padding:12px 0;border-bottom:1px solid #1e2d4a}
+.tab{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:500;background:#0f1d32;color:#64748b;border:1px solid #1e2d4a;cursor:pointer;display:flex;align-items:center;gap:4px}
+.tab:hover{color:#e2e8f0}
+.tab.on{background:#2563eb22;color:#60a5fa;border-color:#2563eb44}
+
+.count{font-size:12px;color:#475569;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-bottom:40px}
+
+.card{background:#0f1d32;border:1px solid #1e2d4a;border-radius:10px;padding:16px;cursor:pointer;transition:border-color .2s}
+.card:hover{border-color:#2563eb66}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-icon{font-size:22px}
+.diff{font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase}
+.diff-easy{color:#4ade80;background:#4ade8015}
+.diff-medium{color:#fbbf24;background:#fbbf2415}
+.diff-hard{color:#f87171;background:#f8717115}
+.card h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.card p{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:10px}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.tag{font-size:10px;padding:2px 8px;border-radius:4px;background:#1e2d4a;color:#64748b}
+.btns{display:flex;gap:6px}
+.btn{flex:1;padding:8px;border-radius:8px;font-size:12px;font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:background .2s}
+.btn1{background:#1e2d4a;color:#94a3b8}
+.btn1:hover{background:#2d3f5e;color:#fff}
+.btn2{background:#2563eb22;color:#60a5fa}
+.btn2:hover{background:#2563eb33}
+
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:#000000cc;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.on{display:flex}
+.modal{background:#0c1929;border:1px solid #1e2d4a;border-radius:12px;width:100%;max-width:860px;max-height:88vh;overflow:hidden;display:flex;flex-direction:column}
+.m-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #1e2d4a}
+.m-head h2{font-size:16px;font-weight:600}
+.m-head p{font-size:11px;color:#64748b}
+.m-close{width:32px;height:32px;border-radius:8px;border:none;background:#1e2d4a;color:#94a3b8;cursor:pointer;font-size:16px}
+.m-close:hover{background:#2d3f5e;color:#fff}
+.m-tabs{display:flex;gap:4px;padding:8px 16px;background:#0f1d32;border-bottom:1px solid #1e2d4a;overflow-x:auto}
+.m-tab{padding:5px 12px;border-radius:6px;font-size:11px;background:transparent;color:#64748b;border:none;cursor:pointer;white-space:nowrap}
+.m-tab.on{background:#2563eb22;color:#60a5fa}
+.m-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #1e2d4a;background:#0f1d32}
+.m-dots{display:flex;gap:5px}
+.m-dots span{width:10px;height:10px;border-radius:50%}
+.m-path{font-size:11px;color:#475569;font-family:monospace;margin-left:10px}
+.m-copy{padding:5px 12px;border-radius:6px;font-size:11px;background:#1e2d4a;color:#94a3b8;border:none;cursor:pointer}
+.m-copy:hover{background:#2d3f5e;color:#fff}
+.m-copy.ok{color:#4ade80}
+.m-code{flex:1;overflow:auto;padding:16px;font-family:'JetBrains Mono','Fira Code',monospace;font-size:12px;line-height:1.7;color:#cbd5e1}
+.m-code pre{white-space:pre}
+.m-foot{padding:10px 16px;border-top:1px solid #1e2d4a;display:flex;gap:4px;flex-wrap:wrap}
+.m-foot span{font-size:10px;padding:2px 8px;border-radius:4px;background:#1e2d4a;color:#475569}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:#16a34a;color:#fff;padding:10px 24px;border-radius:10px;font-size:13px;font-weight:600;z-index:300;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+footer{border-top:1px solid #1e2d4a;padding:30px 16px;text-align:center}
+footer p{color:#475569;font-size:12px}
+footer a{color:#60a5fa;text-decoration:none}
+
+@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+  <div class="logo">Flutter<b>Templates</b></div>
+  <div class="nav-links">
+    <a href="#templates">Templates</a>
+    <a href="#terminal">Terminal</a>
+    <a href="https://github.com/asadbekabdulboqiyev/flutter-templates-playground" target="_blank">GitHub</a>
+  </div>
+</div>
+</nav>
+
+<div class="wrap">
+
+<div class="hero">
+<h1>Flutter <b>Templates</b><br>Playground</h1>
+<p>95+ tayyor Flutter template. Toping, nusxalang, loyihangizni tezda yarating.</p>
+<div class="search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="q" placeholder="Qidirish... (login, profile, provider, bloc...)">
+</div>
+<div class="pills" id="pills"></div>
+</div>
+
+<div class="terminal-section" id="terminal">
+<h2 style="font-size:20px;font-weight:700;margin-bottom:16px">Terminal buyruqlari</h2>
+
+<div class="term-box" style="margin-bottom:12px">
+<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Yangi loyiha yaratish</b></div>
+<div class="term-code">
+<span class="g">$</span> <span class="b">flutter</span> create <span class="y">my_app</span><br>
+<span class="g">$</span> <span class="b">cd</span> <span class="y">my_app</span><br>
+<span class="g">$</span> <span class="b">flutter</span> run
+</div>
+</div>
+
+<div class="term-box" style="margin-bottom:12px">
+<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Paketlar o'rnatish</b></div>
+<div class="term-code">
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">provider</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">dio</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_riverpod</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_bloc</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">get</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">lottie</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">shimmer</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">web_socket_channel</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">graphql_flutter</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">firebase_auth firebase_core</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">cloud_firestore</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">video_player</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_staggered_grid_view</span><br>
+<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">http</span>
+</div>
+</div>
+
+<div class="term-box" style="margin-bottom:12px">
+<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Loyiha strukturasini yaratish</b></div>
+<div class="term-code">
+<span class="g">$</span> <span class="b">mkdir</span> <span class="y">lib/pages lib/pages/auth lib/services lib/providers lib/widgets</span><br>
+<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/main.dart lib/pages/home_page.dart lib/pages/profile_page.dart</span><br>
+<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/pages/auth/login_page.dart lib/services/api_service.dart</span><br>
+<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/providers/theme_provider.dart lib/widgets/custom_button.dart</span>
+</div>
+</div>
+
+<div class="term-box">
+<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Build va deploy</b></div>
+<div class="term-code">
+<span class="g">$</span> <span class="b">flutter</span> build <span class="y">apk</span> --release<br>
+<span class="g">$</span> <span class="b">flutter</span> build <span class="y">ios</span> --release<br>
+<span class="g">$</span> <span class="b">flutter</span> build <span class="y">web</span> --release<br>
+<span class="g">$</span> <span class="b">flutter</span> test<br>
+<span class="g">$</span> <span class="b">flutter</span> analyze<br>
+<span class="g">$</span> <span class="b">dart</span> format <span class="y">lib/</span>
+</div>
+</div>
+</div>
+
+<h2 id="templates" style="font-size:20px;font-weight:700;margin-bottom:8px;padding-top:32px">Templates</h2>
+<div class="tabs" id="tabs"></div>
+<p class="count" id="cnt"></p>
+<div class="grid" id="grid"></div>
+
+</div>
+
+<footer>
+<p>&copy; 2026 FlutterTemplates &middot; <a href="https://t.me/Asadbek" target="_blank">t.me/Asadbek</a></p>
+</footer>
+
+<div class="modal-overlay" id="ov">
+<div class="modal">
+<div class="m-head">
+<div><h2 id="mN"></h2><p id="mD"></p></div>
+<button class="m-close" onclick="closeM()">✕</button>
+</div>
+<div class="m-tabs" id="mT"></div>
+<div class="m-bar">
+<div style="display:flex;align-items:center"><div class="m-dots"><span style="background:#ef4444"></span><span style="background:#eab308"></span><span style="background:#22c55e"></span></div><span class="m-path" id="mP"></span></div>
+<button class="m-copy" id="cB" onclick="copyC()">📋 Nusxalash</button>
+</div>
+<div class="m-code"><pre id="mC"></pre></div>
+<div class="m-foot" id="mF"></div>
+</div>
+</div>
+
+<div class="toast" id="toast">✅ Nusxalandi!</div>
+
+<script>
+const C=[
+{id:'all',n:'Barchasi',e:'🔥'},{id:'starter',n:'Starter',e:'🚀'},{id:'pages',n:'Sahifalar',e:'📄'},
+{id:'auth',n:'Auth',e:'🔐'},{id:'navigation',n:'Nav',e:'🧭'},{id:'state',n:'State',e:'⚡'},
+{id:'api',n:'API',e:'🌐'},{id:'animations',n:'Anim',e:'✨'},{id:'ui',n:'UI',e:'🎨'}
+];
+
+let T=[],cat='all',q='',ci=null,fi=0;
+
+async function loadTemplates(){
+const r=await fetch('templates.json');
+T=await r.json();
+rc();rg();
+}
+
+function rc(){
+document.getElementById('tabs').innerHTML=C.map(c=>`<button class="tab ${c.id===cat?'on':''}" onclick="sc('${c.id}')">${c.e} ${c.n}</button>`).join('');
+document.getElementById('pills').innerHTML=['Starter','Login','Profile','Provider','Bloc','Navigation','API','Form','Card','Animation'].map(s=>`<button class="pill" onclick="setQ('${s}')">${s}</button>`).join('');
+}
+
+function gf(){return T.filter(t=>{const ms=!q||t.n.toLowerCase().includes(q.toLowerCase())||t.d.toLowerCase().includes(q.toLowerCase())||t.t.some(x=>x.toLowerCase().includes(q.toLowerCase()));const mc=cat==='all'||t.c===cat;return ms&&mc})}
+
+function rg(){
+const f=gf(),g=document.getElementById('grid');
+document.getElementById('cnt').textContent=f.length+' ta template';
+g.innerHTML=f.map(t=>`<div class="card" onclick="openM('${t.id}')">
+<div class="card-top"><span class="card-icon">${t.i}</span><span class="diff diff-${t.diff}">${t.diff}</span></div>
+<h3>${t.n}</h3><p>${t.d}</p>
+<div class="tags">${t.t.slice(0,3).map(x=>`<span class="tag">${x}</span>`).join('')}</div>
+<div class="btns">
+<button class="btn btn1" onclick="event.stopPropagation();copyT('${t.id}')">📋 Nusxalash</button>
+<button class="btn btn2" onclick="event.stopPropagation();openM('${t.id}')">💻 Kod</button>
+</div></div>`).join('');
+if(!f.length)g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 0"><div style="font-size:48px;margin-bottom:12px">🔍</div><p style="color:#64748b">Hech narsa topilmadi</p></div>';
+}
+
+window.sc=id=>{cat=id;rc();rg()};
+window.setQ=v=>{document.getElementById('q').value=v;q=v;rg()};
+window.openM=id=>{ci=T.find(t=>t.id===id);fi=0;rm();document.getElementById('ov').classList.add('on');document.body.style.overflow='hidden'};
+window.closeM=()=>{document.getElementById('ov').classList.remove('on');document.body.style.overflow=''};
+const rm=()=>{if(!ci)return;document.getElementById('mN').textContent=ci.n;document.getElementById('mD').textContent=ci.d;document.getElementById('mT').innerHTML=ci.f.map((f,i)=>`<button class="m-tab ${i===fi?'on':''}" onclick="sf(${i})">📄 ${f.n}</button>`).join('');document.getElementById('mP').textContent=ci.f[fi].p;document.getElementById('mC').textContent=ci.f[fi].c;document.getElementById('mF').innerHTML=ci.f.map(f=>`<span>${f.n}</span>`).join('')};
+window.sf=i=>{fi=i;rm()};
+window.copyC=()=>{navigator.clipboard.writeText(ci.f[fi].c).then(st)};
+window.copyT=id=>{const t=T.find(x=>x.id===id);navigator.clipboard.writeText(t.f.map(f=>`// ${f.p}\n${f.c}`).join('\n\n')).then(st)};
+const st=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)};
+document.getElementById('q').addEventListener('input',e=>{q=e.target.value;rg()});
+document.getElementById('ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeM()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+
+loadTemplates();
+</script>
+</body>
+</html>
