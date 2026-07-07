@@ -404,9 +404,15 @@ let templates=[],category='all',query='',difficultyFilter='',currentTemplate=nul
 function icon(name){return ICONS[name]||ICONS.sparkle;}
 
 async function init(){
-  const res=await fetch('templates.json');
-  templates=await res.json();
-  renderSidebar();renderTabs();renderGrid();updateStats();
+  try{
+    const res=await fetch('templates.json');
+    if(!res.ok)throw new Error('Failed to load templates');
+    templates=await res.json();
+    renderSidebar();renderTabs();renderGrid();updateStats();
+  }catch(e){
+    console.error('Init error:',e);
+    document.getElementById('grid').innerHTML='<div class="empty"><p>Templates yuklashda xatolik. Sahifani yangilang.</p></div>';
+  }
 }
 
 function renderSidebar(){
@@ -528,9 +534,9 @@ function highlightCode(){
   const el=document.getElementById('mCode');
   let code=el.textContent;
   code=code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  code=code.replace(/(\/\/.*$)/gm,'<span style="color:var(--text3)">$1</span>');
+  code=code.replace(/(\/\/[^\n]*)/g,'<span style="color:var(--text3)">$1</span>');
   code=code.replace(/\b(import|export|class|extends|implements|abstract|final|const|static|void|int|double|String|bool|List|Map|Future|Stream|Widget|State|StatelessWidget|StatefulWidget|BuildContext|Key|super|this|return|if|else|for|while|switch|case|break|continue|new|await|async|try|catch|throw|factory|get|set|enum|mixin|with|required|late|var|dynamic|yield)\b/g,'<span style="color:var(--purple)">$1</span>');
-  code=code.replace(/'([^']*)'/g,'<span style="color:var(--green)">\'$1\'</span>');
+  code=code.replace(/&#39;([^&]*?)&#39;/g,'<span style="color:var(--green)">&#39;$1&#39;</span>');
   code=code.replace(/\b(\d+)\b/g,'<span style="color:var(--orange)">$1</span>');
   el.innerHTML='<pre>'+code+'</pre>';
 }
