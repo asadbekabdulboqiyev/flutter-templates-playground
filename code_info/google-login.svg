@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="667" viewBox="0 0 375 667">
+  <rect width="375" height="667" fill="#FAFAFA"/>
+  <rect width="375" height="44" fill="#FAFAFA"/>
+  <text x="187" y="30" fill="#000" font-family="system-ui" font-size="14" text-anchor="middle">9:41</text>
+  <!-- Logo -->
+  <circle cx="187" cy="140" r="36" fill="#E3F2FD"/>
+  <text x="187" y="150" fill="#1976D2" font-family="system-ui" font-size="32" text-anchor="middle">🚀</text>
+  <text x="187" y="200" fill="#000" font-family="system-ui" font-size="22" font-weight="700" text-anchor="middle">Xush kelibsiz</text>
+  <text x="187" y="224" fill="#666" font-family="system-ui" font-size="13" text-anchor="middle">Davom etish uchun tizimga kiring</text>
+  <!-- Email field -->
+  <rect x="24" y="260" width="327" height="52" rx="12" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="50" y="292" fill="#999" font-family="system-ui" font-size="14">📧 Email</text>
+  <!-- Password field -->
+  <rect x="24" y="324" width="327" height="52" rx="12" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="50" y="356" fill="#999" font-family="system-ui" font-size="14">🔒 Parol</text>
+  <text x="310" y="356" fill="#999" font-family="system-ui" font-size="14">👁️</text>
+  <!-- Forgot password -->
+  <text x="280" y="400" fill="#1976D2" font-family="system-ui" font-size="12">Parolni unutdingizmi?</text>
+  <!-- Login button -->
+  <rect x="24" y="420" width="327" height="48" rx="12" fill="#1976D2"/>
+  <text x="187" y="450" fill="#fff" font-family="system-ui" font-size="15" font-weight="600" text-anchor="middle">Kirish</text>
+  <!-- Divider -->
+  <line x1="24" y1="494" x2="160" y2="494" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="187" y="498" fill="#999" font-family="system-ui" font-size="12" text-anchor="middle">YOKI</text>
+  <line x1="214" y1="494" x2="351" y2="494" stroke="#E0E0E0" stroke-width="1"/>
+  <!-- Social buttons -->
+  <rect x="24" y="514" width="327" height="44" rx="12" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="187" y="542" fill="#333" font-family="system-ui" font-size="13" text-anchor="middle">🔵 Google bilan kirish</text>
+  <rect x="24" y="566" width="327" height="44" rx="12" fill="#fff" stroke="#E0E0E0" stroke-width="1"/>
+  <text x="187" y="594" fill="#333" font-family="system-ui" font-size="13" text-anchor="middle">🍎 Apple bilan kirish</text>
+  <!-- Register link -->
+  <text x="187" y="640" fill="#666" font-family="system-ui" font-size="13" text-anchor="middle">Hisobingiz yo'qmi? <tspan fill="#1976D2" font-weight="600">Ro'yxatdan o'ting</tspan></text>
+</svg>

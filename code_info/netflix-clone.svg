@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="667" viewBox="0 0 375 667">
+  <rect width="375" height="667" fill="#000"/>
+  <rect width="375" height="44" fill="#000"/>
+  <text x="187" y="30" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">9:41</text>
+  <!-- Banner -->
+  <rect y="44" width="375" height="350" fill="#1a1a1a"/>
+  <text x="187" y="220" fill="#333" font-family="system-ui" font-size="64">🎬</text>
+  <text x="187" y="280" fill="#E50914" font-family="system-ui" font-size="36" font-weight="900" text-anchor="middle">N</text>
+  <text x="187" y="340" fill="#fff" font-family="system-ui" font-size="20" font-weight="700" text-anchor="middle">Trending Now</text>
+  <rect x="16" y="360" width="100" height="36" rx="4" fill="#fff"/>
+  <text x="66" y="384" fill="#000" font-family="system-ui" font-size="14" text-anchor="middle" font-weight="700">▶ Play</text>
+  <rect x="128" y="360" width="110" height="36" rx="4" fill="rgba(255,255,255,0.3)"/>
+  <text x="183" y="384" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">+ My List</text>
+  <!-- Continue Watching -->
+  <text x="16" y="430" fill="#fff" font-family="system-ui" font-size="16" font-weight="700">Continue Watching</text>
+  <rect x="16" y="440" width="100" height="140" rx="4" fill="#222"/>
+  <rect x="16" y="560" width="100" height="4" rx="2" fill="#333"/>
+  <rect x="16" y="560" width="70" height="4" rx="2" fill="#E50914"/>
+  <rect x="126" y="440" width="100" height="140" rx="4" fill="#222"/>
+  <rect x="126" y="560" width="100" height="4" rx="2" fill="#333"/>
+  <rect x="126" y="560" width="45" height="4" rx="2" fill="#E50914"/>
+  <rect x="236" y="440" width="100" height="140" rx="4" fill="#222"/>
+  <rect x="236" y="560" width="100" height="4" rx="2" fill="#333"/>
+  <rect x="236" y="560" width="90" height="4" rx="2" fill="#E50914"/>
+  <!-- Bottom nav -->
+  <rect y="620" width="375" height="47" fill="#000"/>
+  <text x="62" y="648" fill="#fff" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="600">🏠 Home</text>
+  <text x="187" y="648" fill="#777" font-family="system-ui" font-size="12" text-anchor="middle">🔍 Search</text>
+  <text x="312" y="648" fill="#777" font-family="system-ui" font-size="12" text-anchor="middle">👤 Profile</text>
+</svg>

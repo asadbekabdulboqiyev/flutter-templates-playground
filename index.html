@@ -4,264 +4,665 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flutter Templates Playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#09090b;--bg2:#18181b;--bg3:#27272a;--border:#27272a;--border2:#3f3f46;--text:#fafafa;--text2:#a1a1aa;--text3:#71717a;--accent:#3b82f6;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;--purple:#a855f7;--cyan:#06b6d4;--mono:'JetBrains Mono','Fira Code',monospace;--sans:'Inter',system-ui,-apple-system,sans-serif}
+[data-theme="light"]{--bg:#fafafa;--bg2:#f4f4f5;--bg3:#e4e4e7;--border:#e4e4e7;--border2:#d4d4d8;--text:#18181b;--text2:#52525b;--text3:#a1a1aa}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,-apple-system,sans-serif;background:#0a1628;color:#e0e0e0;min-height:100vh}
-::selection{background:#2563eb;color:#fff}
-::-webkit-scrollbar{width:5px}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#2563eb;border-radius:3px}
-
-nav{position:sticky;top:0;z-index:100;background:#0a1628ee;border-bottom:1px solid #1e2d4a;padding:12px 20px;backdrop-filter:blur(10px)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:18px;color:#fff}
-.logo b{color:#60a5fa}
-.nav-links{display:flex;gap:16px}
-.nav-links a{color:#64748b;text-decoration:none;font-size:13px}
-.nav-links a:hover{color:#fff}
-
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-
-.hero{padding:60px 0 40px;text-align:center}
-.hero h1{font-size:clamp(28px,5vw,44px);font-weight:900;line-height:1.1;margin-bottom:12px}
-.hero h1 b{color:#60a5fa}
-.hero p{color:#64748b;font-size:15px;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
-.search{position:relative;max-width:480px;margin:0 auto 16px}
-.search input{width:100%;padding:12px 16px 12px 42px;border-radius:10px;border:1px solid #1e2d4a;background:#0f1d32;color:#fff;font-size:14px;outline:none;font-family:inherit}
-.search input:focus{border-color:#2563eb}
-.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#475569;width:16px;height:16px}
-.pills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-.pill{padding:5px 12px;border-radius:6px;font-size:12px;border:1px solid #1e2d4a;background:transparent;color:#64748b;cursor:pointer}
-.pill:hover,.pill.on{background:#2563eb22;color:#60a5fa;border-color:#2563eb44}
-
-.terminal-section{margin:32px 0}
-.term-box{background:#0c1929;border:1px solid #1e2d4a;border-radius:10px;overflow:hidden}
-.term-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #1e2d4a}
-.term-bar span{width:10px;height:10px;border-radius:50%}
-.term-bar .r{background:#ef4444}.term-bar .y{background:#eab308}.term-bar .g{background:#22c55e}
-.term-bar b{margin-left:8px;font-size:12px;color:#64748b;font-weight:400}
-.term-code{padding:16px;font-family:'JetBrains Mono','Fira Code',monospace;font-size:13px;line-height:1.7;overflow-x:auto}
-.term-code .g{color:#4ade80}.term-code .b{color:#60a5fa}.term-code .y{color:#fbbf24}.term-code .w{color:#e2e8f0}
-
-.tabs{display:flex;flex-wrap:wrap;gap:4px;margin:24px 0 16px;position:sticky;top:46px;z-index:50;background:#0a1628;padding:12px 0;border-bottom:1px solid #1e2d4a}
-.tab{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:500;background:#0f1d32;color:#64748b;border:1px solid #1e2d4a;cursor:pointer;display:flex;align-items:center;gap:4px}
-.tab:hover{color:#e2e8f0}
-.tab.on{background:#2563eb22;color:#60a5fa;border-color:#2563eb44}
-
-.count{font-size:12px;color:#475569;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-bottom:40px}
-
-.card{background:#0f1d32;border:1px solid #1e2d4a;border-radius:10px;padding:16px;cursor:pointer;transition:border-color .2s}
-.card:hover{border-color:#2563eb66}
-.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.card-icon{font-size:22px}
-.diff{font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase}
-.diff-easy{color:#4ade80;background:#4ade8015}
-.diff-medium{color:#fbbf24;background:#fbbf2415}
-.diff-hard{color:#f87171;background:#f8717115}
-.card h3{font-size:14px;font-weight:600;margin-bottom:4px}
-.card p{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:10px}
-.tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
-.tag{font-size:10px;padding:2px 8px;border-radius:4px;background:#1e2d4a;color:#64748b}
-.btns{display:flex;gap:6px}
-.btn{flex:1;padding:8px;border-radius:8px;font-size:12px;font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:background .2s}
-.btn1{background:#1e2d4a;color:#94a3b8}
-.btn1:hover{background:#2d3f5e;color:#fff}
-.btn2{background:#2563eb22;color:#60a5fa}
-.btn2:hover{background:#2563eb33}
-
-.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:#000000cc;align-items:center;justify-content:center;padding:16px}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{display:none}.sidebar.open{display:flex;position:fixed;inset:0;z-index:300;width:100%}}
+.sidebar{background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+.s-head{padding:20px;border-bottom:1px solid var(--border)}
+.s-logo{font-size:15px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.s-logo svg{width:20px;height:20px;color:var(--accent)}
+.s-sub{font-size:11px;color:var(--text3);font-weight:400}
+.s-search{padding:12px 20px}
+.s-search input{width:100%;padding:8px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:var(--sans);outline:none;transition:border-color .2s}
+.s-search input:focus{border-color:var(--accent)}
+.s-nav{flex:1;overflow-y:auto;padding:8px 12px}
+.s-section{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);padding:12px 8px 6px}
+.s-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:12px;color:var(--text2);cursor:pointer;transition:all .15s;font-weight:500}
+.s-item:hover{background:var(--bg3);color:var(--text)}
+.s-item.active{background:var(--accent);color:#fff}
+.s-item svg{width:16px;height:16px;flex-shrink:0}
+.s-item .count{margin-left:auto;font-size:10px;background:var(--bg3);padding:1px 6px;border-radius:4px;color:var(--text3)}
+.s-item.active .count{background:rgba(255,255,255,.2);color:#fff}
+.s-foot{padding:16px 20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.s-btn{padding:7px 12px;border-radius:6px;font-size:11px;font-weight:500;border:1px solid var(--border);background:var(--bg);color:var(--text2);cursor:pointer;transition:all .15s;text-align:left;font-family:var(--sans);display:flex;align-items:center;gap:6px}
+.s-btn:hover{border-color:var(--accent);color:var(--accent)}
+.s-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.s-btn.primary:hover{opacity:.9}
+.s-btn svg{width:14px;height:14px}
+.kbd{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--bg3);color:var(--text3);border:1px solid var(--border);font-family:var(--mono);margin-left:auto}
+.main{overflow:hidden;display:flex;flex-direction:column}
+.m-header{padding:20px 32px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;position:sticky;top:0;background:var(--bg);z-index:50}
+.m-title{font-size:18px;font-weight:700;letter-spacing:-.5px;flex:1}
+.m-actions{display:flex;gap:6px;align-items:center}
+.m-btn{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:500;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;transition:all .15s;font-family:var(--sans);display:flex;align-items:center;gap:4px}
+.m-btn:hover{border-color:var(--border2);color:var(--text)}
+.m-btn svg{width:14px;height:14px}
+.theme-toggle{width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle svg{width:16px;height:16px}
+.m-content{flex:1;overflow-y:auto;padding:24px 32px}
+.hero-section{padding:48px 0 32px;text-align:center}
+.hero-section h1{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
+.hero-section h1 span{background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-section p{color:var(--text3);font-size:13px;max-width:400px;margin:0 auto 20px;line-height:1.6}
+.hero-stats{display:flex;gap:24px;justify-content:center;margin-top:20px}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:24px;font-weight:800;color:var(--accent)}
+.hero-stat .lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.instructions-section{margin:32px 0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.inst-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .15s}
+.inst-header:hover{background:var(--bg3)}
+.inst-header h3{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.inst-header h3 svg{width:18px;height:18px;color:var(--accent)}
+.inst-header .chevron{transition:transform .2s;color:var(--text3)}
+.inst-header.open .chevron{transform:rotate(180deg)}
+.inst-body{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s}
+.inst-body.open{padding:16px 20px;max-height:2000px}
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.inst-card{padding:16px;border-radius:8px;background:var(--bg);border:1px solid var(--border);transition:border-color .15s}
+.inst-card:hover{border-color:var(--accent)}
+.inst-card h4{font-size:12px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.inst-card h4 svg{width:16px;height:16px;color:var(--accent)}
+.inst-card p{font-size:11px;color:var(--text3);line-height:1.6}
+.inst-card code{font-family:var(--mono);font-size:11px;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--accent)}
+.tabs-row{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.tab-btn{padding:5px 12px;border-radius:6px;font-size:11px;font-weight:500;border:1px solid var(--border);background:var(--bg2);color:var(--text3);cursor:pointer;transition:all .15s;font-family:var(--sans);display:flex;align-items:center;gap:4px}
+.tab-btn:hover{color:var(--text);border-color:var(--border2)}
+.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab-btn svg{width:12px;height:12px}
+.count-bar{font-size:11px;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.count-bar span{color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:40px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:all .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.card-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--bg3)}
+.card-icon svg{width:16px;height:16px;color:var(--accent)}
+.diff{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}
+.diff-easy{color:var(--green);background:rgba(34,197,94,.1)}
+.diff-medium{color:var(--yellow);background:rgba(234,179,8,.1)}
+.diff-hard{color:var(--red);background:rgba(239,68,68,.1)}
+.diff-expert{color:var(--purple);background:rgba(168,85,247,.1)}
+.card h3{font-size:13px;font-weight:600;margin-bottom:3px}
+.card p{font-size:11px;color:var(--text3);line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:9px;padding:2px 6px;border-radius:3px;background:var(--bg3);color:var(--text3)}
+.card-actions{display:flex;gap:4px}
+.c-btn{flex:1;padding:6px;border-radius:5px;font-size:11px;font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:var(--sans)}
+.c-btn svg{width:12px;height:12px}
+.c-btn.copy{background:var(--bg3);color:var(--text2)}
+.c-btn.copy:hover{background:var(--border2);color:var(--text)}
+.c-btn.view{background:rgba(59,130,246,.1);color:var(--accent)}
+.c-btn.view:hover{background:rgba(59,130,246,.2)}
+.c-btn.download{background:rgba(34,197,94,.1);color:var(--green)}
+.c-btn.download:hover{background:rgba(34,197,94,.2)}
+.c-btn.info{background:rgba(168,85,247,.1);color:var(--purple)}
+.c-btn.info:hover{background:rgba(168,85,247,.2)}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
 .modal-overlay.on{display:flex}
-.modal{background:#0c1929;border:1px solid #1e2d4a;border-radius:12px;width:100%;max-width:860px;max-height:88vh;overflow:hidden;display:flex;flex-direction:column}
-.m-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #1e2d4a}
-.m-head h2{font-size:16px;font-weight:600}
-.m-head p{font-size:11px;color:#64748b}
-.m-close{width:32px;height:32px;border-radius:8px;border:none;background:#1e2d4a;color:#94a3b8;cursor:pointer;font-size:16px}
-.m-close:hover{background:#2d3f5e;color:#fff}
-.m-tabs{display:flex;gap:4px;padding:8px 16px;background:#0f1d32;border-bottom:1px solid #1e2d4a;overflow-x:auto}
-.m-tab{padding:5px 12px;border-radius:6px;font-size:11px;background:transparent;color:#64748b;border:none;cursor:pointer;white-space:nowrap}
-.m-tab.on{background:#2563eb22;color:#60a5fa}
-.m-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #1e2d4a;background:#0f1d32}
-.m-dots{display:flex;gap:5px}
-.m-dots span{width:10px;height:10px;border-radius:50%}
-.m-path{font-size:11px;color:#475569;font-family:monospace;margin-left:10px}
-.m-copy{padding:5px 12px;border-radius:6px;font-size:11px;background:#1e2d4a;color:#94a3b8;border:none;cursor:pointer}
-.m-copy:hover{background:#2d3f5e;color:#fff}
-.m-copy.ok{color:#4ade80}
-.m-code{flex:1;overflow:auto;padding:16px;font-family:'JetBrains Mono','Fira Code',monospace;font-size:12px;line-height:1.7;color:#cbd5e1}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:10px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;animation:modalIn .2s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.m-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+.m-head h2{font-size:15px;font-weight:700}
+.m-head p{font-size:10px;color:var(--text3)}
+.m-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text3);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.m-close:hover{border-color:var(--red);color:var(--red)}
+.m-tabs{display:flex;gap:2px;padding:8px 14px;background:var(--bg);border-bottom:1px solid var(--border);overflow-x:auto}
+.m-tab{padding:5px 10px;border-radius:5px;font-size:11px;background:transparent;color:var(--text3);border:none;cursor:pointer;white-space:nowrap;font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:4px}
+.m-tab:hover{color:var(--text)}
+.m-tab.on{background:var(--accent);color:#fff}
+.m-tab svg{width:12px;height:12px}
+.m-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--border);background:var(--bg)}
+.m-bar-left{display:flex;align-items:center;gap:8px}
+.m-dots{display:flex;gap:4px}
+.m-dots span{width:8px;height:8px;border-radius:50%}
+.m-path{font-size:10px;color:var(--text3);font-family:var(--mono)}
+.m-bar-right{display:flex;gap:4px}
+.m-action{padding:4px 10px;border-radius:5px;font-size:10px;background:var(--bg3);color:var(--text3);border:none;cursor:pointer;font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:4px}
+.m-action:hover{background:var(--border2);color:var(--text)}
+.m-action.copied{color:var(--green)}
+.m-action svg{width:12px;height:12px}
+.m-code{flex:1;overflow:auto;padding:16px;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--text2);tab-size:2}
 .m-code pre{white-space:pre}
-.m-foot{padding:10px 16px;border-top:1px solid #1e2d4a;display:flex;gap:4px;flex-wrap:wrap}
-.m-foot span{font-size:10px;padding:2px 8px;border-radius:4px;background:#1e2d4a;color:#475569}
-
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:#16a34a;color:#fff;padding:10px 24px;border-radius:10px;font-size:13px;font-weight:600;z-index:300;transition:transform .3s;pointer-events:none}
+.m-foot{padding:8px 14px;border-top:1px solid var(--border);display:flex;gap:3px;flex-wrap:wrap}
+.m-foot span{font-size:9px;padding:2px 6px;border-radius:3px;background:var(--bg3);color:var(--text3)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--green);color:#fff;padding:8px 20px;border-radius:8px;font-size:12px;font-weight:600;z-index:300;transition:transform .3s;pointer-events:none;display:flex;align-items:center;gap:6px}
 .toast.show{transform:translateX(-50%) translateY(0)}
-
-footer{border-top:1px solid #1e2d4a;padding:30px 16px;text-align:center}
-footer p{color:#475569;font-size:12px}
-footer a{color:#60a5fa;text-decoration:none}
-
-@media(max-width:640px){.grid{grid-template-columns:1fr}.nav-links{display:none}}
+.toast svg{width:14px;height:14px}
+.empty{text-align:center;padding:60px 0}
+.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:.3}
+.empty p{color:var(--text3);font-size:13px}
+.shortcuts-overlay{display:none;position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+.shortcuts-overlay.on{display:flex}
+.shortcuts{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:24px;width:100%;max-width:400px}
+.shortcuts h3{font-size:14px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.shortcuts h3 svg{width:18px;height:18px}
+.shortcut-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.shortcut-row:last-child{border:none}
+.shortcut-label{font-size:12px;color:var(--text2)}
+.shortcut-keys{display:flex;gap:4px}
+.shortcut-key{font-size:10px;padding:3px 8px;border-radius:4px;background:var(--bg3);color:var(--text3);font-family:var(--mono);border:1px solid var(--border)}
+.instructions-overlay{display:none;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
+.instructions-overlay.on{display:flex}
+.instructions-panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;width:100%;max-width:700px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;animation:modalIn .2s ease}
+.inst-panel-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.inst-panel-head h2{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.inst-panel-head h2 svg{width:20px;height:20px;color:var(--accent)}
+.inst-panel-body{flex:1;overflow-y:auto;padding:20px;font-size:13px;line-height:1.8;color:var(--text2)}
+.inst-panel-body h2{font-size:16px;font-weight:700;color:var(--text);margin:20px 0 10px}
+.inst-panel-body h3{font-size:14px;font-weight:600;color:var(--text);margin:16px 0 8px}
+.inst-panel-body p{margin-bottom:10px}
+.inst-panel-body code{font-family:var(--mono);font-size:12px;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--accent)}
+.inst-panel-body pre{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px;overflow-x:auto;margin:10px 0;font-family:var(--mono);font-size:11px;line-height:1.6}
+.inst-panel-body ul{padding-left:20px;margin:8px 0}
+.inst-panel-body li{margin-bottom:4px}
+.inst-panel-body strong{color:var(--text)}
+.inst-panel-body em{color:var(--text3)}
 </style>
 </head>
 <body>
-
-<nav>
-<div class="nav-inner">
-  <div class="logo">Flutter<b>Templates</b></div>
-  <div class="nav-links">
-    <a href="#templates">Templates</a>
-    <a href="#terminal">Terminal</a>
-    <a href="https://github.com/asadbekabdulboqiyev/flutter-templates-playground" target="_blank">GitHub</a>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="s-head">
+    <div class="s-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Flutter<span style="color:var(--accent)">Templates</span>
+    </div>
+    <div class="s-sub">180 Premium Templates</div>
   </div>
-</div>
-</nav>
+  <div class="s-search">
+    <input type="text" id="search" placeholder="Qidirish... (Ctrl+K)" autocomplete="off">
+  </div>
+  <nav class="s-nav" id="sidebarNav"></nav>
+  <div class="s-foot">
+    <button class="s-btn" onclick="exportAll()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Hammasini yuklab olish
+    </button>
+    <button class="s-btn" onclick="showShortcuts()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"/></svg>
+      Shortcuts <span class="kbd">?</span>
+    </button>
+    <button class="s-btn primary" onclick="window.open('https://github.com/asadbekabdulboqiyev/flutter-templates-playground','_blank')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      GitHub
+    </button>
+  </div>
+</aside>
 
-<div class="wrap">
+<main class="main">
+  <header class="m-header">
+    <div class="m-title" id="headerTitle">Templates</div>
+    <div class="m-actions">
+      <button class="m-btn" onclick="exportAll()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Export
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Theme toggle">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
 
-<div class="hero">
-<h1>Flutter <b>Templates</b><br>Playground</h1>
-<p>95+ tayyor Flutter template. Toping, nusxalang, loyihangizni tezda yarating.</p>
-<div class="search">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-<input type="text" id="q" placeholder="Qidirish... (login, profile, provider, bloc...)">
-</div>
-<div class="pills" id="pills"></div>
+  <div class="m-content" id="mainContent">
+    <div class="hero-section">
+      <h1>Flutter <span>Templates</span><br>Playground</h1>
+      <p>180 tayyor Flutter template. Toping, nusxalang, loyihangizni tezda yarating.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num" id="totalCount">180</div><div class="lbl">Templates</div></div>
+        <div class="hero-stat"><div class="num">9</div><div class="lbl">Categories</div></div>
+        <div class="hero-stat"><div class="num">4</div><div class="lbl">Levels</div></div>
+      </div>
+    </div>
+
+    <div class="instructions-section">
+      <div class="inst-header" id="instHeader" onclick="toggleInstructions()">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          Instructions — Flutter loyiha qanday boshlash kerak
+        </h3>
+        <span class="chevron">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </span>
+      </div>
+      <div class="inst-body" id="instBody">
+        <div class="inst-grid">
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M13 2v7h7"/></svg> Loyiha yaratish</h4>
+            <p>Yangi Flutter loyiha yaratish uchun terminalni oching va quyidagi buyruqlarni kiriting:<br><code>flutter create my_app</code><br><code>cd my_app && flutter run</code></p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> Paketlar o'rnatish</h4>
+            <p>Kerakli paketlarni qo'shish:<br><code>flutter pub add provider</code><br><code>flutter pub add dio</code><br><code>flutter pub add flutter_riverpod</code><br><code>flutter pub add flutter_bloc</code></p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg> Struktura yaratish</h4>
+            <p>Tizimli papka tuzilmasi:<br><code>mkdir lib/pages lib/services lib/widgets</code><br><code>mkdir lib/providers lib/models lib/utils</code></p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> Build & Deploy</h4>
+            <p>Release versiya yaratish:<br><code>flutter build apk --release</code><br><code>flutter build ios --release</code><br><code>flutter build web --release</code></p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> Test & Format</h4>
+            <p>Sifatni nazorat qilish:<br><code>flutter test</code><br><code>flutter analyze</code><br><code>dart format lib/</code></p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> State Management</h4>
+            <p>Tanlov: Provider, Riverpod, BLoC, GetX yoki Cubit. Har biri o'ziga xususiyatlarga ega. Boshlang'ich loyihalar uchun Provider, kattalar uchun Riverpod yoki BLoC tavsiya etiladi.</p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> API integratsiya</h4>
+            <p>Dio yoki http paketidan foydalaning. REST API, GraphQL, WebSocket qo'llab-quvvatlanadi. Firebase bilan ham ishlash mumkin.</p>
+          </div>
+          <div class="inst-card">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 2H7a5 5 0 00-5 5v10a5 5 0 005 5h10a5 5 0 005-5V7a5 5 0 00-5-5z"/><circle cx="12" cy="12" r="3"/></svg> UI & Animations</h4>
+            <p>Material 3, Cupertino, yoki custom dizayn. Implicit animatsiyalar, Hero, CustomPainter, Lottie effektlari mavjud.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs-row" id="tabs"></div>
+    <div class="count-bar" id="countBar"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
 </div>
 
-<div class="terminal-section" id="terminal">
-<h2 style="font-size:20px;font-weight:700;margin-bottom:16px">Terminal buyruqlari</h2>
-
-<div class="term-box" style="margin-bottom:12px">
-<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Yangi loyiha yaratish</b></div>
-<div class="term-code">
-<span class="g">$</span> <span class="b">flutter</span> create <span class="y">my_app</span><br>
-<span class="g">$</span> <span class="b">cd</span> <span class="y">my_app</span><br>
-<span class="g">$</span> <span class="b">flutter</span> run
-</div>
-</div>
-
-<div class="term-box" style="margin-bottom:12px">
-<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Paketlar o'rnatish</b></div>
-<div class="term-code">
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">provider</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">dio</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_riverpod</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_bloc</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">get</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">lottie</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">shimmer</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">web_socket_channel</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">graphql_flutter</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">firebase_auth firebase_core</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">cloud_firestore</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">video_player</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">flutter_staggered_grid_view</span><br>
-<span class="g">$</span> <span class="b">flutter</span> pub add <span class="y">http</span>
-</div>
-</div>
-
-<div class="term-box" style="margin-bottom:12px">
-<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Loyiha strukturasini yaratish</b></div>
-<div class="term-code">
-<span class="g">$</span> <span class="b">mkdir</span> <span class="y">lib/pages lib/pages/auth lib/services lib/providers lib/widgets</span><br>
-<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/main.dart lib/pages/home_page.dart lib/pages/profile_page.dart</span><br>
-<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/pages/auth/login_page.dart lib/services/api_service.dart</span><br>
-<span class="g">$</span> <span class="b">touch</span> <span class="y">lib/providers/theme_provider.dart lib/widgets/custom_button.dart</span>
-</div>
-</div>
-
-<div class="term-box">
-<div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><b>Build va deploy</b></div>
-<div class="term-code">
-<span class="g">$</span> <span class="b">flutter</span> build <span class="y">apk</span> --release<br>
-<span class="g">$</span> <span class="b">flutter</span> build <span class="y">ios</span> --release<br>
-<span class="g">$</span> <span class="b">flutter</span> build <span class="y">web</span> --release<br>
-<span class="g">$</span> <span class="b">flutter</span> test<br>
-<span class="g">$</span> <span class="b">flutter</span> analyze<br>
-<span class="g">$</span> <span class="b">dart</span> format <span class="y">lib/</span>
-</div>
-</div>
-</div>
-
-<h2 id="templates" style="font-size:20px;font-weight:700;margin-bottom:8px;padding-top:32px">Templates</h2>
-<div class="tabs" id="tabs"></div>
-<p class="count" id="cnt"></p>
-<div class="grid" id="grid"></div>
-
-</div>
-
-<footer>
-<p>&copy; 2026 FlutterTemplates &middot; <a href="https://t.me/tmeAsadbek" target="_blank">t.me/tmeAsadbek</a></p>
-</footer>
-
-<div class="modal-overlay" id="ov">
+<div class="modal-overlay" id="modal">
 <div class="modal">
-<div class="m-head">
-<div><h2 id="mN"></h2><p id="mD"></p></div>
-<button class="m-close" onclick="closeM()">✕</button>
-</div>
-<div class="m-tabs" id="mT"></div>
-<div class="m-bar">
-<div style="display:flex;align-items:center"><div class="m-dots"><span style="background:#ef4444"></span><span style="background:#eab308"></span><span style="background:#22c55e"></span></div><span class="m-path" id="mP"></span></div>
-<button class="m-copy" id="cB" onclick="copyC()">📋 Nusxalash</button>
-</div>
-<div class="m-code"><pre id="mC"></pre></div>
-<div class="m-foot" id="mF"></div>
+  <div class="m-head">
+    <div><h2 id="mName"></h2><p id="mDesc"></p></div>
+    <div style="display:flex;gap:6px">
+      <button class="m-action" onclick="showPreview()" title="Preview" id="previewBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Preview
+      </button>
+      <button class="m-action" onclick="showInstructions()" title="Instructions">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Instructions
+      </button>
+      <button class="m-close" onclick="closeModal()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Preview bo'limi — defaultda yashirin -->
+  <div id="previewSection" style="display:none;background:var(--bg);padding:20px;text-align:center;min-height:200px">
+    <div id="previewContent">
+      <div style="color:var(--text3);padding:40px">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <p style="margin-top:12px;font-size:13px">Preview hali yuklanmagan</p>
+        <p style="font-size:11px;margin-top:4px">Screenshot ni <code>code_info/{id}.png</code> ga qo'ying</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-tabs" id="mTabs"></div>
+  <div class="m-bar">
+    <div class="m-bar-left">
+      <div class="m-dots"><span style="background:var(--red)"></span><span style="background:var(--yellow)"></span><span style="background:var(--green)"></span></div>
+      <span class="m-path" id="mPath"></span>
+    </div>
+    <div class="m-bar-right">
+      <button class="m-action" onclick="copyCode()" id="copyBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy
+      </button>
+      <button class="m-action" onclick="downloadFile()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Save
+      </button>
+      <button class="m-action" onclick="copyAll()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        All
+      </button>
+    </div>
+  </div>
+  <div class="m-code"><pre id="mCode"></pre></div>
+  <div class="m-foot" id="mFoot"></div>
 </div>
 </div>
 
-<div class="toast" id="toast">✅ Nusxalandi!</div>
+<div class="instructions-overlay" id="instructionsOverlay" onclick="if(event.target===this)closeInstructions()">
+<div class="instructions-panel">
+  <div class="inst-panel-head">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      <span id="instTitle">Instructions</span>
+    </h2>
+    <button class="m-close" onclick="closeInstructions()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="inst-panel-body" id="instBody2"></div>
+</div>
+</div>
+
+<div class="shortcuts-overlay" id="shortcutsOverlay" onclick="if(event.target===this)closeShortcuts()">
+<div class="shortcuts">
+  <h3>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"/></svg>
+    Keyboard Shortcuts
+  </h3>
+  <div class="shortcut-row"><span class="shortcut-label">Search</span><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-key">K</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Close modal</span><div class="shortcut-keys"><span class="shortcut-key">Esc</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Copy code</span><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-key">C</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Download file</span><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-key">S</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Toggle theme</span><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-key">D</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Next file</span><div class="shortcut-keys"><span class="shortcut-key">&#8594;</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Prev file</span><div class="shortcut-keys"><span class="shortcut-key">&#8592;</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Export all</span><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-key">E</span></div></div>
+  <div class="shortcut-row"><span class="shortcut-label">Show shortcuts</span><div class="shortcut-keys"><span class="shortcut-key">?</span></div></div>
+</div>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastMsg">Copied!</span>
+</div>
 
 <script>
-const C=[
-{id:'all',n:'Barchasi',e:'🔥'},{id:'starter',n:'Starter',e:'🚀'},{id:'pages',n:'Sahifalar',e:'📄'},
-{id:'auth',n:'Auth',e:'🔐'},{id:'navigation',n:'Nav',e:'🧭'},{id:'state',n:'State',e:'⚡'},
-{id:'api',n:'API',e:'🌐'},{id:'animations',n:'Anim',e:'✨'},{id:'ui',n:'UI',e:'🎨'}
+const ICONS = {
+  rocket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',
+  document: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>',
+  lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
+  compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+  lightning: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+  globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
+  sparkle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>',
+  palette: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.01 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-5.5-4.5-9.94-10-9.94z"/></svg>',
+  building: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>',
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+};
+
+const CATEGORIES = [
+  {id:'all',n:'Barchasi',icon:'sparkle'},{id:'starter',n:'Starter',icon:'rocket'},
+  {id:'pages',n:'Sahifalar',icon:'document'},{id:'auth',n:'Auth',icon:'lock'},
+  {id:'navigation',n:'Navigation',icon:'compass'},{id:'state',n:'State Mgmt',icon:'lightning'},
+  {id:'api',n:'API & Backend',icon:'globe'},{id:'animations',n:'Animations',icon:'sparkle'},
+  {id:'ui',n:'UI Widgets',icon:'palette'},{id:'advanced',n:'Advanced',icon:'building'}
 ];
 
-let T=[],cat='all',q='',ci=null,fi=0;
+const DIFF_COLORS = {easy:'var(--green)',medium:'var(--yellow)',hard:'var(--red)',expert:'var(--purple)'};
 
-async function loadTemplates(){
-const r=await fetch('templates.json');
-T=await r.json();
-rc();rg();
+let templates=[],category='all',query='',difficultyFilter='',currentTemplate=null,currentFileIndex=0,instructionsOpen=false;
+
+function icon(name){return ICONS[name]||ICONS.sparkle;}
+
+async function init(){
+  const res=await fetch('templates.json');
+  templates=await res.json();
+  renderSidebar();renderTabs();renderGrid();updateStats();
 }
 
-function rc(){
-document.getElementById('tabs').innerHTML=C.map(c=>`<button class="tab ${c.id===cat?'on':''}" onclick="sc('${c.id}')">${c.e} ${c.n}</button>`).join('');
-document.getElementById('pills').innerHTML=['Starter','Login','Profile','Provider','Bloc','Navigation','API','Form','Card','Animation'].map(s=>`<button class="pill" onclick="setQ('${s}')">${s}</button>`).join('');
+function renderSidebar(){
+  const nav=document.getElementById('sidebarNav');
+  let html='<div class="s-section">Categories</div>';
+  CATEGORIES.forEach(c=>{
+    const count=c.id==='all'?templates.length:templates.filter(t=>t.c===c.id).length;
+    html+=`<div class="s-item ${c.id===category?'active':''}" onclick="setCategory('${c.id}')">${icon(c.icon)}${c.n}<span class="count">${count}</span></div>`;
+  });
+  html+='<div class="s-section">Difficulty</div>';
+  ['easy','medium','hard','expert'].forEach(d=>{
+    const count=templates.filter(t=>t.diff===d).length;
+    if(count>0) html+=`<div class="s-item ${difficultyFilter===d?'active':''}" onclick="filterDifficulty('${d}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="${DIFF_COLORS[d]}"><circle cx="12" cy="12" r="6"/></svg>${d.charAt(0).toUpperCase()+d.slice(1)}<span class="count">${count}</span></div>`;
+  });
+  nav.innerHTML=html;
 }
 
-function gf(){return T.filter(t=>{const ms=!q||t.n.toLowerCase().includes(q.toLowerCase())||t.d.toLowerCase().includes(q.toLowerCase())||t.t.some(x=>x.toLowerCase().includes(q.toLowerCase()));const mc=cat==='all'||t.c===cat;return ms&&mc})}
-
-function rg(){
-const f=gf(),g=document.getElementById('grid');
-document.getElementById('cnt').textContent=f.length+' ta template';
-g.innerHTML=f.map(t=>`<div class="card" onclick="openM('${t.id}')">
-<div class="card-top"><span class="card-icon">${t.i}</span><span class="diff diff-${t.diff}">${t.diff}</span></div>
-<h3>${t.n}</h3><p>${t.d}</p>
-<div class="tags">${t.t.slice(0,3).map(x=>`<span class="tag">${x}</span>`).join('')}</div>
-<div class="btns">
-<button class="btn btn1" onclick="event.stopPropagation();copyT('${t.id}')">📋 Nusxalash</button>
-<button class="btn btn2" onclick="event.stopPropagation();openM('${t.id}')">💻 Kod</button>
-</div></div>`).join('');
-if(!f.length)g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 0"><div style="font-size:48px;margin-bottom:12px">🔍</div><p style="color:#64748b">Hech narsa topilmadi</p></div>';
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=CATEGORIES.map(c=>
+    `<button class="tab-btn ${c.id===category?'active':''}" onclick="setCategory('${c.id}')">${icon(c.icon)}${c.n}</button>`
+  ).join('');
 }
 
-window.sc=id=>{cat=id;rc();rg()};
-window.setQ=v=>{document.getElementById('q').value=v;q=v;rg()};
-window.openM=id=>{ci=T.find(t=>t.id===id);fi=0;rm();document.getElementById('ov').classList.add('on');document.body.style.overflow='hidden'};
-window.closeM=()=>{document.getElementById('ov').classList.remove('on');document.body.style.overflow=''};
-const rm=()=>{if(!ci)return;document.getElementById('mN').textContent=ci.n;document.getElementById('mD').textContent=ci.d;document.getElementById('mT').innerHTML=ci.f.map((f,i)=>`<button class="m-tab ${i===fi?'on':''}" onclick="sf(${i})">📄 ${f.n}</button>`).join('');document.getElementById('mP').textContent=ci.f[fi].p;document.getElementById('mC').textContent=ci.f[fi].c;document.getElementById('mF').innerHTML=ci.f.map(f=>`<span>${f.n}</span>`).join('')};
-window.sf=i=>{fi=i;rm()};
-window.copyC=()=>{navigator.clipboard.writeText(ci.f[fi].c).then(st)};
-window.copyT=id=>{const t=T.find(x=>x.id===id);navigator.clipboard.writeText(t.f.map(f=>`// ${f.p}\n${f.c}`).join('\n\n')).then(st)};
-const st=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)};
-document.getElementById('q').addEventListener('input',e=>{q=e.target.value;rg()});
-document.getElementById('ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeM()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+function getFiltered(){
+  return templates.filter(t=>{
+    const matchQ=!query||t.n.toLowerCase().includes(query.toLowerCase())||t.d.toLowerCase().includes(query.toLowerCase())||t.t.some(x=>x.toLowerCase().includes(query.toLowerCase()));
+    const matchC=category==='all'||t.c===category;
+    const matchD=!difficultyFilter||t.diff===difficultyFilter;
+    return matchQ&&matchC&&matchD;
+  });
+}
 
-loadTemplates();
+function renderGrid(){
+  const filtered=getFiltered();
+  const grid=document.getElementById('grid');
+  document.getElementById('countBar').innerHTML=`<span>${filtered.length}</span> ta template topildi`;
+  document.getElementById('headerTitle').textContent=category==='all'?'Templates':CATEGORIES.find(c=>c.id===category)?.n||'Templates';
+  if(!filtered.length){
+    grid.innerHTML=`<div class="empty">${icon('search')}<p>Hech narsa topilmadi</p></div>`;
+    return;
+  }
+  grid.innerHTML=filtered.map(t=>`<div class="card" onclick="openModal('${t.id}')">
+    <div class="card-top"><div class="card-icon">${icon(t.icon||'sparkle')}</div><span class="diff diff-${t.diff}">${t.diff}</span></div>
+    <h3>${t.n}</h3><p>${t.d}</p>
+    <div class="tags">${t.t.slice(0,3).map(x=>`<span class="tag">${x}</span>`).join('')}</div>
+    <div class="card-actions">
+      <button class="c-btn copy" onclick="event.stopPropagation();copyTemplate('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button>
+      <button class="c-btn view" onclick="event.stopPropagation();openModal('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code</button>
+      <button class="c-btn download" onclick="event.stopPropagation();downloadTemplate('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Save</button>
+      <button class="c-btn info" onclick="event.stopPropagation();openInstructions('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Info</button>
+    </div></div>`).join('');
+}
+
+function updateStats(){document.getElementById('totalCount').textContent=templates.length;}
+function setCategory(id){category=id;difficultyFilter='';renderTabs();renderSidebar();renderGrid();}
+function filterDifficulty(d){
+  difficultyFilter=difficultyFilter===d?'':d;
+  renderSidebar();renderGrid();
+}
+
+function openModal(id){
+  currentTemplate=templates.find(t=>t.id===id);
+  if(!currentTemplate)return;
+  currentFileIndex=0;
+  renderModal();
+  document.getElementById('modal').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('on');
+  document.body.style.overflow='';
+  currentTemplate=null;
+  // Preview ni reset qilish
+  document.getElementById('previewSection').style.display='none';
+  document.querySelector('.m-code').style.display='';
+  document.querySelector('.m-bar').style.display='';
+  document.getElementById('mTabs').style.display='';
+}
+
+function renderModal(){
+  if(!currentTemplate)return;
+  const t=currentTemplate,f=t.f[currentFileIndex];
+  document.getElementById('mName').textContent=t.n;
+  document.getElementById('mDesc').textContent=t.d;
+
+  // Preview bo'limini tayyorlash
+  const previewSection=document.getElementById('previewSection');
+  const previewContent=document.getElementById('previewContent');
+  previewSection.style.display='none';
+
+  // Preview rasmni yuklashga tayyorlash
+  if(t.preview){
+    const img=new Image();
+    img.onload=()=>{
+      previewContent.innerHTML=`<img src="${t.preview}" style="max-width:100%;max-height:500px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.3)">`;
+    };
+    img.onerror=()=>{
+      previewContent.innerHTML=`<div style="color:var(--text3);padding:40px">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <p style="margin-top:12px;font-size:13px">Preview hali yuklanmagan</p>
+        <p style="font-size:11px;margin-top:4px">Screenshot ni <code>code_info/${t.id}.png</code> ga qo'ying</p>
+      </div>`;
+    };
+    img.src=t.preview;
+  }
+  document.getElementById('mTabs').innerHTML=t.f.map((file,i)=>
+    `<button class="m-tab ${i===currentFileIndex?'on':''}" onclick="selectFile(${i})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>${file.n}</button>`
+  ).join('');
+  document.getElementById('mPath').textContent=f.p;
+  document.getElementById('mCode').textContent=f.c;
+  document.getElementById('mFoot').innerHTML=t.f.map(file=>`<span>${file.n}</span>`).join('');
+  highlightCode();
+}
+
+function selectFile(i){currentFileIndex=i;renderModal();}
+
+function highlightCode(){
+  const el=document.getElementById('mCode');
+  let code=el.textContent;
+  code=code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  code=code.replace(/(\/\/.*$)/gm,'<span style="color:var(--text3)">$1</span>');
+  code=code.replace(/\b(import|export|class|extends|implements|abstract|final|const|static|void|int|double|String|bool|List|Map|Future|Stream|Widget|State|StatelessWidget|StatefulWidget|BuildContext|Key|super|this|return|if|else|for|while|switch|case|break|continue|new|await|async|try|catch|throw|factory|get|set|enum|mixin|with|required|late|var|dynamic|yield)\b/g,'<span style="color:var(--purple)">$1</span>');
+  code=code.replace(/'([^']*)'/g,'<span style="color:var(--green)">\'$1\'</span>');
+  code=code.replace(/\b(\d+)\b/g,'<span style="color:var(--orange)">$1</span>');
+  el.innerHTML='<pre>'+code+'</pre>';
+}
+
+function showInstructions(){
+  if(!currentTemplate)return;
+  document.getElementById('previewSection').style.display='none';
+  openInstructions(currentTemplate.id);
+}
+
+function showPreview(){
+  if(!currentTemplate)return;
+  const ps=document.getElementById('previewSection');
+  ps.style.display=ps.style.display==='none'?'block':'none';
+  // Code ni yashirish/korsatish
+  const mc=document.querySelector('.m-code');
+  const mb=document.querySelector('.m-bar');
+  const mt=document.getElementById('mTabs');
+  if(ps.style.display==='block'){
+    mc.style.display='none';mb.style.display='none';mt.style.display='none';
+  }else{
+    mc.style.display='';mb.style.display='';mt.style.display='';
+  }
+}
+
+function openInstructions(id){
+  const t=templates.find(x=>x.id===id);
+  if(!t)return;
+  document.getElementById('instTitle').textContent=t.n+' — Instructions';
+  const md=t.instructions||'No instructions available.';
+  document.getElementById('instBody2').innerHTML=renderMarkdown(md);
+  document.getElementById('instructionsOverlay').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+function closeInstructions(){
+  document.getElementById('instructionsOverlay').classList.remove('on');
+  if(!document.getElementById('modal').classList.contains('on')){
+    document.body.style.overflow='';
+  }
+}
+
+function renderMarkdown(md){
+  return md
+    .replace(/^### (.+)$/gm,'<h3>$1</h3>')
+    .replace(/^## (.+)$/gm,'<h2>$1</h2>')
+    .replace(/^```bash\n([\s\S]*?)```/gm,'<pre>$1</pre>')
+    .replace(/^```\n([\s\S]*?)```/gm,'<pre>$1</pre>')
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/^- (.+)$/gm,'<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g,m=>'<ul>'+m+'</ul>')
+    .replace(/\n\n/g,'<br><br>')
+    .replace(/\n/g,'<br>');
+}
+
+function copyCode(){
+  if(!currentTemplate)return;
+  navigator.clipboard.writeText(currentTemplate.f[currentFileIndex].c).then(()=>showToast('Copied!'));
+}
+function copyAll(){
+  if(!currentTemplate)return;
+  const all=currentTemplate.f.map(f=>`// ${f.p}\n${f.c}`).join('\n\n');
+  navigator.clipboard.writeText(all).then(()=>showToast('All files copied!'));
+}
+function copyTemplate(id){
+  const t=templates.find(x=>x.id===id);
+  if(!t)return;
+  const all=t.f.map(f=>`// ${f.p}\n${f.c}`).join('\n\n');
+  navigator.clipboard.writeText(all).then(()=>showToast('Copied!'));
+}
+function downloadFile(){
+  if(!currentTemplate)return;
+  const f=currentTemplate.f[currentFileIndex];
+  const blob=new Blob([f.c],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=f.n;a.click();
+  URL.revokeObjectURL(a.href);showToast('Downloaded!');
+}
+function downloadTemplate(id){
+  const t=templates.find(x=>x.id===id);
+  if(!t)return;
+  t.f.forEach(f=>{
+    const blob=new Blob([f.c],{type:'text/plain'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=f.n;a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  showToast('All files downloaded!');
+}
+function exportAll(){
+  const data=templates.map(t=>({name:t.n,description:t.d,category:t.c,difficulty:t.diff,tags:t.t,instructions:t.instructions,files:t.f.map(f=>({name:f.n,path:f.p,code:f.c}))}));
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='flutter-templates.json';a.click();
+  URL.revokeObjectURL(a.href);showToast('Exported!');
+}
+function toggleTheme(){
+  const isLight=document.body.getAttribute('data-theme')==='light';
+  document.body.setAttribute('data-theme',isLight?'':'light');
+  document.getElementById('themeIcon').innerHTML=isLight?'<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>':'<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+}
+function toggleInstructions(){
+  instructionsOpen=!instructionsOpen;
+  document.getElementById('instHeader').classList.toggle('open',instructionsOpen);
+  document.getElementById('instBody').classList.toggle('open',instructionsOpen);
+}
+function showShortcuts(){document.getElementById('shortcutsOverlay').classList.add('on');}
+function closeShortcuts(){document.getElementById('shortcutsOverlay').classList.remove('on');}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+document.getElementById('search').addEventListener('input',e=>{query=e.target.value;difficultyFilter='';renderSidebar();renderGrid();});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeModal();closeShortcuts();closeInstructions();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('search').focus();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='c'&&currentTemplate){e.preventDefault();copyCode();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='s'&&currentTemplate){e.preventDefault();downloadFile();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='d'){e.preventDefault();toggleTheme();}
+  if((e.ctrlKey||e.metaKey)&&e.key==='e'){e.preventDefault();exportAll();}
+  if(e.key==='?'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT'){showShortcuts();}
+  if(currentTemplate&&e.key==='ArrowRight'&&currentFileIndex<currentTemplate.f.length-1){currentFileIndex++;renderModal();}
+  if(currentTemplate&&e.key==='ArrowLeft'&&currentFileIndex>0){currentFileIndex--;renderModal();}
+});
+
+init();
 </script>
 </body>
 </html>
