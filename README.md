@@ -1,6 +1,6 @@
 # Flutter Templates Playground
 
-> 180+ premium Flutter templates with real simulator previews, step-by-step instructions, and copy-paste ready code.
+> 180+ premium Flutter templates with copy-paste ready code and step-by-step instructions.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=flat-square&logo=dart)](https://dart.dev)
@@ -11,12 +11,12 @@
 ## Features
 
 - **180+ Templates** — Auth, Navigation, State Management, API, Animations, UI Widgets, and more
-- **Real Simulator Screenshots** — See exactly what each template looks like before using it
 - **Copy-Paste Ready** — One click to copy any template code
 - **Step-by-Step Instructions** — Beginner-friendly guides for every template
 - **Dark/Light Mode** — Toggle between themes
 - **Keyboard Shortcuts** — Navigate faster with `Ctrl+K`, `Ctrl+C`, `Ctrl+S`
 - **Export All** — Download all templates as JSON
+- **Code Highlighting** — Syntax highlighted Flutter code
 
 ---
 
@@ -105,11 +105,7 @@ flutter run
 flutter-templates-playground/
 ├── index.html          # Main website
 ├── templates.json      # All template data
-├── code_info/          # Simulator screenshots
-│   ├── instagram-clone.png
-│   ├── whatsapp-clone.png
-│   ├── spotify-clone.png
-│   └── ...
+├── code_info/          # Preview screenshots (optional)
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml  # GitHub Actions

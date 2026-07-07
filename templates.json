@@ -19,7 +19,7 @@
       }
     ],
     "icon": "rocket",
-    "instructions": "## Flutter Starter\n\n**Kategoriya:** Starter\n**Qiyinlik:** Easy\n**Teglar:** material, theme, setup\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add material\nflutter pub add theme\nflutter pub add setup\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
+    "instructions": "## Flutter Starter\n\n**Kategoriya:** Starter\n**Qiyinlik:** Easy\n**Teglar:** material, theme, setup\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
     "preview": "code_info/starter.png"
   },
   {
@@ -42,7 +42,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## Bottom Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** bottomnav, indexedstack, navigation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/main_navigation.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add bottomnav\nflutter pub add indexedstack\nflutter pub add navigation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
+    "instructions": "## Bottom Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** bottomnav, indexedstack, navigation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/main_navigation.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
     "preview": "code_info/bottom-nav.png"
   },
   {
@@ -65,7 +65,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Profile Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** profile, settings, avatar\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/profile_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add profile\nflutter pub add settings\nflutter pub add avatar\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Profile Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** profile, settings, avatar\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/profile_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "login",
@@ -88,7 +88,7 @@
       }
     ],
     "icon": "lock",
-    "instructions": "## Login / Register\n\n**Kategoriya:** Auth\n**Qiyinlik:** Medium\n**Teglar:** login, register, form, validation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/login_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add login\nflutter pub add register\nflutter pub add form\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Login / Register\n\n**Kategoriya:** Auth\n**Qiyinlik:** Medium\n**Teglar:** login, register, form, validation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/login_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "api",
@@ -111,7 +111,7 @@
       }
     ],
     "icon": "globe",
-    "instructions": "## HTTP Service (Dio)\n\n**Kategoriya:** Api\n**Qiyinlik:** Hard\n**Teglar:** dio, api, http, rest\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/api_service.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add dio\nflutter pub add api\nflutter pub add http\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## HTTP Service (Dio)\n\n**Kategoriya:** Api\n**Qiyinlik:** Hard\n**Teglar:** dio, api, http, rest\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/api_service.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add dio\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "animated-list",
@@ -133,7 +133,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Animated List\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** animatedlist, animation, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/animated_list_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add animatedlist\nflutter pub add animation\nflutter pub add list\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Animated List\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** animatedlist, animation, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/animated_list_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "settings",
@@ -155,7 +155,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Settings Page\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** settings, switch, slider\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/settings_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add settings\nflutter pub add switch\nflutter pub add slider\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Settings Page\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** settings, switch, slider\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/settings_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "provider",
@@ -177,7 +177,7 @@
       }
     ],
     "icon": "lightning",
-    "instructions": "## Provider Setup\n\n**Kategoriya:** State\n**Qiyinlik:** Medium\n**Teglar:** provider, statemanagement, change-notifier\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/state\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add provider\nflutter pub add statemanagement\nflutter pub add change-notifier\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
+    "instructions": "## Provider Setup\n\n**Kategoriya:** State\n**Qiyinlik:** Medium\n**Teglar:** provider, statemanagement, change-notifier\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/state\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add provider\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n",
     "preview": "code_info/provider.png"
   },
   {
@@ -200,7 +200,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## Drawer Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Easy\n**Teglar:** drawer, navigation, menu\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/drawer_navigation.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add drawer\nflutter pub add navigation\nflutter pub add menu\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Drawer Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Easy\n**Teglar:** drawer, navigation, menu\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/drawer_navigation.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "onboarding",
@@ -222,7 +222,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Onboarding Screens\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** onboarding, pageview, intro\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/onboarding_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add onboarding\nflutter pub add pageview\nflutter pub add intro\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Onboarding Screens\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** onboarding, pageview, intro\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/onboarding_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "splash",
@@ -244,7 +244,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Splash Screen\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** splash, loading, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/splash_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add splash\nflutter pub add loading\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Splash Screen\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** splash, loading, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/splash_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "dashboard",
@@ -266,7 +266,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Dashboard\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** dashboard, stats, chart\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/dashboard_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add dashboard\nflutter pub add stats\nflutter pub add chart\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Dashboard\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** dashboard, stats, chart\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/dashboard_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "chat",
@@ -288,7 +288,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Chat Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** chat, message, conversation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/chat_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add chat\nflutter pub add message\nflutter pub add conversation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Chat Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** chat, message, conversation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/chat_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "cart",
@@ -310,7 +310,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Cart Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** cart, shopping, checkout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/cart_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add cart\nflutter pub add shopping\nflutter pub add checkout\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Cart Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** cart, shopping, checkout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/cart_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "feed",
@@ -332,7 +332,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Feed Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** feed, social, post\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/feed_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add feed\nflutter pub add social\nflutter pub add post\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Feed Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Medium\n**Teglar:** feed, social, post\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/feed_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "gallery",
@@ -354,7 +354,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Gallery Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** gallery, image, photo\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/gallery_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add gallery\nflutter pub add image\nflutter pub add photo\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Gallery Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** gallery, image, photo\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/gallery_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "otp",
@@ -376,7 +376,7 @@
       }
     ],
     "icon": "lock",
-    "instructions": "## OTP Verify\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** otp, verify, code\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/otp_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add otp\nflutter pub add verify\nflutter pub add code\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## OTP Verify\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** otp, verify, code\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/otp_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "forgot-pw",
@@ -398,7 +398,7 @@
       }
     ],
     "icon": "lock",
-    "instructions": "## Forgot Password\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** forgot, password, reset\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/forgot_password.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add forgot\nflutter pub add password\nflutter pub add reset\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Forgot Password\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** forgot, password, reset\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/forgot_password.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "social-login",
@@ -420,7 +420,7 @@
       }
     ],
     "icon": "lock",
-    "instructions": "## Social Login\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** social, google, apple\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/social_login.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add social\nflutter pub add google\nflutter pub add apple\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Social Login\n\n**Kategoriya:** Auth\n**Qiyinlik:** Easy\n**Teglar:** social, google, apple\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/social_login.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "tab-bar",
@@ -441,7 +441,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## Tab Bar Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Easy\n**Teglar:** tabbar, tabs\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/tab_bar_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add tabbar\nflutter pub add tabs\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Tab Bar Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Easy\n**Teglar:** tabbar, tabs\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/tab_bar_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "pageview",
@@ -463,7 +463,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## PageView Nav\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** pageview, swipe, gesture\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/pageview_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add pageview\nflutter pub add swipe\nflutter pub add gesture\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## PageView Nav\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** pageview, swipe, gesture\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/pageview_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "rail",
@@ -485,7 +485,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## Navigation Rail\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** rail, side, responsive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/rail_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add rail\nflutter pub add side\nflutter pub add responsive\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Navigation Rail\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** rail, side, responsive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/rail_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "sidebar",
@@ -507,7 +507,7 @@
       }
     ],
     "icon": "compass",
-    "instructions": "## Sidebar Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** sidebar, navigation, panel\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/sidebar_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add sidebar\nflutter pub add navigation\nflutter pub add panel\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Sidebar Navigation\n\n**Kategoriya:** Navigation\n**Qiyinlik:** Medium\n**Teglar:** sidebar, navigation, panel\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/navigation\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/sidebar_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)bar\n# (kerakli paketni o'rnating)\nflutter pub add panel\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "riverpod",
@@ -597,7 +597,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Form Validation\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** form, validation, input\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/form_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add form\nflutter pub add validation\nflutter pub add input\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Form Validation\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** form, validation, input\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/form_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add validation\nflutter pub add input\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "search-filter",
@@ -684,7 +684,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Hero Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** hero, animation, transition\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/hero_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add hero\nflutter pub add animation\nflutter pub add transition\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Hero Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** hero, animation, transition\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/hero_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add hero\n# (kerakli paketni o'rnating)\nflutter pub add transition\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "scale-anim",
@@ -749,7 +749,7 @@
       }
     ],
     "icon": "globe",
-    "instructions": "## REST API Client\n\n**Kategoriya:** Api\n**Qiyinlik:** Hard\n**Teglar:** rest, api, client\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/rest_client.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add rest\nflutter pub add api\nflutter pub add client\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## REST API Client\n\n**Kategoriya:** Api\n**Qiyinlik:** Hard\n**Teglar:** rest, api, client\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/rest_client.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add rest\n# (kerakli paketni o'rnating)\nflutter pub add client\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "skeleton",
@@ -771,7 +771,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Skeleton Loading\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** skeleton, loading, placeholder\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/skeleton.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add skeleton\nflutter pub add loading\nflutter pub add placeholder\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Skeleton Loading\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** skeleton, loading, placeholder\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/skeleton.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add skeleton\n# (kerakli paketni o'rnating)\nflutter pub add placeholder\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "shimmer",
@@ -793,7 +793,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Shimmer Effect\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** shimmer, glow, loading\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/shimmer_widget.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add shimmer\nflutter pub add glow\nflutter pub add loading\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Shimmer Effect\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** shimmer, glow, loading\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/shimmer_widget.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add shimmer\nflutter pub add glow\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "timeline",
@@ -837,7 +837,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Chat Bubble\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** chat, bubble, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/chat_bubble.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add chat\nflutter pub add bubble\nflutter pub add message\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Chat Bubble\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** chat, bubble, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/chat_bubble.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add bubble\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "rating",
@@ -947,7 +947,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Swipe Dismiss\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** swipe, dismiss, dismissible\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/swipe_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add swipe\nflutter pub add dismiss\nflutter pub add dismissible\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Swipe Dismiss\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** swipe, dismiss, dismissible\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/swipe_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add dismiss\nflutter pub add dismissible\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "pull-refresh",
@@ -991,7 +991,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Lottie Player\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Lottie Player\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "staggered",
@@ -1057,7 +1057,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Page Transition\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** transition, route, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/transition_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add transition\nflutter pub add route\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Page Transition\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** transition, route, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/transition_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add transition\nflutter pub add route\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "video",
@@ -1167,7 +1167,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Contact Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** contact, form, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/contact_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add contact\nflutter pub add form\nflutter pub add message\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Contact Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** contact, form, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/contact_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add contact\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "file-manager",
@@ -1255,7 +1255,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## List View\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** list, scroll, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/list_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add list\nflutter pub add scroll\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## List View\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** list, scroll, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/list_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add scroll\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "detail",
@@ -1299,7 +1299,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Create Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** create, add, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/create_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add create\nflutter pub add add\nflutter pub add form\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Create Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** create, add, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/create_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add create\nflutter pub add add\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "edit",
@@ -1321,7 +1321,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Edit Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** edit, update, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/edit_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add edit\nflutter pub add update\nflutter pub add form\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Edit Page\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** edit, update, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/edit_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add edit\nflutter pub add update\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "biometric",
@@ -1365,7 +1365,7 @@
       }
     ],
     "icon": "rocket",
-    "instructions": "## Responsive Layout\n\n**Kategoriya:** Starter\n**Qiyinlik:** Medium\n**Teglar:** responsive, adaptive, layout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/responsive.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add responsive\nflutter pub add adaptive\nflutter pub add layout\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Responsive Layout\n\n**Kategoriya:** Starter\n**Qiyinlik:** Medium\n**Teglar:** responsive, adaptive, layout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/responsive.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add adaptive\nflutter pub add layout\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "value-notifier",
@@ -1518,7 +1518,7 @@
       }
     ],
     "icon": "rocket",
-    "instructions": "## Responsive Layout\n\n**Kategoriya:** Starter\n**Qiyinlik:** Medium\n**Teglar:** responsive, adaptive, layout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/responsive.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add responsive\nflutter pub add adaptive\nflutter pub add layout\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Responsive Layout\n\n**Kategoriya:** Starter\n**Qiyinlik:** Medium\n**Teglar:** responsive, adaptive, layout\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/responsive.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add adaptive\nflutter pub add layout\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "multi-screen",
@@ -1606,7 +1606,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Explicit Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Hard\n**Teglar:** explicit, animationcontroller, tween\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/explicit_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add explicit\nflutter pub add animationcontroller\nflutter pub add tween\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Explicit Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Hard\n**Teglar:** explicit, animationcontroller, tween\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/explicit_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add explicit\n# (kerakli paketni o'rnating)controller\nflutter pub add tween\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "staggered",
@@ -1672,7 +1672,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Page Transition\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** transition, route, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/transition_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add transition\nflutter pub add route\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Page Transition\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** transition, route, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/transition_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add transition\nflutter pub add route\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "video-player",
@@ -1738,7 +1738,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Image Carousel\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** carousel, slider, swipe\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/carousel.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add carousel\nflutter pub add slider\nflutter pub add swipe\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Image Carousel\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** carousel, slider, swipe\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/carousel.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add carousel\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "feature-grid",
@@ -1782,7 +1782,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Testimonial\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** testimonial, review, feedback\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/testimonial.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add testimonial\nflutter pub add review\nflutter pub add feedback\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Testimonial\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** testimonial, review, feedback\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/testimonial.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add testimonial\nflutter pub add review\n# (kerakli paketni o'rnating)back\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "accordion",
@@ -1826,7 +1826,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Progress Indicators\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** progress, loading, indicator\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/progress_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add progress\nflutter pub add loading\nflutter pub add indicator\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Progress Indicators\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** progress, loading, indicator\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/progress_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add progress\n# (kerakli paketni o'rnating)\nflutter pub add indicator\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "timeline",
@@ -1870,7 +1870,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Notification Item\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** notification, item, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/notification_item.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add notification\nflutter pub add item\nflutter pub add list\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Notification Item\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** notification, item, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/notification_item.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add notification\nflutter pub add item\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "article-card",
@@ -1892,7 +1892,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Article Card\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** article, blog, post\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/article_card.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add article\nflutter pub add blog\nflutter pub add post\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Article Card\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** article, blog, post\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/article_card.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add article\nflutter pub add blog\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "skeleton-loading",
@@ -1914,7 +1914,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Skeleton Loading\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** skeleton, loading, placeholder\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/skeleton.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add skeleton\nflutter pub add loading\nflutter pub add placeholder\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Skeleton Loading\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** skeleton, loading, placeholder\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/skeleton.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add skeleton\n# (kerakli paketni o'rnating)\nflutter pub add placeholder\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "shimmer-effect",
@@ -1936,7 +1936,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Shimmer Effect\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** shimmer, glow, loading\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/shimmer_widget.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add shimmer\nflutter pub add glow\nflutter pub add loading\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Shimmer Effect\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** shimmer, glow, loading\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/shimmer_widget.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add shimmer\nflutter pub add glow\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "swipe-dismiss",
@@ -1958,7 +1958,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Swipe Dismiss\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** swipe, dismiss, dismissible\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/swipe_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add swipe\nflutter pub add dismiss\nflutter pub add dismissible\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Swipe Dismiss\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** swipe, dismiss, dismissible\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/swipe_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add dismiss\nflutter pub add dismissible\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "pull-refresh",
@@ -2002,7 +2002,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Lottie Player\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Lottie Player\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "implicit-anim",
@@ -2067,7 +2067,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Hero Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** hero, animation, transition\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/hero_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add hero\nflutter pub add animation\nflutter pub add transition\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Hero Animation\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** hero, animation, transition\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/hero_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add hero\n# (kerakli paketni o'rnating)\nflutter pub add transition\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "timeline-page",
@@ -2177,7 +2177,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Lottie Page\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\nflutter pub add animation\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Lottie Page\n\n**Kategoriya:** Animations\n**Qiyinlik:** Medium\n**Teglar:** lottie, json, animation\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/lottie_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add lottie\nflutter pub add json\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "splash-screen2",
@@ -2199,7 +2199,7 @@
       }
     ],
     "icon": "document",
-    "instructions": "## Animated Splash\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** splash, animation, launch\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/splash.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add splash\nflutter pub add animation\nflutter pub add launch\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Animated Splash\n\n**Kategoriya:** Pages\n**Qiyinlik:** Easy\n**Teglar:** splash, animation, launch\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/pages\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/splash.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add launch\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "error-page",
@@ -2309,7 +2309,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Avatar Group\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** avatar, group, stack\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/avatar_group.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add avatar\nflutter pub add group\nflutter pub add stack\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Avatar Group\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** avatar, group, stack\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/avatar_group.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add group\nflutter pub add stack\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "expandable-card",
@@ -2419,7 +2419,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Rating Dialog\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** rating, dialog, feedback\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/rating_dialog.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add rating\nflutter pub add dialog\nflutter pub add feedback\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Rating Dialog\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** rating, dialog, feedback\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/rating_dialog.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add rating\nflutter pub add dialog\n# (kerakli paketni o'rnating)back\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "date-range",
@@ -2529,7 +2529,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Custom Snackbar\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** snackbar, toast, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/snackbar.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add snackbar\nflutter pub add toast\nflutter pub add message\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Custom Snackbar\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** snackbar, toast, message\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/snackbar.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add snackbar\nflutter pub add toast\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "animated-opacity",
@@ -2683,7 +2683,7 @@
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Animated Switcher\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** switcher, animated, change\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/switcher_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add switcher\nflutter pub add animated\nflutter pub add change\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Animated Switcher\n\n**Kategoriya:** Animations\n**Qiyinlik:** Easy\n**Teglar:** switcher, animated, change\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/animations\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/switcher_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)er\nflutter pub add animated\nflutter pub add change\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "animation-controller",
@@ -2727,7 +2727,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Multi-Step Form\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** form, multistep, wizard\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/multi_step_form.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add form\nflutter pub add multistep\nflutter pub add wizard\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Multi-Step Form\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** form, multistep, wizard\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/multi_step_form.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add multistep\nflutter pub add wizard\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "form-wizard",
@@ -2749,7 +2749,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Form Wizard\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** wizard, step, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/form_wizard.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add wizard\nflutter pub add step\nflutter pub add form\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Form Wizard\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** wizard, step, form\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/form_wizard.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add wizard\nflutter pub add step\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "animated-list-tile",
@@ -2771,7 +2771,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Animated ListTile\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** animated, listtile, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/animated_list_tile.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add animated\nflutter pub add listtile\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Animated ListTile\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** animated, listtile, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/animated_list_tile.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add animated\n# (kerakli paketni o'rnating)tile\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "flip-card",
@@ -2859,7 +2859,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Loading Overlay\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** loading, overlay, spinner\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/loading_overlay.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add loading\nflutter pub add overlay\nflutter pub add spinner\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Loading Overlay\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** loading, overlay, spinner\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/loading_overlay.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add overlay\nflutter pub add spinner\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "network-image",
@@ -2881,7 +2881,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Network Image Widget\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** network, image, cache\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/network_image.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add network\nflutter pub add image\nflutter pub add cache\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Network Image Widget\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** network, image, cache\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/network_image.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add network\n# (kerakli paketni o'rnating)\nflutter pub add cache\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "cached-network",
@@ -2903,7 +2903,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Cached Network Image\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** cached, image, offline\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/cached_image.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add cached\nflutter pub add image\nflutter pub add offline\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Cached Network Image\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** cached, image, offline\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/cached_image.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add cached\n# (kerakli paketni o'rnating)\nflutter pub add offline\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "lifecycle-widget",
@@ -2947,7 +2947,7 @@
       }
     ],
     "icon": "rocket",
-    "instructions": "## Orientation Builder\n\n**Kategoriya:** Starter\n**Qiyinlik:** Easy\n**Teglar:** orientation, builder, responsive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/orientation_builder.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add orientation\nflutter pub add builder\nflutter pub add responsive\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Orientation Builder\n\n**Kategoriya:** Starter\n**Qiyinlik:** Easy\n**Teglar:** orientation, builder, responsive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/orientation_builder.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add orientation\nflutter pub add builder\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "keyboard-dismiss",
@@ -3013,7 +3013,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Slidable Action\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** slidable, swipe, action\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/slidable_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add slidable\nflutter pub add swipe\nflutter pub add action\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Slidable Action\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** slidable, swipe, action\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/slidable_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add slidable\n# (kerakli paketni o'rnating)\nflutter pub add action\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "draggable",
@@ -3079,7 +3079,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Popup Menu\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** popup, menu, action\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/popup_menu.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add popup\nflutter pub add menu\nflutter pub add action\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Popup Menu\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** popup, menu, action\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/popup_menu.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add popup\n# (kerakli paketni o'rnating)\nflutter pub add action\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "stepper",
@@ -3167,7 +3167,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Custom ListTile\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** listtile, custom, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/custom_list_tile.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add listtile\nflutter pub add custom\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Custom ListTile\n\n**Kategoriya:** Ui\n**Qiyinlik:** Easy\n**Teglar:** listtile, custom, item\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/widgets/custom_list_tile.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)tile\nflutter pub add custom\nflutter pub add item\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "tab-indicator",
@@ -3277,7 +3277,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Sticky Header List\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** sticky, header, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/sticky_list.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add sticky\nflutter pub add header\nflutter pub add list\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Sticky Header List\n\n**Kategoriya:** Ui\n**Qiyinlik:** Medium\n**Teglar:** sticky, header, list\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/sticky_list.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add sticky\nflutter pub add header\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "animated-container-page",
@@ -3572,7 +3572,7 @@
       }
     ],
     "icon": "building",
-    "instructions": "## GoRouter Advanced\n\n**Kategoriya:** Advanced\n**Qiyinlik:** Expert\n**Teglar:** gorouter, navigation, routing, deep-linking\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/advanced\n```\n\n2. Fayllarni joylashtiring:\n- `lib/core/router/app_router.dart`\n- `lib/core/guards/auth_guard.dart`\n- `lib/features/home/presentation/pages/home_page.dart`\n- `lib/features/detail/presentation/pages/detail_page.dart`\n- `lib/features/profile/presentation/pages/profile_page.dart`\n- `lib/features/settings/presentation/pages/settings_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add gorouter\nflutter pub add navigation\nflutter pub add routing\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## GoRouter Advanced\n\n**Kategoriya:** Advanced\n**Qiyinlik:** Expert\n**Teglar:** gorouter, navigation, routing, deep-linking\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/advanced\n```\n\n2. Fayllarni joylashtiring:\n- `lib/core/router/app_router.dart`\n- `lib/core/guards/auth_guard.dart`\n- `lib/features/home/presentation/pages/home_page.dart`\n- `lib/features/detail/presentation/pages/detail_page.dart`\n- `lib/features/profile/presentation/pages/profile_page.dart`\n- `lib/features/settings/presentation/pages/settings_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add gorouter\n# (kerakli paketni o'rnating)\nflutter pub add routing\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "realtime-chat",
@@ -3600,7 +3600,7 @@
       }
     ],
     "icon": "globe",
-    "instructions": "## Realtime Chat (WebSocket)\n\n**Kategoriya:** Api\n**Qiyinlik:** Expert\n**Teglar:** websocket, realtime, chat, stream\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/chat_service.dart`\n- `lib/pages/chat_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add websocket\nflutter pub add realtime\nflutter pub add chat\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Realtime Chat (WebSocket)\n\n**Kategoriya:** Api\n**Qiyinlik:** Expert\n**Teglar:** websocket, realtime, chat, stream\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/api\n```\n\n2. Fayllarni joylashtiring:\n- `lib/services/chat_service.dart`\n- `lib/pages/chat_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add websocket\nflutter pub add realtime\n# (kerakli paketni o'rnating)\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "firebase-complete",
@@ -3681,7 +3681,7 @@
       }
     ],
     "icon": "building",
-    "instructions": "## Advanced Animation Controller\n\n**Kategoriya:** Advanced\n**Qiyinlik:** Expert\n**Teglar:** animation, controller, tween, custom-paint\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/advanced\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/pages/animation_showcase.dart`\n- `lib/widgets/staggered_animation.dart`\n- `lib/widgets/animated_clock.dart`\n- `lib/widgets/morphing_shape.dart`\n- `lib/widgets/particle_effect.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add animation\nflutter pub add controller\nflutter pub add tween\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Advanced Animation Controller\n\n**Kategoriya:** Advanced\n**Qiyinlik:** Expert\n**Teglar:** animation, controller, tween, custom-paint\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/advanced\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/pages/animation_showcase.dart`\n- `lib/widgets/staggered_animation.dart`\n- `lib/widgets/animated_clock.dart`\n- `lib/widgets/morphing_shape.dart`\n- `lib/widgets/particle_effect.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add controller\nflutter pub add tween\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "platform-channels",
@@ -3770,7 +3770,7 @@
       }
     ],
     "icon": "palette",
-    "instructions": "## Advanced Form Validation\n\n**Kategoriya:** Ui\n**Qiyinlik:** Hard\n**Teglar:** form, validation, text-field, reactive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/pages/advanced_form_page.dart`\n- `lib/widgets/validated_field.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add form\nflutter pub add validation\nflutter pub add text-field\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Advanced Form Validation\n\n**Kategoriya:** Ui\n**Qiyinlik:** Hard\n**Teglar:** form, validation, text-field, reactive\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/ui\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/pages/advanced_form_page.dart`\n- `lib/widgets/validated_field.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add validation\nflutter pub add text-field\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "id": "in-app-purchase",
@@ -3938,7 +3938,7 @@
       }
     ],
     "icon": "rocket",
-    "instructions": "## Responsive Layout System\n\n**Kategoriya:** Starter\n**Qiyinlik:** Hard\n**Teglar:** responsive, layout, adaptive, breakpoints\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/core/responsive/responsive.dart`\n- `lib/pages/dashboard_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add responsive\nflutter pub add layout\nflutter pub add adaptive\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
+    "instructions": "## Responsive Layout System\n\n**Kategoriya:** Starter\n**Qiyinlik:** Hard\n**Teglar:** responsive, layout, adaptive, breakpoints\n\n### Qanday ishlatish kerak:\n\n1. Kerakli papkalarni yarating:\n```bash\nmkdir -p lib/starter\n```\n\n2. Fayllarni joylashtiring:\n- `lib/main.dart`\n- `lib/core/responsive/responsive.dart`\n- `lib/pages/dashboard_page.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)\nflutter pub add layout\nflutter pub add adaptive\n\n```\n\n4. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Eslatmalar:\n- Barcha importlarni to'g'ri yo'nalishda yozing\n- API kalitlarini `.env` faylida saqlang\n- Test fayllarini `test/` papkasiga joylashtiring\n"
   },
   {
     "n": "Advanced Data Table",
@@ -4061,7 +4061,7 @@
     ],
     "d": "Google-Style login sahifasi. Material 3, clean design, social logins.",
     "icon": "lock",
-    "instructions": "## Google-Style Login\n\n**Kategoriya:** Auth\n**Qiyinlik:** Medium\n**Teglar:** google, login, material3, authentication\n\n### Qanday ishlatish kerak:\n\n1. Auth papkasini yarating:\n```bash\nmkdir -p lib/pages/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/google_login_page.dart`\n- `lib/pages/auth/google_register_page.dart`\n- `lib/services/auth_service.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\nflutter pub add google_sign_in\nflutter pub add firebase_auth\nflutter pub add flutter_svg\n```\n\n4. Firebase sozlamasini qiling\n\n5. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Xususiyatlar:\n- Google, Apple, GitHub bilan kirish\n- Email/parol bilan kirish\n- Clean Material 3 dizayn\n- Form validation\n- Loading holatlari\n",
+    "instructions": "## Google-Style Login\n\n**Kategoriya:** Auth\n**Qiyinlik:** Medium\n**Teglar:** google, login, material3, authentication\n\n### Qanday ishlatish kerak:\n\n1. Auth papkasini yarating:\n```bash\nmkdir -p lib/pages/auth\n```\n\n2. Fayllarni joylashtiring:\n- `lib/pages/auth/google_login_page.dart`\n- `lib/pages/auth/google_register_page.dart`\n- `lib/services/auth_service.dart`\n\n3. Kerakli paketlarni o\\'rnating:\n```bash\n# (kerakli paketni o'rnating)_sign_in\nflutter pub add firebase_auth\nflutter pub add flutter_svg\n```\n\n4. Firebase sozlamasini qiling\n\n5. Loyihani ishga tushiring:\n```bash\nflutter run\n```\n\n### Xususiyatlar:\n- Google, Apple, GitHub bilan kirish\n- Email/parol bilan kirish\n- Clean Material 3 dizayn\n- Form validation\n- Loading holatlari\n",
     "f": [
       {
         "n": "google_login_page.dart",
