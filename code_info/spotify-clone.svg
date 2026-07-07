@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="667" viewBox="0 0 375 667">
+  <rect width="375" height="667" fill="#121212"/>
+  <rect width="375" height="44" fill="#121212"/>
+  <text x="187" y="30" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">9:41</text>
+  <!-- Header -->
+  <rect y="44" width="375" height="50" fill="#121212"/>
+  <text x="16" y="76" fill="#fff" font-family="system-ui" font-size="22" font-weight="700">Good evening</text>
+  <!-- Quick playlists -->
+  <rect x="16" y="100" width="170" height="56" rx="4" fill="#282828"/>
+  <rect x="24" y="108" width="40" height="40" rx="2" fill="#1DB954"/>
+  <text x="44" y="134" fill="#fff" font-family="system-ui" font-size="12" text-anchor="middle">♫</text>
+  <text x="74" y="132" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Liked Songs</text>
+  <rect x="194" y="100" width="170" height="56" rx="4" fill="#282828"/>
+  <rect x="202" y="108" width="40" height="40" rx="2" fill="#E13300"/>
+  <text x="222" y="134" fill="#fff" font-family="system-ui" font-size="12" text-anchor="middle">🎸</text>
+  <text x="252" y="132" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Rock Mix</text>
+  <rect x="16" y="164" width="170" height="56" rx="4" fill="#282828"/>
+  <rect x="24" y="172" width="40" height="40" rx="2" fill="#8B00FF"/>
+  <text x="44" y="198" fill="#fff" font-family="system-ui" font-size="12" text-anchor="middle">🎵</text>
+  <text x="74" y="196" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Chill Vibes</text>
+  <rect x="194" y="164" width="170" height="56" rx="4" fill="#282828"/>
+  <rect x="202" y="172" width="40" height="40" rx="2" fill="#E91E63"/>
+  <text x="222" y="198" fill="#fff" font-family="system-ui" font-size="12" text-anchor="middle">🎤</text>
+  <text x="252" y="196" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Pop Hits</text>
+  <!-- Section -->
+  <text x="16" y="248" fill="#fff" font-family="system-ui" font-size="17" font-weight="700">Made for You</text>
+  <rect x="16" y="260" width="140" height="180" rx="4" fill="#282828"/>
+  <rect x="16" y="260" width="140" height="140" fill="#333"/>
+  <text x="86" y="340" fill="#555" font-family="system-ui" font-size="36" text-anchor="middle">🎵</text>
+  <text x="24" y="416" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Daily Mix 1</text>
+  <text x="24" y="432" fill="#B3B3B3" font-family="system-ui" font-size="11">Your favorites</text>
+  <rect x="168" y="260" width="140" height="180" rx="4" fill="#282828"/>
+  <rect x="168" y="260" width="140" height="140" fill="#333"/>
+  <text x="238" y="340" fill="#555" font-family="system-ui" font-size="36" text-anchor="middle">🎶</text>
+  <text x="176" y="416" fill="#fff" font-family="system-ui" font-size="12" font-weight="500">Daily Mix 2</text>
+  <!-- Player bar -->
+  <rect x="8" y="570" width="359" height="56" rx="8" fill="#282828"/>
+  <rect x="16" y="578" width="40" height="40" rx="4" fill="#1DB954"/>
+  <text x="36" y="604" fill="#fff" font-family="system-ui" font-size="16" text-anchor="middle">♪</text>
+  <text x="68" y="598" fill="#fff" font-family="system-ui" font-size="13" font-weight="500">Song Name</text>
+  <text x="68" y="614" fill="#B3B3B3" font-family="system-ui" font-size="11">Artist Name</text>
+  <text x="330" y="604" fill="#1DB954" font-family="system-ui" font-size="28">▶</text>
+  <!-- Bottom nav -->
+  <rect y="630" width="375" height="37" fill="#121212"/>
+  <text x="62" y="654" fill="#1DB954" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="600">🏠 Home</text>
+  <text x="187" y="654" fill="#B3B3B3" font-family="system-ui" font-size="12" text-anchor="middle">🔍 Search</text>
+  <text x="312" y="654" fill="#B3B3B3" font-family="system-ui" font-size="12" text-anchor="middle">📚 Library</text>
+</svg>

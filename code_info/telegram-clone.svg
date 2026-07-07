@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="667" viewBox="0 0 375 667">
+  <rect width="375" height="667" fill="#fff"/>
+  <rect width="375" height="44" fill="#fff"/>
+  <text x="187" y="30" fill="#000" font-family="system-ui" font-size="14" text-anchor="middle">9:41</text>
+  <!-- App bar -->
+  <rect y="44" width="375" height="56" fill="#fff"/>
+  <text x="16" y="78" fill="#000" font-family="system-ui" font-size="22" font-weight="700">Telegram</text>
+  <text x="330" y="78" fill="#666" font-family="system-ui" font-size="20">🔍</text>
+  <text x="355" y="78" fill="#666" font-family="system-ui" font-size="20">⋮</text>
+  <!-- Chat list -->
+  <rect y="100" width="375" height="64" fill="#fff"/>
+  <circle cx="36" cy="132" r="22" fill="#3390EC"/>
+  <text x="36" y="138" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">1</text>
+  <text x="68" y="126" fill="#000" font-family="system-ui" font-size="15" font-weight="500">Olim Karimov</text>
+  <text x="68" y="146" fill="#707579" font-family="system-ui" font-size="13">Salom! Qalaysan? 👋</text>
+  <text x="340" y="122" fill="#707579" font-family="system-ui" font-size="11">10:30</text>
+  <rect x="330" y="132" width="20" height="20" rx="10" fill="#3390EC"/>
+  <text x="340" y="146" fill="#fff" font-family="system-ui" font-size="11" text-anchor="middle" font-weight="700">3</text>
+
+  <rect y="164" width="375" height="64" fill="#fff"/>
+  <circle cx="36" cy="196" r="22" fill="#FFCA28"/>
+  <text x="36" y="202" fill="#000" font-family="system-ui" font-size="14" text-anchor="middle">J</text>
+  <text x="68" y="190" fill="#000" font-family="system-ui" font-size="15" font-weight="500">Jasur Bot</text>
+  <text x="68" y="210" fill="#707579" font-family="system-ui" font-size="13">🤖 Assalomu alaykum!</text>
+
+  <rect y="228" width="375" height="64" fill="#fff"/>
+  <circle cx="36" cy="260" r="22" fill="#E91E63"/>
+  <text x="36" y="266" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">D</text>
+  <text x="68" y="254" fill="#000" font-family="system-ui" font-size="15" font-weight="500">Dilshod</text>
+  <text x="68" y="274" fill="#707579" font-family="system-ui" font-size="13">Rahmat! 😊</text>
+  <text x="340" y="250" fill="#3390EC" font-family="system-ui" font-size="11">✓✓</text>
+
+  <rect y="292" width="375" height="64" fill="#fff"/>
+  <circle cx="36" cy="324" r="22" fill="#4CAF50"/>
+  <text x="36" y="330" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">S</text>
+  <text x="68" y="318" fill="#000" font-family="system-ui" font-size="15" font-weight="500">Flutter Devs Group</text>
+  <text x="68" y="338" fill="#707579" font-family="system-ui" font-size="13">Sardor: Yangi update chiqdi!</text>
+  <text x="340" y="314" fill="#707579" font-family="system-ui" font-size="11">9:15</text>
+
+  <rect y="356" width="375" height="64" fill="#fff"/>
+  <circle cx="36" cy="388" r="22" fill="#9C27B0"/>
+  <text x="36" y="394" fill="#fff" font-family="system-ui" font-size="14" text-anchor="middle">N</text>
+  <text x="68" y="382" fill="#000" font-family="system-ui" font-size="15" font-weight="500">Nodir</text>
+  <text x="68" y="402" fill="#707579" font-family="system-ui" font-size="13">OK 👍</text>
+
+  <!-- FAB -->
+  <rect x="320" y="580" width="56" height="56" rx="28" fill="#3390EC"/>
+  <text x="348" y="616" fill="#fff" font-family="system-ui" font-size="28" text-anchor="middle">✏️</text>
+</svg>
