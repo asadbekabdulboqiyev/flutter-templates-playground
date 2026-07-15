@@ -4316,7 +4316,7 @@
   },
   {
     "id": "arduino-blink",
-    "n": "Arduino LED Blink",
+    "n": "LED Blink",
     "i": "💡",
     "diff": "easy",
     "c": "arduino",
@@ -4331,15 +4331,111 @@
       {
         "n": "blink.ino",
         "p": "blink.ino",
-        "c": "const int LED_PIN = 13;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println('Arduino LED Blink');\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  Serial.println('LED ON');\n  delay(1000);\n  \n  digitalWrite(LED_PIN, LOW);\n  Serial.println('LED OFF');\n  delay(1000);\n}"
+        "c": "const int LED_PIN = 13;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println('Arduino LED Blink');\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  Serial.println('LED ON');\n  delay(1000);\n  digitalWrite(LED_PIN, LOW);\n  Serial.println('LED OFF');\n  delay(1000);\n}"
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Arduino LED Blink\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Easy\n**Teglar:** arduino, led, blink\n\n### Qanday ishlatish kerak:\n\n1. Arduino IDE ni oching\n2. Yangi sketch yarating\n3. Kodni kiriting\n4. Arduino-ni USB ga ulang\n5. Upload tugmasini bosing\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- LED\n- 220Ω rezistor\n- Simlar\n\n### sxema:\n- LED anode (uzun oyoq) → Pin 13\n- LED katode (qisqa oyoq) → GND (rezistor orqali)\n"
+    "instructions": "## Arduino LED Blink\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- LED + 220 ohm rezistor\n\n### Ulanma:\n- LED anode (uzun oyoq) -> Pin 13\n- LED katode (qisqa oyoq) -> GND"
+  },
+  {
+    "id": "arduino-fade",
+    "n": "LED Fade (PWM)",
+    "i": "🔆",
+    "diff": "easy",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "led",
+      "pwm",
+      "fade",
+      "analog"
+    ],
+    "d": "LED ni asta-sekin yoritish va o'chirish. PWM signali.",
+    "f": [
+      {
+        "n": "fade.ino",
+        "p": "fade.ino",
+        "c": "const int LED_PIN = 9;\nint brightness = 0;\nint fadeAmount = 5;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  analogWrite(LED_PIN, brightness);\n  brightness += fadeAmount;\n  if (brightness <= 0 || brightness >= 255) {\n    fadeAmount = -fadeAmount;\n  }\n  Serial.print('Brightness: ');\n  Serial.println(brightness);\n  delay(30);\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## LED Fade (PWM)\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- LED + 220 ohm rezistor\n\n### Ulanma:\n- LED anode -> Pin 9 (PWM)\n- LED katode -> GND\n\n### PWM pinlari (Arduino UNO):\n- 3, 5, 6, 9, 10, 11"
+  },
+  {
+    "id": "arduino-rgb-led",
+    "n": "RGB LED",
+    "i": "🌈",
+    "diff": "easy",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "rgb",
+      "led",
+      "color",
+      "pwm"
+    ],
+    "d": "RGB LED bilan turli ranglar yaratish. Har bir kanal uchun PWM.",
+    "f": [
+      {
+        "n": "rgb_led.ino",
+        "p": "rgb_led.ino",
+        "c": "const int RED_PIN = 9;\nconst int GREEN_PIN = 10;\nconst int BLUE_PIN = 11;\n\nvoid setup() {\n  pinMode(RED_PIN, OUTPUT);\n  pinMode(GREEN_PIN, OUTPUT);\n  pinMode(BLUE_PIN, OUTPUT);\n  Serial.begin(9600);\n}\n\nvoid setColor(int r, int g, int b) {\n  analogWrite(RED_PIN, r);\n  analogWrite(GREEN_PIN, g);\n  analogWrite(BLUE_PIN, b);\n}\n\nvoid loop() {\n  // Qizil\n  setColor(255, 0, 0);\n  Serial.println('Red');\n  delay(1000);\n  // Yashil\n  setColor(0, 255, 0);\n  Serial.println('Green');\n  delay(1000);\n  // Ko'k\n  setColor(0, 0, 255);\n  Serial.println('Blue');\n  delay(1000);\n  // Sariq (Qizil + Yashil)\n  setColor(255, 255, 0);\n  Serial.println('Yellow');\n  delay(1000);\n  // Oq (Hammasi)\n  setColor(255, 255, 255);\n  Serial.println('White');\n  delay(1000);\n  // O'chirish\n  setColor(0, 0, 0);\n  Serial.println('Off');\n  delay(1000);\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## RGB LED\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- RGB LED (Common Cathode)\n- 3x 220 ohm rezistor\n\n### Ulanma:\n- Qizil -> Pin 9\n- Yashil -> Pin 10\n- Ko'k -> Pin 11\n- Katode -> GND"
+  },
+  {
+    "id": "arduino-button",
+    "n": "Button Input",
+    "i": "🔘",
+    "diff": "easy",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "button",
+      "input",
+      "digital",
+      "pullup"
+    ],
+    "d": "Tugma bosishni aniqlash. Internal pullup resistordan foydalanish.",
+    "f": [
+      {
+        "n": "button.ino",
+        "p": "button.ino",
+        "c": "const int BUTTON_PIN = 2;\nconst int LED_PIN = 13;\nbool ledState = false;\nbool lastButtonState = LOW;\n\nvoid setup() {\n  pinMode(BUTTON_PIN, INPUT_PULLUP);\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println('Button Control Ready');\n}\n\nvoid loop() {\n  bool buttonState = digitalRead(BUTTON_PIN);\n  \n  if (buttonState == LOW && lastButtonState == HIGH) {\n    ledState = !ledState;\n    digitalWrite(LED_PIN, ledState ? HIGH : LOW);\n    Serial.print('LED: ');\n    Serial.println(ledState ? 'ON' : 'OFF');\n    delay(50); // Debounce\n  }\n  \n  lastButtonState = buttonState;\n  delay(10);\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Button Input\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- Tugma (push button)\n- LED (ixtiyoriy)\n\n### Ulanma:\n- Tugma -> Pin 2 (INPUT_PULLUP)\n- Tugmaning boshqa uchi -> GND\n\n### Xususiyatlar:\n- Debounce himoya\n- Toggle rejimi (bosganda yonadi/o'chadi)"
+  },
+  {
+    "id": "arduino-buzzer",
+    "n": "Buzzer Melodiya",
+    "i": "🎵",
+    "diff": "easy",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "buzzer",
+      "sound",
+      "melody",
+      "tone"
+    ],
+    "d": "Buzzer bilan musiqa ijro etish. Tone() funksiyasi.",
+    "f": [
+      {
+        "n": "buzzer_melody.ino",
+        "p": "buzzer_melody.ino",
+        "c": "const int BUZZER_PIN = 8;\n\n// Notalar chastotasi (Hz)\n#define NOTE_C4  262\n#define NOTE_D4  294\n#define NOTE_E4  330\n#define NOTE_F4  349\n#define NOTE_G4  392\n#define NOTE_A4  440\n#define NOTE_B4  494\n#define NOTE_C5  523\n\nint melody[] = {\n  NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5,\n  NOTE_G4, NOTE_E4, NOTE_C4, 0,\n  NOTE_F4, NOTE_A4, NOTE_C5, NOTE_A4,\n  NOTE_F4, 0, 0, 0\n};\n\nint durations[] = {\n  400, 400, 400, 800,\n  400, 400, 400, 200,\n  400, 400, 400, 400,\n  800, 200, 200, 400\n};\n\nvoid setup() {\n  Serial.begin(9600);\n  Serial.println('Playing melody...');\n  \n  for (int i = 0; i < 16; i++) {\n    if (melody[i] > 0) {\n      tone(BUZZER_PIN, melody[i], durations[i]);\n    }\n    delay(durations[i] * 1.1);\n  }\n  noTone(BUZZER_PIN);\n  Serial.println('Done!');\n}\n\nvoid loop() {\n  // Bo'sh\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Buzzer Melodiya\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- Active Buzzer\n\n### Ulanma:\n- Buzzer + -> Pin 8\n- Buzzer - -> GND\n\n### Notalar:\n- C4 = 262 Hz\n- D4 = 294 Hz\n- E4 = 330 Hz\n- F4 = 349 Hz\n- G4 = 392 Hz\n- A4 = 440 Hz\n- B4 = 494 Hz\n- C5 = 523 Hz"
   },
   {
     "id": "arduino-servo",
-    "n": "Arduino Servo Motor",
+    "n": "Servo Motor",
     "i": "⚙️",
     "diff": "medium",
     "c": "arduino",
@@ -4354,15 +4450,15 @@
       {
         "n": "servo_control.ino",
         "p": "servo_control.ino",
-        "c": "#include <Servo.h>\n\nServo myServo;\nconst int SERVO_PIN = 9;\nconst int POT_PIN = A0;\n\nvoid setup() {\n  myServo.attach(SERVO_PIN);\n  Serial.begin(9600);\n  Serial.println('Servo Motor Control');\n}\n\nvoid loop() {\n  int potValue = analogRead(POT_PIN);\n  int angle = map(potValue, 0, 1023, 0, 180);\n  \n  myServo.write(angle);\n  \n  Serial.print('Potentiometer: ');\n  Serial.print(potValue);\n  Serial.print(' | Angle: ');\n  Serial.println(angle);\n  \n  delay(15);\n}"
+        "c": "#include <Servo.h>\n\nServo myServo;\nconst int SERVO_PIN = 9;\nconst int POT_PIN = A0;\n\nvoid setup() {\n  myServo.attach(SERVO_PIN);\n  Serial.begin(9600);\n  Serial.println('Servo Motor Control');\n  Serial.println('Potentiometr orqali boshqaring');\n}\n\nvoid loop() {\n  int potValue = analogRead(POT_PIN);\n  int angle = map(potValue, 0, 1023, 0, 180);\n  \n  myServo.write(angle);\n  \n  Serial.print('Pot: ');\n  Serial.print(potValue);\n  Serial.print(' | Angle: ');\n  Serial.print(angle);\n  Serial.println(' deg');\n  \n  delay(15);\n}"
       }
     ],
     "icon": "building",
-    "instructions": "## Arduino Servo Motor\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Medium\n**Teglar:** arduino, servo, motor\n\n### Qanday ishlatish kerak:\n\n1. Servo kutubxonasini yuklang: `Sketch → Include Library → Servo`\n2. Servo ni Arduino ga ulang\n3. Potentiometrni A0 ga ulang\n4. Kodni upload qiling\n\n### Ulanma sxemasi:\n- Servo qizil → 5V\n- Servo jigarrang → GND\n- Servo sariq → Pin 9\n- Potentiometr markazi → A0\n"
+    "instructions": "## Servo Motor\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- SG90 Servo Motor\n- Potentiometr (10k)\n\n### Ulanma:\n- Servo qizil -> 5V\n- Servo jigarrang -> GND\n- Servo sariq -> Pin 9\n- Potentiometr markazi -> A0"
   },
   {
-    "id": "arduino-sensor",
-    "n": "Arduino DHT11 Sensor",
+    "id": "arduino-dht11",
+    "n": "DHT11 Harorat/Namlik",
     "i": "🌡️",
     "diff": "medium",
     "c": "arduino",
@@ -4370,428 +4466,238 @@
       "arduino",
       "dht11",
       "temperature",
-      "humidity"
+      "humidity",
+      "sensor"
     ],
-    "d": "DHT11 harorat va namlik sensorini o'qish.",
+    "d": "DHT11 sensor bilan harorat va namlik o'qish.",
     "f": [
       {
-        "n": "dht11_read.ino",
-        "p": "dht11_read.ino",
-        "c": "#include <DHT.h>\n\n#define DHT_PIN 2\n#define DHT_TYPE DHT11\n\nDHT dht(DHT_PIN, DHT_TYPE);\n\nvoid setup() {\n  Serial.begin(9600);\n  dht.begin();\n  Serial.println('DHT11 Sensor Ready');\n}\n\nvoid loop() {\n  float humidity = dht.readHumidity();\n  float temperature = dht.readTemperature();\n  \n  if (isnan(humidity) || isnan(temperature)) {\n    Serial.println('Sensor read error!');\n    return;\n  }\n  \n  Serial.print('Harorat: ');\n  Serial.print(temperature);\n  Serial.print(' C | Namlik: ');\n  Serial.print(humidity);\n  Serial.println(' %');\n  \n  delay(2000);\n}"
+        "n": "dht11_sensor.ino",
+        "p": "dht11_sensor.ino",
+        "c": "#include <DHT.h>\n\n#define DHT_PIN 2\n#define DHT_TYPE DHT11\n\nDHT dht(DHT_PIN, DHT_TYPE);\n\nvoid setup() {\n  Serial.begin(9600);\n  dht.begin();\n  Serial.println('DHT11 Sensor Ready');\n  delay(2000);\n}\n\nvoid loop() {\n  float humidity = dht.readHumidity();\n  float temperature = dht.readTemperature();\n  float heatIndex = dht.computeHeatIndex(temperature, humidity, false);\n  \n  if (isnan(humidity) || isnan(temperature)) {\n    Serial.println('Xatolik: Sensor o\\'qilmadi!');\n    return;\n  }\n  \n  Serial.println('--- DHT11 O\\'qish ---');\n  Serial.print('Harorat: ');\n  Serial.print(temperature);\n  Serial.println(' C');\n  Serial.print('Namlik: ');\n  Serial.print(humidity);\n  Serial.println(' %');\n  Serial.print('His qilinadi: ');\n  Serial.print(heatIndex);\n  Serial.println(' C');\n  \n  delay(5000);\n}"
       }
     ],
     "icon": "sparkle",
-    "instructions": "## Arduino DHT11 Sensor\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Medium\n**Teglar:** arduino, dht11, sensor\n\n### Qanday ishlatish kerak:\n\n1. DHT kutubxonasini o'rnating: `Sketch → Include Library → Manage Libraries → DHT sensor`\n2. DHT11 ni Arduino ga ulang\n3. Kodni upload qiling\n\n### Ulanma sxemasi:\n- DHT11 VCC → 5V\n- DHT11 GND → GND\n- DHT11 DATA → Pin 2\n"
+    "instructions": "## DHT11 Sensor\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- DHT11 Sensor\n\n### Kutubxona:\n- DHT sensor library by Adafruit\n- Adafruit Unified Sensor\n\n### Ulanma:\n- DHT11 VCC -> 5V\n- DHT11 GND -> GND\n- DHT11 DATA -> Pin 2\n\n### Ma'lumotlar:\n- Harorat: 0-50 C (+-2 C)\n- Namlik: 20-80% (+-5%)"
   },
   {
-    "id": "python-fibonacci",
-    "n": "Python Fibonacci",
-    "i": "🐍",
-    "diff": "easy",
-    "c": "python",
+    "id": "arduino-ultrasonic",
+    "n": "Ultrasonic Masofa",
+    "i": "📏",
+    "diff": "medium",
+    "c": "arduino",
     "t": [
-      "python",
-      "fibonacci",
-      "algorithm",
-      "recursion"
+      "arduino",
+      "ultrasonic",
+      "distance",
+      "hc-sr04",
+      "sensor"
     ],
-    "d": "Fibonacci ketma-ketligini hisoblash. Rekursiv va iterativ usul.",
+    "d": "HC-SR04 ultrasonic sensor bilan masofa o'lchash.",
     "f": [
       {
-        "n": "fibonacci.py",
-        "p": "fibonacci.py",
-        "c": "# Fibonacci ketma-ketligi\n\ndef fibonacci_recursive(n):\n    \"\"\"Rekursiv usul\"\"\"\n    if n <= 1:\n        return n\n    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)\n\ndef fibonacci_iterative(n):\n    \"\"\"Iterativ usul\"\"\"\n    if n <= 1:\n        return n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n\ndef fibonacci_generator(limit):\n    \"\"\"Generator usuli\"\"\"\n    a, b = 0, 1\n    while a < limit:\n        yield a\n        a, b = b, a + b\n\nif __name__ == '__main__':\n    n = 10\n    print(f'Fibonacci({n}) rekursiv: {fibonacci_recursive(n)}')\n    print(f'Fibonacci({n}) iterativ: {fibonacci_iterative(n)}')\n    print('\\nBirinchi 10 ta Fibonacci soni:')\n    for num in fibonacci_generator(100):\n        print(num, end=' ')\n    print()"
+        "n": "ultrasonic.ino",
+        "p": "ultrasonic.ino",
+        "c": "const int TRIG_PIN = 9;\nconst int ECHO_PIN = 10;\nconst int LED_PIN = 13;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(TRIG_PIN, OUTPUT);\n  pinMode(ECHO_PIN, INPUT);\n  pinMode(LED_PIN, OUTPUT);\n  Serial.println('Ultrasonic Distance Sensor');\n}\n\nvoid loop() {\n  // Trigger signali\n  digitalWrite(TRIG_PIN, LOW);\n  delayMicroseconds(2);\n  digitalWrite(TRIG_PIN, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(TRIG_PIN, LOW);\n  \n  // Echo vaqti\n  long duration = pulseIn(ECHO_PIN, HIGH);\n  \n  // Masofa (sm)\n  float distance = duration * 0.034 / 2;\n  \n  // 30 sm dan yaqin bo'lsa LED yonadi\n  if (distance < 30) {\n    digitalWrite(LED_PIN, HIGH);\n  } else {\n    digitalWrite(LED_PIN, LOW);\n  }\n  \n  Serial.print('Masofa: ');\n  Serial.print(distance);\n  Serial.println(' cm');\n  \n  delay(500);\n}"
       }
     ],
-    "icon": "document",
-    "instructions": "## Python Fibonacci\n\n**Kategoriya:** Python\n**Qiyinlik:** Easy\n**Teglar:** python, fibonacci, algorithm\n\n### Qanday ishlatish kerak:\n\n1. `fibonacci.py` faylini yarating\n2. Kodni kiriting\n3. Terminalda ishga tushiring:\n```bash\npython fibonacci.py\n```\n\n### O'rganish:\n- Rekursiya\n- Iteratsiya\n- Generatorlar\n"
+    "icon": "sparkle",
+    "instructions": "## Ultrasonic Masofa\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- HC-SR04 Ultrasonic Sensor\n- LED (ixtiyoriy)\n\n### Ulanma:\n- VCC -> 5V\n- GND -> GND\n- TRIG -> Pin 9\n- ECHO -> Pin 10\n- LED -> Pin 13\n\n### Ishlash:\n- 30 sm dan yaqin bo'lsa LED yonadi\n- Masofani Serial Monitor da ko'rish mumkin"
   },
   {
-    "id": "python-api",
-    "n": "Python Flask API",
-    "i": "🌐",
+    "id": "arduino-lcd",
+    "n": "LCD 16x2 Display",
+    "i": "📺",
     "diff": "medium",
-    "c": "python",
+    "c": "arduino",
     "t": [
-      "python",
-      "flask",
-      "api",
-      "rest"
+      "arduino",
+      "lcd",
+      "display",
+      "16x2",
+      "i2c"
     ],
-    "d": "Flask bilan oddiy REST API yaratish.",
+    "d": "LCD 16x2 ekraniga matn chiqarish. I2C ulash usuli.",
     "f": [
       {
-        "n": "app.py",
-        "p": "app.py",
-        "c": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n# Mock ma'lumotlar\nusers = [\n    {'id': 1, 'name': 'Ali', 'email': 'ali@example.com'},\n    {'id': 2, 'name': 'Vali', 'email': 'vali@example.com'},\n]\n\n@app.route('/')\ndef home():\n    return jsonify({'message': 'Welcome to API'})\n\n@app.route('/api/users', methods=['GET'])\ndef get_users():\n    return jsonify(users)\n\n@app.route('/api/users/<int:user_id>', methods=['GET'])\ndef get_user(user_id):\n    user = next((u for u in users if u['id'] == user_id), None)\n    if user:\n        return jsonify(user)\n    return jsonify({'error': 'User not found'}), 404\n\n@app.route('/api/users', methods=['POST'])\ndef create_user():\n    data = request.get_json()\n    new_user = {\n        'id': len(users) + 1,\n        'name': data['name'],\n        'email': data['email']\n    }\n    users.append(new_user)\n    return jsonify(new_user), 201\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)"
+        "n": "lcd_display.ino",
+        "p": "lcd_display.ino",
+        "c": "#include <LiquidCrystal_I2C.h>\n\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n\nvoid setup() {\n  lcd.init();\n  lcd.backlight();\n  \n  lcd.setCursor(0, 0);\n  lcd.print('CodeBase Arduino');\n  lcd.setCursor(0, 1);\n  lcd.print('LCD 16x2 Test');\n  delay(3000);\n  lcd.clear();\n}\n\nvoid loop() {\n  // Harorat va namlik\n  lcd.setCursor(0, 0);\n  lcd.print('Harorat: 25.5 C');\n  lcd.setCursor(0, 1);\n  lcd.print('Namlik:   65.2 %');\n  \n  delay(2000);\n  lcd.clear();\n  \n  // Vaqt\n  static int seconds = 0;\n  lcd.setCursor(0, 0);\n  lcd.print('Vaqt:');\n  lcd.setCursor(0, 1);\n  lcd.print(seconds);\n  lcd.print(' soniya');\n  \n  seconds++;\n  delay(1000);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## LCD 16x2 Display\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- LCD 16x2 + I2C modul\n\n### Kutubxona:\n- LiquidCrystal_I2C\n\n### Ulanma (I2C):\n- SDA -> A4\n- SCL -> A5\n- VCC -> 5V\n- GND -> GND\n\n### I2C manzillari:\n- Ko'pincha 0x27 yoki 0x3F\n- I2C scanner bilan tekshirish mumkin"
+  },
+  {
+    "id": "arduino-ir-remote",
+    "n": "IR Pult Boshqaruvi",
+    "i": "🎮",
+    "diff": "medium",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "ir",
+      "remote",
+      "infrared",
+      "control"
+    ],
+    "d": "IR pult orqali LED, servo, buzzer boshqarish.",
+    "f": [
+      {
+        "n": "ir_remote.ino",
+        "p": "ir_remote.ino",
+        "c": "#include <IRremote.h>\n\nconst int IR_PIN = 11;\nconst int LED_RED = 3;\nconst int LED_GREEN = 5;\nconst int LED_BLUE = 6;\n\nIRrecv irrecv(IR_PIN);\ndecode_results results;\n\nvoid setup() {\n  Serial.begin(9600);\n  irrecv.enableIRIn();\n  pinMode(LED_RED, OUTPUT);\n  pinMode(LED_GREEN, OUTPUT);\n  pinMode(LED_BLUE, OUTPUT);\n  Serial.println('IR Remote Control Ready');\n}\n\nvoid loop() {\n  if (irrecv.decode(&results)) {\n    Serial.print('Kod: 0x');\n    Serial.println(results.value, HEX);\n    \n    switch (results.value) {\n      case 0xFFA25D: // 1\n        digitalWrite(LED_RED, HIGH);\n        digitalWrite(LED_GREEN, LOW);\n        digitalWrite(LED_BLUE, LOW);\n        Serial.println('Red ON');\n        break;\n      case 0xFF629D: // 2\n        digitalWrite(LED_RED, LOW);\n        digitalWrite(LED_GREEN, HIGH);\n        digitalWrite(LED_BLUE, LOW);\n        Serial.println('Green ON');\n        break;\n      case 0xFFE21D: // 3\n        digitalWrite(LED_RED, LOW);\n        digitalWrite(LED_GREEN, LOW);\n        digitalWrite(LED_BLUE, HIGH);\n        Serial.println('Blue ON');\n        break;\n      case 0xFFC23D: // 4\n        digitalWrite(LED_RED, LOW);\n        digitalWrite(LED_GREEN, LOW);\n        digitalWrite(LED_BLUE, LOW);\n        Serial.println('All OFF');\n        break;\n    }\n    irrecv.resume();\n  }\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## IR Pult Boshqaruvi\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- IR Qabul qiluvchi (VS1838B)\n- IR Pult\n- 3x LED + 3x 220 ohm rezistor\n\n### Ulanma:\n- IR Qabul qiluvchi -> Pin 11\n- Qizil LED -> Pin 3\n- Yashil LED -> Pin 5\n- Ko'k LED -> Pin 6\n\n### Pult tugmalari:\n- 1 = Qizil LED\n- 2 = Yashil LED\n- 3 = Ko'k LED\n- 4 = Hammasi o'chadi"
+  },
+  {
+    "id": "arduino-motor-l298n",
+    "n": "DC Motor L298N",
+    "i": "🚗",
+    "diff": "medium",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "motor",
+      "l298n",
+      "dc",
+      "driver"
+    ],
+    "d": "L298N driver orqali DC motor boshqaruvi. Oldga, orqaga, tezlik.",
+    "f": [
+      {
+        "n": "motor_l298n.ino",
+        "p": "motor_l298n.ino",
+        "c": "// L298N Motor Driver\nconst int IN1 = 5;\nconst int IN2 = 6;\nconst int ENA = 9;\n\nconst int IN3 = 10;\nconst int IN4 = 11;\nconst int ENB = 3;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(IN1, OUTPUT);\n  pinMode(IN2, OUTPUT);\n  pinMode(ENA, OUTPUT);\n  pinMode(IN3, OUTPUT);\n  pinMode(IN4, OUTPUT);\n  pinMode(ENB, OUTPUT);\n  Serial.println('L298N Motor Control');\n}\n\nvoid motorA(int speed, bool forward) {\n  digitalWrite(IN1, forward ? HIGH : LOW);\n  digitalWrite(IN2, forward ? LOW : HIGH);\n  analogWrite(ENA, speed);\n}\n\nvoid motorB(int speed, bool forward) {\n  digitalWrite(IN3, forward ? HIGH : LOW);\n  digitalWrite(IN4, forward ? LOW : HIGH);\n  analogWrite(ENB, speed);\n}\n\nvoid stopMotors() {\n  analogWrite(ENA, 0);\n  analogWrite(ENB, 0);\n}\n\nvoid loop() {\n  // Oldga\n  Serial.println('Oldga...');\n  motorA(200, true);\n  motorB(200, true);\n  delay(2000);\n  \n  // Orqaga\n  Serial.println('Orqaga...');\n  motorA(200, false);\n  motorB(200, false);\n  delay(2000);\n  \n  // Chapga burilish\n  Serial.println('Chapga...');\n  motorA(150, true);\n  motorB(150, false);\n  delay(1000);\n  \n  // O'ngga burilish\n  Serial.println('O\\'ngga...');\n  motorA(150, false);\n  motorB(150, true);\n  delay(1000);\n  \n  // To'xtash\n  Serial.println('To\\'xtash...');\n  stopMotors();\n  delay(1000);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## DC Motor L298N\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- L298N Motor Driver\n- 2x DC Motor\n- 12V batareya\n\n### Ulanma:\n- IN1 -> Pin 5\n- IN2 -> Pin 6\n- ENA -> Pin 9\n- IN3 -> Pin 10\n- IN4 -> Pin 11\n- ENB -> Pin 3\n- L298N 12V -> Batareya +\n- L298N GND -> Batareya -\n\n### Boshqaruv:\n- Oldga: IN1=HIGH, IN2=LOW\n- Orqaga: IN1=LOW, IN2=HIGH\n- Tezlik: 0-255 (PWM)"
+  },
+  {
+    "id": "arduino-line-follower",
+    "n": "Line Follower Robot",
+    "i": "🤖",
+    "diff": "hard",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "line",
+      "follower",
+      "robot",
+      "ir",
+      "sensor"
+    ],
+    "d": "Chiziqni kuzatuvchi robot. 3 ta IR sensor va 2 ta motor.",
+    "f": [
+      {
+        "n": "line_follower.ino",
+        "p": "line_follower.ino",
+        "c": "// Line Follower Robot\nconst int SENSOR_LEFT = A0;\nconst int SENSOR_CENTER = A1;\nconst int SENSOR_RIGHT = A2;\n\nconst int MOTOR_A_EN = 5;\nconst int MOTOR_A_IN1 = 6;\nconst int MOTOR_A_IN2 = 7;\nconst int MOTOR_B_EN = 10;\nconst int MOTOR_B_IN1 = 8;\nconst int MOTOR_B_IN2 = 9;\n\nconst int THRESHOLD = 500;\nconst int SPEED = 150;\nconst int TURN_SPEED = 120;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(MOTOR_A_EN, OUTPUT);\n  pinMode(MOTOR_A_IN1, OUTPUT);\n  pinMode(MOTOR_A_IN2, OUTPUT);\n  pinMode(MOTOR_B_EN, OUTPUT);\n  pinMode(MOTOR_B_IN1, OUTPUT);\n  pinMode(MOTOR_B_IN2, OUTPUT);\n  Serial.println('Line Follower Ready');\n}\n\nvoid moveForward() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, SPEED);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, SPEED);\n}\n\nvoid turnLeft() {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, 0);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, TURN_SPEED);\n}\n\nvoid turnRight() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, TURN_SPEED);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, 0);\n}\n\nvoid stopMotors() {\n  analogWrite(MOTOR_A_EN, 0);\n  analogWrite(MOTOR_B_EN, 0);\n}\n\nvoid loop() {\n  int left = analogRead(SENSOR_LEFT);\n  int center = analogRead(SENSOR_CENTER);\n  int right = analogRead(SENSOR_RIGHT);\n  \n  Serial.print('L:'); Serial.print(left);\n  Serial.print(' C:'); Serial.print(center);\n  Serial.print(' R:'); Serial.println(right);\n  \n  bool onLine = center < THRESHOLD;\n  \n  if (onLine) {\n    moveForward();\n  } else if (left < THRESHOLD) {\n    turnLeft();\n  } else if (right < THRESHOLD) {\n    turnRight();\n  } else {\n    stopMotors();\n  }\n  \n  delay(10);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## Line Follower Robot\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- 3x IR sensor (QTR-8A yoki TCRT5000)\n- L298N Motor Driver\n- 2x DC Motor\n- Chiziqli iz\n\n### Ulanma:\n- Chap sensor -> A0\n- Markaz sensor -> A1\n- O'ng sensor -> A2\n- Motor A -> L298N OUT1/OUT2\n- Motor B -> L298N OUT3/OUT4\n\n### Ishlash:\n- Qora chiziq: sensor qiymati past\n- Oq zamin: sensor qiymati yuqori\n- Robot chiziqni kuzatib boradi"
+  },
+  {
+    "id": "arduino-sumo-robot",
+    "n": "Mini Sumo Robot",
+    "i": "⚔️",
+    "diff": "hard",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "sumo",
+      "robot",
+      "ultrasonic",
+      "motor",
+      "competition"
+    ],
+    "d": "Mini sumo robot. Dushmani topish va itarish. Ultrasonic sensor bilan.",
+    "f": [
+      {
+        "n": "sumo_robot.ino",
+        "p": "sumo_robot.ino",
+        "c": "#include <Servo.h>\n\n// Sensorlar\nconst int ULTRASONIC_TRIG = 2;\nconst int ULTRASONIC_ECHO = 3;\nconst int IR_LEFT = A0;\nconst int IR_RIGHT = A1;\n\n// Motorlar (L298N)\nconst int MOTOR_A_EN = 5;\nconst int MOTOR_A_IN1 = 6;\nconst int MOTOR_A_IN2 = 7;\nconst int MOTOR_B_EN = 10;\nconst int MOTOR_B_IN1 = 8;\nconst int MOTOR_B_IN2 = 9;\n\n// Boshqa\nconst int BUZZER = 11;\nconst int EDGE_THRESHOLD = 300;\nconst int ENEMY_THRESHOLD = 30;\n\nServo weapon;\nbool startPressed = false;\n\nvoid setup() {\n  Serial.begin(9600);\n  weapon.attach(12);\n  weapon.write(0);\n  \n  pinMode(ULTRASONIC_TRIG, OUTPUT);\n  pinMode(ULTRASONIC_ECHO, INPUT);\n  pinMode(MOTOR_A_EN, OUTPUT);\n  pinMode(MOTOR_A_IN1, OUTPUT);\n  pinMode(MOTOR_A_IN2, OUTPUT);\n  pinMode(MOTOR_B_EN, OUTPUT);\n  pinMode(MOTOR_B_IN1, OUTPUT);\n  pinMode(MOTOR_B_IN2, OUTPUT);\n  pinMode(BUZZER, OUTPUT);\n  \n  Serial.println('Mini Sumo Robot Ready');\n  Serial.println('3 soniyadan keyin boshlanadi...');\n  delay(3000);\n}\n\nfloat getDistance() {\n  digitalWrite(ULTRASONIC_TRIG, LOW);\n  delayMicroseconds(2);\n  digitalWrite(ULTRASONIC_TRIG, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(ULTRASONIC_TRIG, LOW);\n  long duration = pulseIn(ULTRASONIC_ECHO, HIGH);\n  return duration * 0.034 / 2;\n}\n\nvoid moveForward(int speed) {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, speed);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, speed);\n}\n\nvoid moveBackward(int speed) {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, speed);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, speed);\n}\n\nvoid turnLeft(int speed) {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, speed);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, speed);\n}\n\nvoid turnRight(int speed) {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, speed);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, speed);\n}\n\nvoid attack() {\n  Serial.println('Hujum!');\n  weapon.write(90);\n  moveForward(255);\n  delay(500);\n  weapon.write(0);\n}\n\nvoid retreat() {\n  Serial.println('Qochish!');\n  moveBackward(200);\n  delay(500);\n  turnRight(200);\n  delay(300);\n}\n\nvoid loop() {\n  float distance = getDistance();\n  int irLeft = analogRead(IR_LEFT);\n  int irRight = analogRead(IR_RIGHT);\n  \n  // Rangga tushib qolishni tekshirish\n  if (irLeft < EDGE_THRESHOLD || irRight < EDGE_THRESHOLD) {\n    Serial.println('Edge detected! Retreating...');\n    retreat();\n    return;\n  }\n  \n  // Dushmani topish\n  if (distance < ENEMY_THRESHOLD) {\n    Serial.print('Enemy at: ');\n    Serial.print(distance);\n    Serial.println(' cm');\n    attack();\n  } else {\n    // Qidirish - aylanish\n    static unsigned long lastTurn = 0;\n    if (millis() - lastTurn > 1000) {\n      turnLeft(150);\n      lastTurn = millis();\n    }\n  }\n  \n  delay(50);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## Mini Sumo Robot\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- 2x DC Motor + L298N Driver\n- HC-SR04 Ultrasonic Sensor\n- 2x IR Sensor (dokon aniqlash)\n- Servo (qurol uchun, ixtiyoriy)\n- Buzzer\n\n### Ulanma:\n- Ultrasonic: TRIG->2, ECHO->3\n- IR Chap: A0\n- IR O'ng: A1\n- Motor A: EN->5, IN1->6, IN2->7\n- Motor B: EN->10, IN1->8, IN2->9\n- Servo -> 12\n- Buzzer -> 11\n\n### Strategiya:\n1. Dushmani ultrasonic bilan topish\n2. 30 sm dan yaqin bo'lsa hujum\n3. Doka tufayli qochish\n4. Dushman topilmasa aylanib qidirish"
+  },
+  {
+    "id": "arduino-avoiding-car",
+    "n": "Avoiding RoboCar",
+    "i": "🚗",
+    "diff": "hard",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "avoiding",
+      "car",
+      "robot",
+      "ultrasonic",
+      "servo"
+    ],
+    "d": "To'siqlardan qochuvchi avtomatik avtomobil. Ultrasonic va servo bilan.",
+    "f": [
+      {
+        "n": "avoiding_car.ino",
+        "p": "avoiding_car.ino",
+        "c": "#include <Servo.h>\n\nconst int TRIG_PIN = 2;\nconst int ECHO_PIN = 3;\nconst int SERVO_PIN = 9;\nconst int MOTOR_A_EN = 5;\nconst int MOTOR_A_IN1 = 6;\n const int MOTOR_A_IN2 = 7;\nconst int MOTOR_B_EN = 10;\nconst int MOTOR_B_IN1 = 8;\nconst int MOTOR_B_IN2 = 11;\n\nServo scanServo;\nconst int SAFE_DISTANCE = 25;\n\nvoid setup() {\n  Serial.begin(9600);\n  scanServo.attach(SERVO_PIN);\n  \n  pinMode(TRIG_PIN, OUTPUT);\n  pinMode(ECHO_PIN, INPUT);\n  pinMode(MOTOR_A_EN, OUTPUT);\n  pinMode(MOTOR_A_IN1, OUTPUT);\n  pinMode(MOTOR_A_IN2, OUTPUT);\n  pinMode(MOTOR_B_EN, OUTPUT);\n  pinMode(MOTOR_B_IN1, OUTPUT);\n  pinMode(MOTOR_B_IN2, OUTPUT);\n  \n  scanServo.write(90);\n  delay(500);\n  Serial.println('Avoiding Car Ready');\n}\n\nfloat getDistance() {\n  digitalWrite(TRIG_PIN, LOW);\n  delayMicroseconds(2);\n  digitalWrite(TRIG_PIN, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(TRIG_PIN, LOW);\n  long duration = pulseIn(ECHO_PIN, HIGH);\n  return duration * 0.034 / 2;\n}\n\nvoid moveForward() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, 150);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, 150);\n}\n\nvoid moveBackward() {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, 150);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, 150);\n}\n\nvoid turnLeft() {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, 180);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, 180);\n}\n\nvoid turnRight() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, 180);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, 180);\n}\n\nvoid stopMotors() {\n  analogWrite(MOTOR_A_EN, 0);\n  analogWrite(MOTOR_B_EN, 0);\n}\n\nfloat scan(int angle) {\n  scanServo.write(angle);\n  delay(500);\n  return getDistance();\n}\n\nvoid loop() {\n  float distance = getDistance();\n  Serial.print('Distance: ');\n  Serial.print(distance);\n  Serial.println(' cm');\n  \n  if (distance < SAFE_DISTANCE) {\n    Serial.println('To\\'siq topildi! Qochish...');\n    stopMotors();\n    delay(200);\n    moveBackward();\n    delay(400);\n    stopMotors();\n    \n    float leftDist = scan(160);\n    float rightDist = scan(20);\n    scanServo.write(90);\n    \n    Serial.print('Left: '); Serial.print(leftDist);\n    Serial.print(' | Right: '); Serial.println(rightDist);\n    \n    if (leftDist > rightDist) {\n      Serial.println('Chapga burilish');\n      turnLeft();\n    } else {\n      Serial.println('O\\'ngga burilish');\n      turnRight();\n    }\n    delay(600);\n  } else {\n    moveForward();\n  }\n  \n  delay(100);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## Avoiding RoboCar\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- 2x DC Motor + L298N Driver\n- HC-SR04 Ultrasonic\n- SG90 Servo (sensor uchun)\n- Chassi + g'ildiraklar\n\n### Ulanma:\n- Ultrasonic: TRIG->2, ECHO->3\n- Servo -> 9\n- Motor A: EN->5, IN1->6, IN2->7\n- Motor B: EN->10, IN1->8, IN2->11\n\n### Ishlash:\n1. Oldinga yurish\n2. To'siqlarni ultrasonic bilan aniqlash\n3. 25 sm dan yaqin bo'lsa to'xtash\n4. Servo bilan chap/o'ng qarash\n5. Ko'proq joy tomonga burilish\n6. Davom etish"
+  },
+  {
+    "id": "arduino-bluetooth",
+    "n": "Bluetooth Boshqaruvi",
+    "i": "📶",
+    "diff": "medium",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "bluetooth",
+      "hc-05",
+      "remote",
+      "control"
+    ],
+    "d": "HC-05 Bluetooth modul orqali Arduino boshqaruvi. Telefon App.",
+    "f": [
+      {
+        "n": "bluetooth_control.ino",
+        "p": "bluetooth_control.ino",
+        "c": "#include <SoftwareSerial.h>\n\nSoftwareSerial BT(10, 11); // RX, TX\n\nconst int MOTOR_A_EN = 5;\nconst int MOTOR_A_IN1 = 6;\nconst int MOTOR_A_IN2 = 7;\nconst int MOTOR_B_EN = 9;\nconst int MOTOR_B_IN1 = 8;\nconst int MOTOR_B_IN2 = 12;\n\nvoid setup() {\n  Serial.begin(9600);\n  BT.begin(9600);\n  \n  pinMode(MOTOR_A_EN, OUTPUT);\n  pinMode(MOTOR_A_IN1, OUTPUT);\n  pinMode(MOTOR_A_IN2, OUTPUT);\n  pinMode(MOTOR_B_EN, OUTPUT);\n  pinMode(MOTOR_B_IN1, OUTPUT);\n  pinMode(MOTOR_B_IN2, OUTPUT);\n  \n  Serial.println('Bluetooth Control Ready');\n  BT.println('Bluetooth Control Ready');\n}\n\nvoid moveForward() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, 200);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, 200);\n}\n\nvoid moveBackward() {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, 200);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, 200);\n}\n\nvoid turnLeft() {\n  digitalWrite(MOTOR_A_IN1, LOW);\n  digitalWrite(MOTOR_A_IN2, HIGH);\n  analogWrite(MOTOR_A_EN, 150);\n  digitalWrite(MOTOR_B_IN1, HIGH);\n  digitalWrite(MOTOR_B_IN2, LOW);\n  analogWrite(MOTOR_B_EN, 150);\n}\n\nvoid turnRight() {\n  digitalWrite(MOTOR_A_IN1, HIGH);\n  digitalWrite(MOTOR_A_IN2, LOW);\n  analogWrite(MOTOR_A_EN, 150);\n  digitalWrite(MOTOR_B_IN1, LOW);\n  digitalWrite(MOTOR_B_IN2, HIGH);\n  analogWrite(MOTOR_B_EN, 150);\n}\n\nvoid stopMotors() {\n  analogWrite(MOTOR_A_EN, 0);\n  analogWrite(MOTOR_B_EN, 0);\n}\n\nvoid loop() {\n  if (BT.available()) {\n    char command = BT.read();\n    \n    switch (command) {\n      case 'F': moveForward(); Serial.println('Forward'); break;\n      case 'B': moveBackward(); Serial.println('Backward'); break;\n      case 'L': turnLeft(); Serial.println('Left'); break;\n      case 'R': turnRight(); Serial.println('Right'); break;\n      case 'S': stopMotors(); Serial.println('Stop'); break;\n      case '1': analogWrite(MOTOR_A_EN, 100); analogWrite(MOTOR_B_EN, 100); Serial.println('Speed: Low'); break;\n      case '2': analogWrite(MOTOR_A_EN, 150); analogWrite(MOTOR_B_EN, 150); Serial.println('Speed: Medium'); break;\n      case '3': analogWrite(MOTOR_A_EN, 200); analogWrite(MOTOR_B_EN, 200); Serial.println('Speed: High'); break;\n      case '4': analogWrite(MOTOR_A_EN, 255); analogWrite(MOTOR_B_EN, 255); Serial.println('Speed: Max'); break;\n    }\n  }\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Bluetooth Boshqaruvi\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- HC-05/HC-06 Bluetooth\n- L298N Motor Driver\n- 2x DC Motor\n- Telefon (Bluetooth App)\n\n### Ulanma:\n- HC-05 TX -> Pin 10 (RX)\n- HC-05 RX -> Pin 11 (TX) + voltage divider\n- Motor A: EN->5, IN1->6, IN2->7\n- Motor B: EN->9, IN1->8, IN2->12\n\n### Buyruqlar:\n- F = Oldga\n- B = Orqaga\n- L = Chapga\n- R = O'ngga\n- S = To'xtash\n- 1-4 = Tezlik darajasi"
+  },
+  {
+    "id": "arduino-mqtt",
+    "n": "MQTT IoT Sensor",
+    "i": "📡",
+    "diff": "hard",
+    "c": "arduino",
+    "t": [
+      "arduino",
+      "mqtt",
+      "iot",
+      "wifi",
+      "esp8266",
+      "sensor"
+    ],
+    "d": "ESP8266 bilan WiFi va MQTT orqali sensor ma'lumotlarini yuborish.",
+    "f": [
+      {
+        "n": "mqtt_sensor.ino",
+        "p": "mqtt_sensor.ino",
+        "c": "#include <ESP8266WiFi.h>\n#include <PubSubClient.h>\n\n// WiFi\nconst char* ssid = 'WiFi_Nomi';\nconst char* password = 'WiFi_Parol';\n\n// MQTT\nconst char* mqtt_server = 'broker.hivemq.com';\nconst int mqtt_port = 1883;\nconst char* topic_temp = 'codebase/temperature';\nconst char* topic_humid = 'codebase/humidity';\nconst char* topic_led = 'codebase/led';\n\n// Sensor\nconst int SENSOR_PIN = A0;\nconst int LED_PIN = 2;\n\nWiFiClient espClient;\nPubSubClient client(espClient);\n\nvoid setup_wifi() {\n  delay(10);\n  Serial.println();\n  Serial.print('Connecting to ');\n  Serial.println(ssid);\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(500);\n    Serial.print('.');\n  }\n  Serial.println('');\n  Serial.println('WiFi connected');\n  Serial.println('IP: ');\n  Serial.println(WiFi.localIP());\n}\n\nvoid callback(char* topic, byte* payload, unsigned int length) {\n  String message;\n  for (int i = 0; i < length; i++) {\n    message += (char)payload[i];\n  }\n  Serial.print('Message [');\n  Serial.print(topic);\n  Serial.print(']: ');\n  Serial.println(message);\n  \n  if (String(topic) == topic_led) {\n    if (message == \"ON\") digitalWrite(LED_PIN, HIGH);\n    else if (message == \"OFF\") digitalWrite(LED_PIN, LOW);\n  }\n}\n\nvoid reconnect() {\n  while (!client.connected()) {\n    Serial.print('MQTT connecting...');\n    if (client.connect('CodeBaseESP8266')) {\n      Serial.println('connected');\n      client.subscribe(topic_led);\n    } else {\n      Serial.print('failed, rc=');\n      Serial.print(client.state());\n      Serial.println(' retry in 5 sec');\n      delay(5000);\n    }\n  }\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  setup_wifi();\n  client.setServer(mqtt_server, mqtt_port);\n  client.setCallback(callback);\n}\n\nvoid loop() {\n  if (!client.connected()) reconnect();\n  client.loop();\n  \n  static unsigned long lastPublish = 0;\n  if (millis() - lastPublish > 5000) {\n    float temp = analogRead(SENSOR_PIN) * 0.48828125;\n    float humid = 60 + random(-10, 10);\n    \n    char tempStr[8];\n    char humidStr[8];\n    dtostrf(temp, 4, 1, tempStr);\n    dtostrf(humid, 4, 1, humidStr);\n    \n    client.publish(topic_temp, tempStr);\n    client.publish(topic_humid, humidStr);\n    \n    Serial.print('Published - Temp: ');\n    Serial.print(tempStr);\n    Serial.print(' C, Humid: ');\n    Serial.print(humidStr);\n    Serial.println(' %');\n    \n    lastPublish = millis();\n  }\n}"
       }
     ],
     "icon": "globe",
-    "instructions": "## Python Flask API\n\n**Kategoriya:** Python\n**Qiyinlik:** Medium\n**Teglar:** python, flask, api\n\n### Qanday ishlatish kerak:\n\n1. Flask ni o'rnating:\n```bash\npip install flask\n```\n\n2. `app.py` faylini yarating\n3. API ni ishga tushiring:\n```bash\npython app.py\n```\n\n4. Test qiling:\n```bash\ncurl http://localhost:5000/api/users\n```\n\n### API endpointlari:\n- `GET /` — Bosh sahifa\n- `GET /api/users` — Barcha foydalanuvchilar\n- `GET /api/users/<id>` — Bitta foydalanuvchi\n- `POST /api/users` — Yangi foydalanuvchi\n"
-  },
-  {
-    "id": "js-todo",
-    "n": "JavaScript Todo App",
-    "i": "📝",
-    "diff": "easy",
-    "c": "javascript",
-    "t": [
-      "javascript",
-      "todo",
-      "dom",
-      "localstorage"
-    ],
-    "d": "Vanilla JavaScript bilan Todo ilova. LocalStorage bilan saqlash.",
-    "f": [
-      {
-        "n": "index.html",
-        "p": "index.html",
-        "c": "<!DOCTYPE html>\n<html lang=\"uz\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Todo App</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: system-ui; background: #1a1a2e; color: #fff; min-height: 100vh; display: flex; justify-content: center; padding: 40px 20px; }\n    .container { width: 100%; max-width: 500px; }\n    h1 { text-align: center; margin-bottom: 30px; font-size: 2rem; }\n    .input-group { display: flex; gap: 10px; margin-bottom: 20px; }\n    input { flex: 1; padding: 12px 16px; border: none; border-radius: 8px; font-size: 1rem; background: #16213e; color: #fff; }\n    button { padding: 12px 24px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; background: #e94560; color: #fff; }\n    button:hover { background: #c73e54; }\n    .todo-list { list-style: none; }\n    .todo-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin-bottom: 8px; background: #16213e; border-radius: 8px; }\n    .todo-item.done span { text-decoration: line-through; opacity: 0.5; }\n    .todo-item span { flex: 1; }\n    .delete-btn { background: #ff6b6b; padding: 6px 12px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h1>📝 Todo App</h1>\n    <div class=\"input-group\">\n      <input type=\"text\" id=\"todoInput\" placeholder=\"Yangi vazifa...\">\n      <button onclick=\"addTodo()\">Qo'shish</button>\n    </div>\n    <ul class=\"todo-list\" id=\"todoList\"></ul>\n  </div>\n  <script src=\"app.js\"></script>\n</body>\n</html>"
-      },
-      {
-        "n": "app.js",
-        "p": "app.js",
-        "c": "let todos = JSON.parse(localStorage.getItem('todos')) || [];\n\nfunction render() {\n  const list = document.getElementById('todoList');\n  list.innerHTML = todos.map((todo, i) => `\n    <li class=\"todo-item ${todo.done ? 'done' : ''}\">\n      <input type=\"checkbox\" ${todo.done ? 'checked' : ''} onchange=\"toggle(${i})\">\n      <span>${todo.text}</span>\n      <button class=\"delete-btn\" onclick=\"remove(${i})\">O'chirish</button>\n    </li>\n  `).join('');\n  localStorage.setItem('todos', JSON.stringify(todos));\n}\n\nfunction addTodo() {\n  const input = document.getElementById('todoInput');\n  if (input.value.trim()) {\n    todos.push({ text: input.value.trim(), done: false });\n    input.value = '';\n    render();\n  }\n}\n\nfunction toggle(i) {\n  todos[i].done = !todos[i].done;\n  render();\n}\n\nfunction remove(i) {\n  todos.splice(i, 1);\n  render();\n}\n\ndocument.getElementById('todoInput').addEventListener('keypress', e => {\n  if (e.key === 'Enter') addTodo();\n});\n\nrender();"
-      }
-    ],
-    "icon": "document",
-    "instructions": "## JavaScript Todo App\n\n**Kategoriya:** JavaScript\n**Qiyinlik:** Easy\n**Teglar:** javascript, todo, dom\n\n### Qanday ishlatish kerak:\n\n1. `index.html` va `app.js` fayllarini yarating\n2. Brauzerda `index.html` ni oching\n3. Vazifalarni qo'shing, tahrirlang, o'chiring\n\n### O'rganish:\n- DOM manipulyatsiyasi\n- LocalStorage\n- Event handling\n"
-  },
-  {
-    "id": "react-counter",
-    "n": "React Counter",
-    "i": "⚛️",
-    "diff": "easy",
-    "c": "react",
-    "t": [
-      "react",
-      "counter",
-      "hooks",
-      "useState"
-    ],
-    "d": "React useState hook bilan Counter komponenti.",
-    "f": [
-      {
-        "n": "Counter.jsx",
-        "p": "src/Counter.jsx",
-        "c": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div style={{ textAlign: 'center', padding: '40px', fontFamily: 'system-ui' }}>\n      <h1 style={{ fontSize: '4rem', marginBottom: '20px' }}>{count}</h1>\n      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>\n        <button \n          onClick={() => setCount(count - 1)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: 'none', borderRadius: '8px', background: '#e94560', color: '#fff', cursor: 'pointer' }}\n        >\n          - Kamaytirish\n        </button>\n        <button \n          onClick={() => setCount(0)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: '2px solid #333', borderRadius: '8px', background: 'transparent', color: '#fff', cursor: 'pointer' }}\n        >\n          Reset\n        </button>\n        <button \n          onClick={() => setCount(count + 1)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: 'none', borderRadius: '8px', background: '#22c55e', color: '#fff', cursor: 'pointer' }}\n        >\n          + Oshirish\n        </button>\n      </div>\n    </div>\n  );\n}\n\nexport default Counter;"
-      }
-    ],
-    "icon": "sparkle",
-    "instructions": "## React Counter\n\n**Kategoriya:** React\n**Qiyinlik:** Easy\n**Teglar:** react, counter, hooks\n\n### Qanday ishlatish kerak:\n\n1. React loyiha yarating:\n```bash\nnpx create-react-app my-counter\n```\n\n2. `Counter.jsx` faylini yarating\n3. `App.js` da import qiling:\n```jsx\nimport Counter from './Counter';\nfunction App() { return <Counter />; }\n```\n\n4. Ishga tushiring:\n```bash\nnpm start\n```\n\n### O'rganish:\n- React hooks (useState)\n- Component composition\n- Event handling\n"
-  },
-  {
-    "id": "vue-todo",
-    "n": "Vue.js Todo App",
-    "i": "💚",
-    "diff": "easy",
-    "c": "vue",
-    "t": [
-      "vue",
-      "todo",
-      "composition",
-      "reactivity"
-    ],
-    "d": "Vue 3 Composition API bilan Todo ilova.",
-    "f": [
-      {
-        "n": "TodoApp.vue",
-        "p": "src/TodoApp.vue",
-        "c": "<template>\n  <div class=\"todo-app\">\n    <h1>📝 Vue Todo</h1>\n    <div class=\"input-group\">\n      <input v-model=\"newTodo\" @keyup.enter=\"addTodo\" placeholder=\"Yangi vazifa...\">\n      <button @click=\"addTodo\">Qo'shish</button>\n    </div>\n    <ul>\n      <li v-for=\"(todo, index) in todos\" :key=\"index\" :class=\"{ done: todo.done }\">\n        <input type=\"checkbox\" v-model=\"todo.done\">\n        <span>{{ todo.text }}</span>\n        <button @click=\"removeTodo(index)\">O'chirish</button>\n      </li>\n    </ul>\n  </div>\n</template>\n\n<script setup>\nimport { ref, watch } from 'vue'\n\nconst newTodo = ref('')\nconst todos = ref(JSON.parse(localStorage.getItem('todos')) || [])\n\nwatch(todos, (val) => {\n  localStorage.setItem('todos', JSON.stringify(val))\n}, { deep: true })\n\nfunction addTodo() {\n  if (newTodo.value.trim()) {\n    todos.value.push({ text: newTodo.value.trim(), done: false })\n    newTodo.value = ''\n  }\n}\n\nfunction removeTodo(index) {\n  todos.value.splice(index, 1)\n}\n</script>\n\n<style scoped>\n.todo-app { max-width: 500px; margin: 40px auto; font-family: system-ui; }\nh1 { text-align: center; margin-bottom: 20px; }\n.input-group { display: flex; gap: 10px; margin-bottom: 20px; }\ninput { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; }\nbutton { padding: 10px 20px; border: none; border-radius: 6px; background: #42b883; color: #fff; cursor: pointer; }\nli { display: flex; align-items: center; gap: 10px; padding: 10px; margin-bottom: 8px; background: #f5f5f5; border-radius: 6px; }\nli.done span { text-decoration: line-through; opacity: 0.5; }\nspan { flex: 1; }\n</style>"
-      }
-    ],
-    "icon": "sparkle",
-    "instructions": "## Vue.js Todo App\n\n**Kategoriya:** Vue.js\n**Qiyinlik:** Easy\n**Teglar:** vue, todo, composition\n\n### Qanday ishlatish kerak:\n\n1. Vue loyiha yarating:\n```bash\nnpm create vue@latest\n```\n\n2. `TodoApp.vue` faylini yarating\n3. `App.vue` da import qiling\n4. Ishga tushiring:\n```bash\nnpm run dev\n```\n\n### O'rganish:\n- Vue 3 Composition API\n- ref, watch\n- Two-way binding (v-model)\n"
-  },
-  {
-    "id": "nodejs-express",
-    "n": "Node.js Express API",
-    "i": "🟢",
-    "diff": "medium",
-    "c": "nodejs",
-    "t": [
-      "nodejs",
-      "express",
-      "api",
-      "rest"
-    ],
-    "d": "Express.js bilan to'liq REST API. CRUD operatsiyalari.",
-    "f": [
-      {
-        "n": "server.js",
-        "p": "server.js",
-        "c": "const express = require('express');\nconst app = express();\nconst PORT = 3000;\n\napp.use(express.json());\n\nlet books = [\n  { id: 1, title: 'Dart Programming', author: 'Asadbek', year: 2024 },\n  { id: 2, title: 'Flutter Basics', author: 'Asadbek', year: 2024 },\n];\n\n// Barcha kitoblar\napp.get('/api/books', (req, res) => {\n  res.json(books);\n});\n\n// Bitta kitob\napp.get('/api/books/:id', (req, res) => {\n  const book = books.find(b => b.id === parseInt(req.params.id));\n  if (!book) return res.status(404).json({ error: 'Kitob topilmadi' });\n  res.json(book);\n});\n\n// Kitob qo'shish\napp.post('/api/books', (req, res) => {\n  const { title, author, year } = req.body;\n  const newBook = {\n    id: books.length + 1,\n    title,\n    author,\n    year\n  };\n  books.push(newBook);\n  res.status(201).json(newBook);\n});\n\n// Kitob yangilash\napp.put('/api/books/:id', (req, res) => {\n  const book = books.find(b => b.id === parseInt(req.params.id));\n  if (!book) return res.status(404).json({ error: 'Kitob topilmadi' });\n  \n  const { title, author, year } = req.body;\n  book.title = title || book.title;\n  book.author = author || book.author;\n  book.year = year || book.year;\n  \n  res.json(book);\n});\n\n// Kitob o'chirish\napp.delete('/api/books/:id', (req, res) => {\n  const index = books.findIndex(b => b.id === parseInt(req.params.id));\n  if (index === -1) return res.status(404).json({ error: 'Kitob topilmadi' });\n  \n  books.splice(index, 1);\n  res.json({ message: 'Kitob o'chirildi' });\n});\n\napp.listen(PORT, () => {\n  console.log(`Server http://localhost:${PORT} da ishlayapti`);\n});"
-      },
-      {
-        "n": "package.json",
-        "p": "package.json",
-        "c": "{\n  \"name\": \"books-api\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Books REST API with Express\",\n  \"main\": \"server.js\",\n  \"scripts\": {\n    \"start\": \"node server.js\",\n    \"dev\": \"nodemon server.js\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.2\"\n  },\n  \"devDependencies\": {\n    \"nodemon\": \"^3.0.2\"\n  }\n}"
-      }
-    ],
-    "icon": "globe",
-    "instructions": "## Node.js Express API\n\n**Kategoriya:** Node.js\n**Qiyinlik:** Medium\n**Teglar:** nodejs, express, api\n\n### Qanday ishlatish kerak:\n\n1. Papka yarating va kirish:\n```bash\nmkdir books-api && cd books-api\n```\n\n2. `package.json` va `server.js` ni yarating\n\n3. O'rnating:\n```bash\nnpm install\n```\n\n4. Ishga tushiring:\n```bash\nnpm start\n```\n\n5. Test qiling:\n```bash\ncurl http://localhost:3000/api/books\ncurl -X POST http://localhost:3000/api/books -H 'Content-Type: application/json' -d '{\"title\":\"Yangi kitob\",\"author\":\"Test\",\"year\":2024}'\n```\n\n### API endpointlari:\n- `GET /api/books` — Barcha kitoblar\n- `GET /api/books/:id` — Bitta kitob\n- `POST /api/books` — Kitob qo'shish\n- `PUT /api/books/:id` — Kitob yangilash\n- `DELETE /api/books/:id` — Kitob o'chirish\n"
-  },
-  {
-    "id": "html-landing",
-    "n": "HTML Landing Page",
-    "i": "🌐",
-    "diff": "easy",
-    "c": "html-css",
-    "t": [
-      "html",
-      "css",
-      "landing",
-      "responsive"
-    ],
-    "d": "Zamonaviy responsive landing page. Gradient fon, kartalar, form.",
-    "f": [
-      {
-        "n": "index.html",
-        "p": "index.html",
-        "c": "<!DOCTYPE html>\n<html lang=\"uz\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Landing Page</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #0f0f1c 0%, #1a1a2e 100%); color: #fff; min-height: 100vh; }\n    \n    /* Navbar */\n    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; max-width: 1200px; margin: 0 auto; }\n    .logo { font-size: 24px; font-weight: 800; }\n    .logo span { color: #3b82f6; }\n    .nav-links { display: flex; gap: 32px; list-style: none; }\n    .nav-links a { color: #a1a1aa; text-decoration: none; font-size: 14px; transition: color 0.2s; }\n    .nav-links a:hover { color: #fff; }\n    .nav-btn { background: #3b82f6; color: #fff; padding: 10px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }\n    \n    /* Hero */\n    .hero { text-align: center; padding: 100px 20px 60px; max-width: 800px; margin: 0 auto; }\n    .hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }\n    .hero h1 span { background: linear-gradient(135deg, #3b82f6, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }\n    .hero p { color: #a1a1aa; font-size: 18px; max-width: 500px; margin: 0 auto 32px; line-height: 1.6; }\n    .hero-btns { display: flex; gap: 16px; justify-content: center; }\n    .btn-primary { background: #3b82f6; color: #fff; padding: 14px 32px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }\n    .btn-secondary { background: transparent; color: #fff; padding: 14px 32px; border: 1px solid #3f3f46; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }\n    \n    /* Features */\n    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 60px auto; padding: 0 20px; }\n    .feature-card { background: rgba(255,255,255,0.03); border: 1px solid #27272a; border-radius: 12px; padding: 32px; transition: border-color 0.2s; }\n    .feature-card:hover { border-color: #3b82f6; }\n    .feature-icon { width: 48px; height: 48px; background: rgba(59,130,246,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }\n    .feature-card h3 { font-size: 18px; margin-bottom: 8px; }\n    .feature-card p { color: #a1a1aa; font-size: 14px; line-height: 1.6; }\n    \n    /* CTA */\n    .cta { text-align: center; padding: 80px 20px; background: rgba(59,130,246,0.05); border-top: 1px solid #27272a; }\n    .cta h2 { font-size: 32px; margin-bottom: 16px; }\n    .cta p { color: #a1a1aa; margin-bottom: 32px; }\n    \n    /* Footer */\n    footer { text-align: center; padding: 40px; color: #52525b; font-size: 14px; }\n    \n    @media (max-width: 768px) {\n      nav { flex-direction: column; gap: 20px; }\n      .nav-links { display: none; }\n    }\n  </style>\n</head>\n<body>\n  <nav>\n    <div class=\"logo\">Code<span>Base</span></div>\n    <ul class=\"nav-links\">\n      <li><a href=\"#features\">Xususiyatlar</a></li>\n      <li><a href=\"#pricing\">Narxlar</a></li>\n      <li><a href=\"#contact\">Aloqa</a></li>\n    </ul>\n    <button class=\"nav-btn\">Boshlash</button>\n  </nav>\n  \n  <section class=\"hero\">\n    <h1>Kodingizni <span>Keyingi Darajaga</span> Olib Chiqing</h1>\n    <p>200+ tayyor kod shablonlari. Flutter, Arduino, Python va boshqalar. Tezda boshlang.</p>\n    <div class=\"hero-btns\">\n      <button class=\"btn-primary\">Bepul Boshlash</button>\n      <button class=\"btn-secondary\">Demo Ko'rish</button>\n    </div>\n  </section>\n  \n  <section class=\"features\" id=\"features\">\n    <div class=\"feature-card\">\n      <div class=\"feature-icon\">⚡</div>\n      <h3>Tez Boshlash</h3>\n      <p>Tayyor kod shablonlarini nusxalang va loyihangizni soniyalarda yarating.</p>\n    </div>\n    <div class=\"feature-card\">\n      <div class=\"feature-icon\">🎨</div>      <h3>Chiroyli Dizayn</h3>\n      <p>Professional dizayn bilan tayyorlangan shablonlar. Zamonaviy va responsive.</p>\n    </div>\n    <div class=\"feature-card\">\n      <div class=\"feature-icon\">📚</div>\n      <h3>Batafsil Hujjatlar</h3>\n      <p>Har bir shablon uchun qo'llanma va tushuntirishlar. Oson o'rganish.</p>\n    </div>\n  </section>\n  \n  <section class=\"cta\">\n    <h2>Bepul Boshlang</h2>\n    <p>Hozir ro'yxatdan o'ting va barcha shablonlarga kirish imkoniyatini qo'lga kiriting.</p>\n    <button class=\"btn-primary\">Ro'yxatdan O'tish</button>\n  </section>\n  \n  <footer>\n    <p>&copy; 2024 CodeBase. Barcha huquqlar himoyalangan.</p>\n  </footer>\n</body>\n</html>"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## HTML Landing Page\n\n**Kategoriya:** HTML/CSS\n**Qiyinlik:** Easy\n**Teglar:** html, css, landing, responsive\n\n### Qanday ishlatish kerak:\n\n1. `index.html` faylini yarating\n2. Brauzerda oching\n3. O'zgartirishingiz mumkin\n\n### Xususiyatlar:\n- Responsive dizayn\n- Gradient fon\n- Kartalar\n- Form elementlari\n- Animatsiyalar\n"
-  },
-  {
-    "id": "responsive-layout",
-    "n": "Responsive Layout",
-    "i": "📱",
-    "diff": "medium",
-    "c": "ui",
-    "t": [
-      "responsive",
-      "layout",
-      "mediaquery",
-      "adaptive"
-    ],
-    "d": "Telefon, planshet, desktop uchun moslashuvchi layout. MediaQuery va LayoutBuilder.",
-    "f": [
-      {
-        "n": "responsive_layout.dart",
-        "p": "lib/widgets/responsive_layout.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass ResponsiveLayout extends StatelessWidget {\n  final Widget mobile;\n  final Widget? tablet;\n  final Widget desktop;\n\n  const ResponsiveLayout({\n    super.key,\n    required this.mobile,\n    this.tablet,\n    required this.desktop,\n  });\n\n  static bool isMobile(BuildContext context) =>\n      MediaQuery.of(context).size.width < 600;\n\n  static bool isTablet(BuildContext context) =>\n      MediaQuery.of(context).size.width >= 600 &&\n      MediaQuery.of(context).size.width < 1024;\n\n  static bool isDesktop(BuildContext context) =>\n      MediaQuery.of(context).size.width >= 1024;\n\n  @override\n  Widget build(BuildContext context) {\n    return LayoutBuilder(\n      builder: (context, constraints) {\n        if (constraints.maxWidth >= 1024) {\n          return desktop;\n        } else if (constraints.maxWidth >= 600) {\n          return tablet ?? mobile;\n        }\n        return mobile;\n      },\n    );\n  }\n}\n\nclass ResponsiveHomePage extends StatelessWidget {\n  const ResponsiveHomePage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Responsive Layout')),\n      body: ResponsiveLayout(\n        mobile: _buildMobileLayout(),\n        tablet: _buildTabletLayout(),\n        desktop: _buildDesktopLayout(),\n      ),\n    );\n  }\n\n  Widget _buildMobileLayout() {\n    return ListView(\n      padding: const EdgeInsets.all(16),\n      children: const [\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 1'))),\n        SizedBox(height: 8),\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 2'))),\n        SizedBox(height: 8),\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 3'))),\n      ],\n    );\n  }\n\n  Widget _buildTabletLayout() {\n    return GridView.count(\n      crossAxisCount: 2,\n      padding: const EdgeInsets.all(16),\n      children: List.generate(6, (i) =>\n        Card(child: Center(child: Text('Tablet Card ${i + 1}'))),\n      ),\n    );\n  }\n\n  Widget _buildDesktopLayout() {\n    return Row(\n      children: [\n        Container(\n          width: 250,\n          color: Colors.grey[200],\n          child: ListView(\n            padding: const EdgeInsets.all(16),\n            children: List.generate(8, (i) =>\n              ListTile(title: Text('Menu ${i + 1}')),\n            ),\n          ),\n        ),\n        Expanded(\n          child: GridView.count(\n            crossAxisCount: 3,\n            padding: const EdgeInsets.all(16),\n            children: List.generate(9, (i) =>\n              Card(child: Center(child: Text('Desktop Card ${i + 1}'))),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## Responsive Layout\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** responsive, layout, mediaquery, adaptive\n\n### Qanday ishlatish kerak:\n\n1. `responsive_layout.dart` faylini yarating\n2. `ResponsiveLayout` ni istalgan joyda ishlating:\n```dart\nResponsiveLayout(\n  mobile: MobileWidget(),\n  tablet: TabletWidget(),\n  desktop: DesktopWidget(),\n)\n```\n\n### Funksiyalar:\n- `ResponsiveLayout.isMobile(context)` — Telefon tekshirish\n- `ResponsiveLayout.isTablet(context)` — Planshet tekshirish\n- `ResponsiveLayout.isDesktop(context)` — Desktop tekshirish\n"
-  },
-  {
-    "id": "adaptive-grid",
-    "n": "Adaptive Grid",
-    "i": "🔲",
-    "diff": "easy",
-    "c": "ui",
-    "t": [
-      "grid",
-      "adaptive",
-      "responsive",
-      "sliver"
-    ],
-    "d": "Ekran o'lchamiga qarab moslashuvchi grid. SliverGrid va LayoutBuilder.",
-    "f": [
-      {
-        "n": "adaptive_grid.dart",
-        "p": "lib/widgets/adaptive_grid.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass AdaptiveGrid extends StatelessWidget {\n  final List<Widget> children;\n  final double spacing;\n  final double runSpacing;\n  final double minItemWidth;\n\n  const AdaptiveGrid({\n    super.key,\n    required this.children,\n    this.spacing = 8.0,\n    this.runSpacing = 8.0,\n    this.minItemWidth = 150.0,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    return LayoutBuilder(\n      builder: (context, constraints) {\n        final columns = (constraints.maxWidth / minItemWidth).floor().clamp(1, 6);\n        final itemWidth = (constraints.maxWidth - (columns - 1) * spacing) / columns;\n\n        return Wrap(\n          spacing: spacing,\n          runSpacing: runSpacing,\n          children: children.map((child) => SizedBox(\n            width: itemWidth,\n            child: child,\n          )).toList(),\n        );\n      },\n    );\n  }\n}\n\nclass AdaptiveGridPage extends StatelessWidget {\n  const AdaptiveGridPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Adaptive Grid')),\n      body: Padding(\n        padding: const EdgeInsets.all(16),\n        child: AdaptiveGrid(\n          minItemWidth: 180,\n          children: List.generate(20, (i) => Card(\n            child: Container(\n              height: 120,\n              alignment: Alignment.center,\n              child: Text('Item ${i + 1}', style: const TextStyle(fontWeight: FontWeight.bold)),\n            ),\n          )),\n        ),\n      ),\n    );\n  }\n}"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## Adaptive Grid\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Easy\n**Teglar:** grid, adaptive, responsive, sliver\n\n### Qanday ishlatish kerak:\n\n1. `adaptive_grid.dart` faylini yarating\n2. Ishlatish:\n```dart\nAdaptiveGrid(\n  minItemWidth: 180,\n  children: [\n    Card(child: Text('Item 1')),\n    Card(child: Text('Item 2')),\n  ],\n)\n```\n\n### Parametrlar:\n- `minItemWidth` — Minimal kenglik (default: 150)\n- `spacing` — Gorizontal bo'shliq (default: 8)\n- `runSpacing` — Vertikal bo'shliq (default: 8)\n"
-  },
-  {
-    "id": "sidebar-menu",
-    "n": "Sidebar Menu",
-    "i": "📋",
-    "diff": "medium",
-    "c": "ui",
-    "t": [
-      "sidebar",
-      "drawer",
-      "navigation",
-      "menu"
-    ],
-    "d": "Desktop uchun sidebar menu. Drawer bilan mobil versiya.",
-    "f": [
-      {
-        "n": "sidebar_menu.dart",
-        "p": "lib/widgets/sidebar_menu.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass SidebarMenu extends StatelessWidget {\n  final int selectedIndex;\n  final Function(int) onItemTap;\n\n  const SidebarMenu({\n    super.key,\n    required this.selectedIndex,\n    required this.onItemTap,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    final isDesktop = MediaQuery.of(context).size.width >= 1024;\n\n    final items = [\n      _MenuItem(icon: Icons.home, label: 'Bosh sahifa'),\n      _MenuItem(icon: Icons.person, label: 'Profil'),\n      _MenuItem(icon: Icons.settings, label: 'Sozlamalar'),\n      _MenuItem(icon: Icons.analytics, label: 'Statistika'),\n      _MenuItem(icon: Icons.help, label: 'Yordam'),\n    ];\n\n    if (isDesktop) {\n      return Container(\n        width: 250,\n        decoration: BoxDecoration(\n          color: Theme.of(context).colorScheme.surface,\n          border: Border(right: BorderSide(color: Theme.of(context).dividerColor)),\n        ),\n        child: Column(\n          children: [\n            const SizedBox(height: 20),\n            Padding(\n              padding: const EdgeInsets.all(16),\n              child: Text('CodeBase', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary)),\n            ),\n            const Divider(),\n            Expanded(\n              child: ListView.builder(\n                itemCount: items.length,\n                itemBuilder: (context, index) => ListTile(\n                  leading: Icon(items[index].icon, color: index == selectedIndex ? Theme.of(context).colorScheme.primary : null),\n                  title: Text(items[index].label, style: TextStyle(fontWeight: index == selectedIndex ? FontWeight.bold : FontWeight.normal)),\n                  selected: index == selectedIndex,\n                  selectedTileColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),\n                  onTap: () => onItemTap(index),\n                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),\n                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),\n                ),\n              ),\n            ),\n          ],\n        ),\n      );\n    }\n    return const SizedBox.shrink();\n  }\n}\n\nclass _MenuItem {\n  final IconData icon;\n  final String label;\n  _MenuItem({required this.icon, required this.label});\n}\n\nclass SidebarMenuPage extends StatefulWidget {\n  const SidebarMenuPage({super.key});\n\n  @override\n  State<SidebarMenuPage> createState() => _SidebarMenuPageState();\n}\n\nclass _SidebarMenuPageState extends State<SidebarMenuPage> {\n  int _selectedIndex = 0;\n\n  @override\n  Widget build(BuildContext context) {\n    final isDesktop = MediaQuery.of(context).size.width >= 1024;\n    final pages = ['Bosh sahifa', 'Profil', 'Sozlamalar', 'Statistika', 'Yordam'];\n\n    return Scaffold(\n      appBar: AppBar(title: const Text('Sidebar Menu')),\n      drawer: isDesktop ? null : Drawer(\n        child: ListView(\n          padding: EdgeInsets.zero,\n          children: [\n            const DrawerHeader(\n              decoration: BoxDecoration(color: Colors.blue),\n              child: Text('CodeBase', style: TextStyle(color: Colors.white, fontSize: 24)),\n            ),\n            for (int i = 0; i < pages.length; i++)\n              ListTile(\n                leading: Icon([Icons.home, Icons.person, Icons.settings, Icons.analytics, Icons.help][i]),\n                title: Text(pages[i]),\n                selected: i == _selectedIndex,\n                onTap: () { setState(() => _selectedIndex = i); Navigator.pop(context); },\n              ),\n          ],\n        ),\n      ),\n      body: Row(\n        children: [\n          if (isDesktop) SidebarMenu(selectedIndex: _selectedIndex, onItemTap: (i) => setState(() => _selectedIndex = i)),\n          Expanded(child: Center(child: Text(pages[_selectedIndex], style: const TextStyle(fontSize: 24)))),\n        ],\n      ),\n    );\n  }\n}"
-      }
-    ],
-    "icon": "compass",
-    "instructions": "## Sidebar Menu\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** sidebar, drawer, navigation, menu\n\n### Qanday ishlatish kerak:\n\n1. `sidebar_menu.dart` faylini yarating\n2. `SidebarMenuPage` ni asosiy sahifada ishlating\n\n### Xususiyatlar:\n- Desktop: Doimiy sidebar\n- Mobile: Drawer menu\n- Aktiv element ko'rsatiladi\n- Responsive dizayn\n"
-  },
-  {
-    "id": "data-table",
-    "n": "Data Table",
-    "i": "📊",
-    "diff": "medium",
-    "c": "ui",
-    "t": [
-      "table",
-      "data",
-      "sortable",
-      "pagination"
-    ],
-    "d": "Saralanadigan va sahifalangan data table. Qidiruv va filter bilan.",
-    "f": [
-      {
-        "n": "data_table.dart",
-        "p": "lib/widgets/data_table.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass DataTableWidget extends StatefulWidget {\n  const DataTableWidget({super.key});\n\n  @override\n  State<DataTableWidget> createState() => _DataTableWidgetState();\n}\n\nclass _DataTableWidgetState extends State<DataTableWidget> {\n  int _sortColumnIndex = 0;\n  bool _sortAscending = true;\n  int _currentPage = 0;\n  final int _rowsPerPage = 5;\n  String _searchQuery = '';\n\n  final List<Map<String, dynamic>> _data = [\n    {'name': 'Ali', 'email': 'ali@example.com', 'age': 25, 'role': 'Developer'},\n    {'name': 'Vali', 'email': 'vali@example.com', 'age': 30, 'role': 'Designer'},\n    {'name': 'Gani', 'email': 'gani@example.com', 'age': 28, 'role': 'Manager'},\n    {'name': 'Sardor', 'email': 'sardor@example.com', 'age': 22, 'role': 'Developer'},\n    {'name': 'Jasur', 'email': 'jasur@example.com', 'age': 35, 'role': 'Tester'},\n    {'name': 'Bobur', 'email': 'bobur@example.com', 'age': 27, 'role': 'Developer'},\n    {'name': 'Nodir', 'email': 'nodir@example.com', 'age': 32, 'role': 'Designer'},\n    {'name': 'Farrux', 'email': 'farrux@example.com', 'age': 29, 'role': 'Manager'},\n  ];\n\n  List<Map<String, dynamic>> get _filteredData {\n    return _data.where((row) =>\n      row['name'].toString().toLowerCase().contains(_searchQuery.toLowerCase()) ||\n      row['email'].toString().toLowerCase().contains(_searchQuery.toLowerCase())\n    ).toList();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final filteredData = _filteredData;\n    final startIndex = _currentPage * _rowsPerPage;\n    final paginatedData = filteredData.skip(startIndex).take(_rowsPerPage).toList();\n\n    return Column(\n      children: [\n        Padding(\n          padding: const EdgeInsets.all(16),\n          child: TextField(\n            decoration: InputDecoration(\n              hintText: 'Qidirish...',\n              prefixIcon: const Icon(Icons.search),\n              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),\n            ),\n            onChanged: (value) => setState(() {\n              _searchQuery = value;\n              _currentPage = 0;\n            }),\n          ),\n        ),\n        Expanded(\n          child: SingleChildScrollView(\n            scrollDirection: Axis.horizontal,\n            child: DataTable(\n              sortColumnIndex: _sortColumnIndex,\n              sortAscending: _sortAscending,\n              columns: [\n                DataColumn(label: const Text('Ism'), onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Email'), onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Yosh'), numeric: true, onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Lavozim'), onSort: (i, asc) => _sort(i, asc)),\n              ],\n              rows: paginatedData.map((row) => DataRow(cells: [\n                DataCell(Text(row['name'])),\n                DataCell(Text(row['email'])),\n                DataCell(Text('${row['age']}')),\n                DataCell(Chip(label: Text(row['role'], style: const TextStyle(fontSize: 12)))),\n              ])).toList(),\n            ),\n          ),\n        ),\n        Padding(\n          padding: const EdgeInsets.all(16),\n          child: Row(\n            mainAxisAlignment: MainAxisAlignment.center,\n            children: [\n              IconButton(\n                icon: const Icon(Icons.chevron_left),\n                onPressed: _currentPage > 0 ? () => setState(() => _currentPage--) : null,\n              ),\n              Text('${_currentPage + 1} / ${(filteredData.length / _rowsPerPage).ceil()}'),\n              IconButton(\n                icon: const Icon(Icons.chevron_right),\n                onPressed: _currentPage < (filteredData.length / _rowsPerPage).ceil() - 1 ? () => setState(() => _currentPage++) : null,\n              ),\n            ],\n          ),\n        ),\n      ],\n    );\n  }\n\n  void _sort(int columnIndex, bool ascending) {\n    setState(() {\n      _sortColumnIndex = columnIndex;\n      _sortAscending = ascending;\n      final keys = ['name', 'email', 'age', 'role'];\n      _data.sort((a, b) {\n        final aVal = a[keys[columnIndex]];\n        final bVal = b[keys[columnIndex]];\n        return ascending ? aVal.toString().compareTo(bVal.toString()) : bVal.toString().compareTo(aVal.toString());\n      });\n    });\n  }\n}"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## Data Table\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** table, data, sortable, pagination\n\n### Qanday ishlatish kerak:\n\n1. `data_table.dart` faylini yarating\n2. Scaffold da ishlating:\n```dart\nScaffold(\n  body: DataTableWidget(),\n)\n```\n\n### Xususiyatlar:\n- Saralash (ustunlarga bosish)\n- Qidiruv\n- Sahifalash\n- Rol chip ko'rinishi\n"
-  },
-  {
-    "id": "chat-ui",
-    "n": "Chat UI",
-    "i": "💬",
-    "diff": "hard",
-    "c": "ui",
-    "t": [
-      "chat",
-      "messaging",
-      "input",
-      "bubble"
-    ],
-    "d": "To'liq chat interfeysi. Xabarlar, emoji, input field, avatar.",
-    "f": [
-      {
-        "n": "chat_page.dart",
-        "p": "lib/pages/chat_page.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass ChatMessage {\n  final String text;\n  final bool isMe;\n  final DateTime time;\n  ChatMessage({required this.text, required this.isMe, required this.time});\n}\n\nclass ChatPage extends StatefulWidget {\n  const ChatPage({super.key});\n\n  @override\n  State<ChatPage> createState() => _ChatPageState();\n}\n\nclass _ChatPageState extends State<ChatPage> {\n  final _controller = TextEditingController();\n  final List<ChatMessage> _messages = [\n    ChatMessage(text: 'Salom! Qalaysan?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 5))),\n    ChatMessage(text: 'Yaxshi, rahmat! Sen-chi?', isMe: true, time: DateTime.now().subtract(const Duration(minutes: 4))),\n    ChatMessage(text: 'Yaxshi, ishlaring qalay?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 3))),\n    ChatMessage(text: 'Zo'r! Yangi loyiha boshladim', isMe: true, time: DateTime.now().subtract(const Duration(minutes: 2))),\n    ChatMessage(text: 'Qaysi loyiha?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 1))),\n  ];\n\n  void _sendMessage() {\n    if (_controller.text.trim().isNotEmpty) {\n      setState(() {\n        _messages.add(ChatMessage(text: _controller.text.trim(), isMe: true, time: DateTime.now()));\n      });\n      _controller.clear();\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Row(\n          children: [\n            const CircleAvatar(radius: 18, child: Icon(Icons.person)),\n            const SizedBox(width: 12),\n            Column(\n              crossAxisAlignment: CrossAxisAlignment.start,\n              children: [\n                const Text('Chat', style: TextStyle(fontSize: 16)),\n                Text('Online', style: TextStyle(fontSize: 12, color: Colors.green[400])),\n              ],\n            ),\n          ],\n        ),\n      ),\n      body: Column(\n        children: [\n          Expanded(\n            child: ListView.builder(\n              padding: const EdgeInsets.all(16),\n              itemCount: _messages.length,\n              itemBuilder: (context, index) => _buildMessage(_messages[index]),\n            ),\n          ),\n          _buildInput(),\n        ],\n      ),\n    );\n  }\n\n  Widget _buildMessage(ChatMessage msg) {\n    return Align(\n      alignment: msg.isMe ? Alignment.centerRight : Alignment.centerLeft,\n      child: Container(\n        margin: const EdgeInsets.only(bottom: 8),\n        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),\n        decoration: BoxDecoration(\n          color: msg.isMe ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.surfaceContainerHighest,\n          borderRadius: BorderRadius.circular(16).copyWith(bottomRight: msg.isMe ? const Radius.circular(4) : null, bottomLeft: !msg.isMe ? const Radius.circular(4) : null),\n        ),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          children: [\n            Text(msg.text, style: TextStyle(color: msg.isMe ? Colors.white : null)),\n            const SizedBox(height: 4),\n            Text('${msg.time.hour}:${msg.time.minute.toString().padLeft(2, '0')}', style: TextStyle(fontSize: 10, color: msg.isMe ? Colors.white70 : Colors.grey)),\n          ],\n        ),\n      ),\n    );\n  }\n\n  Widget _buildInput() {\n    return Container(\n      padding: const EdgeInsets.all(16),\n      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -2))]),\n      child: Row(\n        children: [\n          IconButton(icon: const Icon(Icons.emoji_emotions_outlined), onPressed: () {}),\n          Expanded(\n            child: TextField(\n              controller: _controller,\n              decoration: InputDecoration(hintText: 'Xabar yozing...', border: OutlineInputBorder(borderRadius: BorderRadius.circular(24)), contentPadding: const EdgeInsets.symmetric(horizontal: 16)),\n              onSubmitted: (_) => _sendMessage(),\n            ),\n          ),\n          const SizedBox(width: 8),\n          CircleAvatar(\n            backgroundColor: Theme.of(context).colorScheme.primary,\n            child: IconButton(icon: const Icon(Icons.send, color: Colors.white), onPressed: _sendMessage),\n          ),\n        ],\n      ),\n    );\n  }\n}"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## Chat UI\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Hard\n**Teglar:** chat, messaging, input, bubble\n\n### Qanday ishlatish kerak:\n\n1. `chat_page.dart` faylini yarating\n2. `ChatPage` ni navigator da ishlating\n\n### Xususiyatlar:\n- Xabarlar bubble ko'rinishi\n- Vaqt ko'rsatiladi\n- Emoji tugmasi\n- Input field\n- Online status\n"
-  },
-  {
-    "id": "form-validation",
-    "n": "Form Validation",
-    "i": "✅",
-    "diff": "medium",
-    "c": "ui",
-    "t": [
-      "form",
-      "validation",
-      "input",
-      "textfield"
-    ],
-    "d": "To'liq form validation. Email, parol, telefon, sanalar uchun.",
-    "f": [
-      {
-        "n": "form_validation.dart",
-        "p": "lib/widgets/form_validation.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass FormValidationPage extends StatefulWidget {\n  const FormValidationPage({super.key});\n\n  @override\n  State<FormValidationPage> createState() => _FormValidationPageState();\n}\n\nclass _FormValidationPageState extends State<FormValidationPage> {\n  final _formKey = GlobalKey<FormState>();\n  final _nameController = TextEditingController();\n  final _emailController = TextEditingController();\n  final _phoneController = TextEditingController();\n  final _passwordController = TextEditingController();\n  final _confirmPasswordController = TextEditingController();\n  bool _obscurePassword = true;\n  bool _obscureConfirm = true;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Form Validation')),\n      body: SingleChildScrollView(\n        padding: const EdgeInsets.all(24),\n        child: Form(\n          key: _formKey,\n          child: Column(\n            crossAxisAlignment: CrossAxisAlignment.stretch,\n            children: [\n              const Text('Ro\\'yxatdan o\\'tish', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),\n              const SizedBox(height: 8),\n              Text('Ma\\'lumotlaringizni kiriting', style: TextStyle(color: Colors.grey[600])),\n              const SizedBox(height: 32),\n\n              // Ism\n              TextFormField(\n                controller: _nameController,\n                decoration: const InputDecoration labelText: 'Ism', prefixIcon: Icon(Icons.person), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Ism kiriting';\n                  if (value.length < 2) return 'Kamida 2 ta belgi';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Email\n              TextFormField(\n                controller: _emailController,\n                keyboardType: TextInputType.emailAddress,\n                decoration: const InputDecoration labelText: 'Email', prefixIcon: Icon(Icons.email), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Email kiriting';\n                  if (!RegExp(r'^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}$').hasMatch(value)) return 'To\\'g\\'ri email kiriting';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Telefon\n              TextFormField(\n                controller: _phoneController,\n                keyboardType: TextInputType.phone,\n                decoration: const InputDecoration labelText: 'Telefon', prefixIcon: Icon(Icons.phone), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Telefon kiriting';\n                  if (!RegExp(r'^\\+?[0-9]{10,13}$').hasMatch(value)) return 'To\\'g\\'ri telefon kiriting';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Parol\n              TextFormField(\n                controller: _passwordController,\n                obscureText: _obscurePassword,\n                decoration: InputDecoration labelText: 'Parol', prefixIcon: const Icon(Icons.lock), border: const OutlineInputBorder(),\n                  suffixIcon: IconButton(icon: Icon(_obscurePassword ? Icons.visibility : Icons.visibility_off), onPressed: () => setState(() => _obscurePassword = !_obscurePassword))),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Parol kiriting';\n                  if (value.length < 8) return 'Kamida 8 ta belgi';\n                  if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)').hasMatch(value)) return 'Katta-kichik harf va raqam bo\\'lishi kerak';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Parolni tasdiqlash\n              TextFormField(\n                controller: _confirmPasswordController,\n                obscureText: _obscureConfirm,\n                decoration: InputDecoration labelText: 'Parolni tasdiqlang', prefixIcon: const Icon(Icons.lock_outline), border: const OutlineInputBorder(),\n                  suffixIcon: IconButton(icon: Icon(_obscureConfirm ? Icons.visibility : Icons.visibility_off), onPressed: () => setState(() => _obscureConfirm = !_obscureConfirm))),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Parolni tasdiqlang';\n                  if (value != _passwordController.text) return 'Parollar mos emas';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 24),\n\n              // Yuborish tugmasi\n              FilledButton(\n                onPressed: () {\n                  if (_formKey.currentState!.validate()) {\n                    ScaffoldMessenger.of(context).showSnackBar(\n                      const SnackBar(content: Text('Muvaffaqiyatli!'), backgroundColor: Colors.green),\n                    );\n                  }\n                },\n                style: FilledButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),\n                child: const Text('Yuborish', style: TextStyle(fontSize: 16)),\n              ),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}"
-      }
-    ],
-    "icon": "palette",
-    "instructions": "## Form Validation\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** form, validation, input, textfield\n\n### Qanday ishlatish kerak:\n\n1. `form_validation.dart` faylini yarating\n2. `FormValidationPage` ni navigator da ishlating\n\n### Validation qoidalari:\n- Ism: kamida 2 ta belgi\n- Email: to'g'ri format\n- Telefon: 10-13 ta raqam\n- Parol: kamida 8 ta, katta-kichik harf + raqam\n- Parol tasdiqlash: mos kelishi kerak\n"
-  },
-  {
-    "id": "flutter-animation",
-    "n": "Animated Widgets",
-    "i": "✨",
-    "diff": "hard",
-    "c": "animations",
-    "t": [
-      "animation",
-      "animatedcontainer",
-      "herotween",
-      "fade"
-    ],
-    "d": "Turli xil animatsiyalar: Fade, Slide, Scale, Rotation, Hero.",
-    "f": [
-      {
-        "n": "animated_widgets.dart",
-        "p": "lib/pages/animated_widgets.dart",
-        "c": "import 'package:flutter/material.dart';\n\nclass AnimatedWidgetsPage extends StatefulWidget {\n  const AnimatedWidgetsPage({super.key});\n\n  @override\n  State<AnimatedWidgetsPage> createState() => _AnimatedWidgetsPageState();\n}\n\nclass _AnimatedWidgetsPageState extends State<AnimatedWidgetsPage> with TickerProviderStateMixin {\n  late AnimationController _fadeController;\n  late AnimationController _slideController;\n  late AnimationController _scaleController;\n  late AnimationController _rotationController;\n\n  @override\n  void initState() {\n    super.initState();\n    _fadeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));\n    _slideController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));\n    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 600));\n    _rotationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000))..repeat();\n  }\n\n  @override\n  void dispose() {\n    _fadeController.dispose();\n    _slideController.dispose();\n    _scaleController.dispose();\n    _rotationController.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Animated Widgets')),\n      body: SingleChildScrollView(\n        padding: const EdgeInsets.all(24),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.stretch,\n          children: [\n            // Fade Transition\n            const Text('Fade Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            FadeTransition(\n              opacity: CurvedAnimation(parent: _fadeController, curve: Curves.easeIn),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _fadeController.forward(from: 0), child: const Text('Play Fade')),\n            const SizedBox(height: 24),\n\n            // Slide Transition\n            const Text('Slide Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            SlideTransition(\n              position: Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero).animate(CurvedAnimation(parent: _slideController, curve: Curves.easeOut)),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _slideController.forward(from: 0), child: const Text('Play Slide')),\n            const SizedBox(height: 24),\n\n            // Scale Transition\n            const Text('Scale Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            ScaleTransition(\n              scale: CurvedAnimation(parent: _scaleController, curve: Curves.elasticOut),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.orange, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _scaleController.forward(from: 0), child: const Text('Play Scale')),\n            const SizedBox(height: 24),\n\n            // Rotation\n            const Text('Rotation Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            RotationTransition(\n              turns: _rotationController,\n              child: Container(\n                height: 100,\n                decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(12)),\n                child: const Center(child: Icon(Icons.refresh, color: Colors.white, size: 40)),\n              ),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}"
-      }
-    ],
-    "icon": "sparkle",
-    "instructions": "## Animated Widgets\n\n**Kategoriya:** Animations\n**Qiyinlik:** Hard\n**Teglar:** animation, animatedcontainer, herotween, fade\n\n### Qanday ishlatish kerak:\n\n1. `animated_widgets.dart` faylini yarating\n2. `AnimatedWidgetsPage` ni navigator da ishlating\n\n### Animatsiya turlari:\n- Fade — asta-sekin paydo bo'lish\n- Slide — surilish\n- Scale — o'lcham o'zgarishi\n- Rotation — aylanish\n- Elastic — maysimon effekt\n"
-  },
-  {
-    "id": "django-rest",
-    "n": "Django REST API",
-    "i": "🐍",
-    "diff": "hard",
-    "c": "python",
-    "t": [
-      "django",
-      "rest",
-      "api",
-      "serializers"
-    ],
-    "d": "Django REST Framework bilan to'liq API. Serializers, ViewSets, Authentication.",
-    "f": [
-      {
-        "n": "views.py",
-        "p": "api/views.py",
-        "c": "from rest_framework import viewsets, status\nfrom rest_framework.decorators import action\nfrom rest_framework.response import Response\nfrom rest_framework.permissions import IsAuthenticated\nfrom django.contrib.auth.models import User\nfrom .serializers import UserSerializer\n\n\nclass UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [IsAuthenticated]\n\n    def get_queryset(self):\n        return User.objects.filter(id=self.request.user.id)\n\n    @action(detail=False, methods=['get'])\n    def me(self, request):\n        serializer = self.get_serializer(request.user)\n        return Response(serializer.data)\n\n    @action(detail=False, methods=['put'])\n    def update_profile(self, request):\n        user = request.user\n        user.first_name = request.data.get('first_name', user.first_name)\n        user.last_name = request.data.get('last_name', user.last_name)\n        user.email = request.data.get('email', user.email)\n        user.save()\n        return Response({'status': 'profile updated'})"
-      },
-      {
-        "n": "serializers.py",
-        "p": "api/serializers.py",
-        "c": "from rest_framework import serializers\nfrom django.contrib.auth.models import User\n\n\nclass UserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'date_joined']\n        read_only_fields = ['id', 'date_joined']\n\n\nclass RegisterSerializer(serializers.ModelSerializer):\n    password = serializers.CharField(write_only=True, min_length=8)\n    password_confirm = serializers.CharField(write_only=True)\n\n    class Meta:\n        model = User\n        fields = ['username', 'email', 'password', 'password_confirm']\n\n    def validate(self, data):\n        if data['password'] != data['password_confirm']:\n            raise serializers.ValidationError('Parollar mos emas')\n        return data\n\n    def create(self, validated_data):\n        user = User.objects.create_user(\n            username=validated_data['username'],\n            email=validated_data['email'],\n            password=validated_data['password']\n        )\n        return user"
-      },
-      {
-        "n": "urls.py",
-        "p": "api/urls.py",
-        "c": "from django.urls import path, include\nfrom rest_framework.routers import DefaultRouter\nfrom rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView\nfrom .views import UserViewSet\n\nrouter = DefaultRouter()\nrouter.register(r'users', UserViewSet)\n\nurlpatterns = [\n    path('', include(router.urls)),\n    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n]"
-      }
-    ],
-    "icon": "document",
-    "instructions": "## Django REST API\n\n**Kategoriya:** Python\n**Qiyinlik:** Hard\n**Teglar:** django, rest, api, serializers\n\n### Qanday ishlatish kerak:\n\n1. Django loyiha yarating:\n```bash\ndjango-admin startproject myproject\ncd myproject\npython manage.py startapp api\n```\n\n2. O'rnating:\n```bash\npip install djangorestframework djangorestframework-simplejwt\n```\n\n3. `settings.py` ga qo'shing:\n```python\nINSTALLED_APPS = [..., 'rest_framework', 'rest_framework_simplejwt']\n```\n\n4. Fayllarni joylashtiring va ishga tushiring:\n```bash\npython manage.py migrate\npython manage.py runserver\n```\n\n### API endpointlari:\n- `GET /api/users/` — Foydalanuvchilar\n- `GET /api/users/me/` — Joriy foydalanuvchi\n- `PUT /api/users/update_profile/` — Profil yangilash\n- `POST /api/token/` — Token olish\n"
-  },
-  {
-    "id": "react-dashboard",
-    "n": "React Dashboard",
-    "i": "⚛️",
-    "diff": "hard",
-    "c": "react",
-    "t": [
-      "react",
-      "dashboard",
-      "charts",
-      "layout"
-    ],
-    "d": "To'liq admin dashboard. Sidebar, charts, stats cards, responsive.",
-    "f": [
-      {
-        "n": "Dashboard.jsx",
-        "p": "src/Dashboard.jsx",
-        "c": "import { useState } from 'react';\n\nconst stats = [\n  { title: 'Foydalanuvchilar', value: '12,345', change: '+12%', color: '#3b82f6' },\n  { title: 'Daromad', value: '$45,678', change: '+8%', color: '#22c55e' },\n  { title: 'Buyurtmalar', value: '1,234', change: '+5%', color: '#f97316' },\n  { title: 'Sahifalar', value: '56,789', change: '+23%', color: '#a855f7' },\n];\n\nconst menuItems = ['Bosh sahifa', 'Analitika', 'Buyurtmalar', 'Foydalanuvchilar', 'Sozlamalar'];\n\nfunction Dashboard() {\n  const [activeMenu, setActiveMenu] = useState(0);\n  const [sidebarOpen, setSidebarOpen] = useState(true);\n\n  return (\n    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'system-ui', background: '#f5f5f5' }}>\n      {/* Sidebar */}\n      <aside style={{\n        width: sidebarOpen ? 250 : 60,\n        background: '#1a1a2e',\n        color: '#fff',\n        transition: 'width 0.3s',\n        overflow: 'hidden'\n      }}>\n        <div style={{ padding: '20px', borderBottom: '1px solid #333' }}>\n          <h2 style={{ fontSize: '18px', whiteSpace: 'nowrap' }}>{sidebarOpen ? 'Dashboard' : 'D'}</h2>\n        </div>\n        <nav style={{ padding: '10px' }}>\n          {menuItems.map((item, i) => (\n            <div\n              key={i}\n              onClick={() => setActiveMenu(i)}\n              style={{\n                padding: '12px 16px',\n                marginBottom: '4px',\n                borderRadius: '8px',\n                cursor: 'pointer',\n                background: i === activeMenu ? '#3b82f6' : 'transparent',\n                whiteSpace: 'nowrap'\n              }}\n            >\n              {sidebarOpen ? item : item[0]}\n            </div>\n          ))}\n        </nav>\n      </aside>\n\n      {/* Main */}\n      <main style={{ flex: 1, overflow: 'auto' }}>\n        <header style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>\n          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ border: 'none', background: 'none', fontSize: '20px', cursor: 'pointer' }}>☰</button>\n          <h1 style={{ fontSize: '20px' }}>{menuItems[activeMenu]}</h1>\n          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>\n            <span>Salom, Admin</span>\n            <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>A</div>\n          </div>\n        </header>\n\n        <div style={{ padding: '20px' }}>\n          {/* Stats */}\n          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '24px' }}>\n            {stats.map((stat, i) => (\n              <div key={i} style={{ background: '#fff', borderRadius: '12px', padding: '20px', border: '1px solid #e5e5e5' }}>\n                <div style={{ color: '#666', fontSize: '14px', marginBottom: '8px' }}>{stat.title}</div>\n                <div style={{ fontSize: '28px', fontWeight: 'bold' }}>{stat.value}</div>\n                <div style={{ color: stat.color, fontSize: '14px', marginTop: '8px' }}>{stat.change}</div>\n              </div>\n            ))}\n          </div>\n\n          {/* Chart placeholder */}\n          <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid #e5e5e5' }}>\n            <h3 style={{ marginBottom: '16px' }}>Statistika</h3>\n            <div style={{ height: 300, background: 'linear-gradient(180deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0) 100%)', borderRadius: '8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', padding: '20px' }}>\n              {[40, 70, 45, 90, 65, 80, 55, 75, 60, 85, 50, 70].map((h, i) => (\n                <div key={i} style={{ width: '8%', height: `${h}%`, background: 'linear-gradient(180deg, #3b82f6, #1d4ed8)', borderRadius: '4px 4px 0 0' }} />\n              ))}\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  );\n}\n\nexport default Dashboard;"
-      }
-    ],
-    "icon": "sparkle",
-    "instructions": "## React Dashboard\n\n**Kategoriya:** React\n**Qiyinlik:** Hard\n**Teglar:** react, dashboard, charts, layout\n\n### Qanday ishlatish kerak:\n\n1. React loyiha yarating:\n```bash\nnpx create-react-app dashboard\n```\n\n2. `Dashboard.jsx` faylini yarating\n3. `App.js` da import qiling\n\n### Xususiyatlar:\n- Sidebar menu\n- Stats cards\n- Bar chart\n- Responsive dizayn\n- Dark sidebar\n"
-  },
-  {
-    "id": "vue-dashboard",
-    "n": "Vue Dashboard",
-    "i": "💚",
-    "diff": "hard",
-    "c": "vue",
-    "t": [
-      "vue",
-      "dashboard",
-      "composition",
-      " reactive"
-    ],
-    "d": "Vue 3 Composition API bilan admin dashboard.",
-    "f": [
-      {
-        "n": "Dashboard.vue",
-        "p": "src/Dashboard.vue",
-        "c": "<template>\n  <div class=\"dashboard\">\n    <aside class=\"sidebar\">\n      <h2>Vue Dashboard</h2>\n      <nav>\n        <div\n          v-for=\"(item, i) in menuItems\"\n          :key=\"i\"\n          :class=\"{ active: activeMenu === i }\"\n          @click=\"activeMenu = i\"\n        >\n          {{ item }}\n        </div>\n      </nav>\n    </aside>\n    <main>\n      <header>\n        <h1>{{ menuItems[activeMenu] }}</h1>\n      </header>\n      <div class=\"stats\">\n        <div v-for=\"(stat, i) in stats\" :key=\"i\" class=\"stat-card\">\n          <div class=\"stat-title\">{{ stat.title }}</div>\n          <div class=\"stat-value\">{{ stat.value }}</div>\n          <div class=\"stat-change\" :style=\"{ color: stat.color }\">{{ stat.change }}</div>\n        </div>\n      </div>\n    </main>\n  </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\n\nconst activeMenu = ref(0)\nconst menuItems = ['Bosh sahifa', 'Analitika', 'Buyurtmalar', 'Foydalanuvchilar', 'Sozlamalar']\nconst stats = [\n  { title: 'Foydalanuvchilar', value: '12,345', change: '+12%', color: '#3b82f6' },\n  { title: 'Daromad', value: '$45,678', change: '+8%', color: '#22c55e' },\n  { title: 'Buyurtmalar', value: '1,234', change: '+5%', color: '#f97316' },\n  { title: 'Sahifalar', value: '56,789', change: '+23%', color: '#a855f7' },\n]\n</script>\n\n<style scoped>\n.dashboard { display: flex; min-height: 100vh; font-family: system-ui; }\n.sidebar { width: 250px; background: #1a1a2e; color: #fff; padding: 20px; }\n.sidebar h2 { margin-bottom: 20px; }\nnav div { padding: 12px; margin-bottom: 4px; border-radius: 8px; cursor: pointer; }\nnav div:hover { background: rgba(255,255,255,0.1); }\nnav div.active { background: #3b82f6; }\nmain { flex: 1; background: #f5f5f5; }\nheader { padding: 20px; background: #fff; border-bottom: 1px solid #e5e5e5; }\n.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 20px; }\n.stat-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e5e5e5; }\n.stat-title { color: #666; font-size: 14px; margin-bottom: 8px; }\n.stat-value { font-size: 28px; font-weight: bold; }\n.stat-change { font-size: 14px; margin-top: 8px; }\n</style>"
-      }
-    ],
-    "icon": "sparkle",
-    "instructions": "## Vue Dashboard\n\n**Kategoriya:** Vue.js\n**Qiyinlik:** Hard\n**Teglar:** vue, dashboard, composition, reactive\n\n### Qanday ishlatish kerak:\n\n1. Vue loyiha yarating:\n```bash\nnpm create vue@latest\n```\n\n2. `Dashboard.vue` faylini yarating\n3. `App.vue` da import qiling\n\n### Xususiyatlar:\n- Sidebar menu\n- Stats cards\n- Responsive dizayn\n- Composition API\n"
+    "instructions": "## MQTT IoT Sensor\n\n### Kerakli uskunalar:\n- ESP8266 (NodeMCU/Wemos D1 Mini)\n- Harorat sensori (LM35 yoki DHT11)\n- LED\n\n### Kutubxonalari:\n- ESP8266WiFi\n- PubSubClient\n\n### O'rnash:\n- Arduino IDE → Preferences → Additional Board URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json\n- Tools → Board → ESP8266 Boards\n\n### MQTT Topiklari:\n- codebase/temperature → Harorat\n- codebase/humidity → Namlik\n- codebase/led → LED boshqaruvi (ON/OFF)\n\n### Broker:\n- HiveMQ: broker.hivemq.com:1883\n- Test: mqtt-explorer.com"
   }
 ]
