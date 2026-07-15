@@ -12,18 +12,170 @@ const ICONS = {
 };
 
 const CATEGORIES = [
-  {id:'all',n:'Barchasi',icon:'sparkle'},{id:'starter',n:'Starter',icon:'rocket'},
-  {id:'pages',n:'Sahifalar',icon:'document'},{id:'auth',n:'Auth',icon:'lock'},
-  {id:'navigation',n:'Navigation',icon:'compass'},{id:'state',n:'State Mgmt',icon:'lightning'},
-  {id:'api',n:'API & Backend',icon:'globe'},{id:'animations',n:'Animations',icon:'sparkle'},
-  {id:'ui',n:'UI Widgets',icon:'palette'},{id:'advanced',n:'Advanced',icon:'building'}
+  {id:'all',n:'Barchasi',icon:'sparkle'},{id:'flutter',n:'Flutter',icon:'rocket'},
+  {id:'arduino',n:'Arduino',icon:'building'},{id:'python',n:'Python',icon:'document'},
+  {id:'javascript',n:'JavaScript',icon:'globe'},{id:'react',n:'React',icon:'sparkle'},
+  {id:'vue',n:'Vue.js',icon:'sparkle'},{id:'nodejs',n:'Node.js',icon:'globe'},
+  {id:'html-css',n:'HTML/CSS',icon:'palette'},{id:'advanced',n:'Advanced',icon:'building'}
 ];
+
+const LANGUAGES = {
+  'flutter':{name:'Flutter',ext:'.dart',color:'#02569B'},
+  'arduino':{name:'Arduino',ext:'.ino',color:'#00979D'},
+  'python':{name:'Python',ext:'.py',color:'#3776AB'},
+  'javascript':{name:'JavaScript',ext:'.js',color:'#F7DF1E'},
+  'react':{name:'React',ext:'.jsx',color:'#61DAFB'},
+  'vue':{name:'Vue.js',ext:'.vue',color:'#4FC08D'},
+  'nodejs':{name:'Node.js',ext:'.js',color:'#339933'},
+  'html-css':{name:'HTML/CSS',ext:'.html',color:'#E34F26'}
+};
 
 const DIFF_COLORS = {easy:'var(--green)',medium:'var(--yellow)',hard:'var(--red)',expert:'var(--purple)'};
 
 let templates=[],category='all',query='',difficultyFilter='',currentTemplate=null,currentFileIndex=0,instructionsOpen=false;
+let currentUser=null;
+const USERS_KEY='codebase_users';
+const SESSION_KEY='codebase_session';
 
 function icon(name){return ICONS[name]||ICONS.sparkle;}
+
+function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY))||[]}catch(e){return[]}}
+function saveUsers(u){localStorage.setItem(USERS_KEY,JSON.stringify(u))}
+function getSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY))}catch(e){return null}}
+function saveSession(s){if(s)localStorage.setItem(SESSION_KEY,JSON.stringify(s));else localStorage.removeItem(SESSION_KEY)}
+
+function register(name,email,pass){
+  const users=getUsers();
+  if(users.find(u=>u.email===email))return{ok:false,msg:'Email allaqachon ro\'yxatdan o\'tgan'};
+  const user={id:Date.now().toString(36),name,email,pass:btoa(pass),created:new Date().toISOString()};
+  users.push(user);saveUsers(users);
+  const session={id:user.id,name:user.name,email:user.email};
+  currentUser=session;saveSession(session);
+  return{ok:true,msg:'Muvaffaqiyatli ro\'yxatdan o\'tildi'};
+}
+
+function login(email,pass){
+  const users=getUsers();
+  const user=users.find(u=>u.email===email&&u.pass===btoa(pass));
+  if(!user)return{ok:false,msg:'Email yoki parol xato'};
+  const session={id:user.id,name:user.name,email:user.email};
+  currentUser=session;saveSession(session);
+  return{ok:true,msg:'Xush kelibsiz, '+user.name};
+}
+
+function logout(){currentUser=null;saveSession(null);showAuthModal();}
+
+function showAuthModal(){
+  document.getElementById('authOverlay').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+function closeAuthModal(){
+  document.getElementById('authOverlay').classList.remove('on');
+  if(!document.getElementById('modal').classList.contains('on')&&!document.getElementById('instructionsOverlay').classList.contains('on')){
+    document.body.style.overflow='';
+  }
+}
+
+function handleAuth(e){
+  e.preventDefault();
+  const tab=document.querySelector('.auth-tab.active').dataset.tab;
+  const email=document.getElementById('authEmail').value;
+  const pass=document.getElementById('authPass').value;
+  const name=document.getElementById('authName')?.value;
+  let result;
+  if(tab==='register'){
+    if(!name){showToast('Ism kiriting');return}
+    result=register(name,email,pass);
+  }else{
+    result=login(email,pass);
+  }
+  if(result.ok){
+    showToast(result.msg);
+    closeAuthModal();
+    updateUserUI();
+  }else{
+    showToast(result.msg);
+  }
+}
+
+function updateUserUI(){
+  const el=document.getElementById('userSection');
+  if(currentUser){
+    el.innerHTML=`<div class="s-item" style="cursor:default"><div style="width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff">${currentUser.name[0].toUpperCase()}</div><div><div style="font-size:12px;font-weight:600">${currentUser.name}</div><div style="font-size:10px;color:var(--text3)">${currentUser.email}</div></div></div>
+    <button class="s-btn" onclick="logout()" style="color:var(--red);border-color:var(--red)">Chiqish</button>`;
+  }else{
+    el.innerHTML=`<button class="s-btn primary" onclick="showAuthModal()">Kirish / Ro'yxatdan o'tish</button>`;
+  }
+}
+
+function initAuth(){
+  const session=getSession();
+  if(session)currentUser=session;
+  updateUserUI();
+}
+
+function runLivePreview(){
+  if(!currentTemplate)return;
+  const code=currentTemplate.f[currentFileIndex].c;
+  const lang=currentTemplate.c;
+  const overlay=document.getElementById('previewOverlay');
+  const content=document.getElementById('previewContent2');
+  
+  if(lang==='html-css'||lang==='javascript'||lang==='react'||lang==='vue'){
+    const iframe=document.createElement('iframe');
+    iframe.style.cssText='width:100%;height:100%;border:none;border-radius:8px;background:#fff';
+    iframe.sandbox='allow-scripts allow-same-origin';
+    
+    if(lang==='html-css'){
+      iframe.srcdoc=code;
+    }else if(lang==='javascript'){
+      iframe.srcdoc=`<!DOCTYPE html><html><head><script>${code}<\/script></head><body><div id="app"></div><script>try{init(document.getElementById('app'))}catch(e){document.body.innerHTML='<pre>'+e+'</pre>'}<\/script></body></html>`;
+    }else if(lang==='react'){
+      iframe.srcdoc=`<!DOCTYPE html><html><head><script src="https://unpkg.com/react@18/umd/react.development.js"><\/script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script><script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script><style>body{margin:0;font-family:sans-serif}</style></head><body><div id="app"></div><script type="text/babel">${code}<\/script><script>try{ReactDOM.render(React.createElement(App),document.getElementById('app'))}catch(e){document.body.innerHTML='<pre>'+e+'</pre>'}<\/script></body></html>`;
+    }else if(lang==='vue'){
+      iframe.srcdoc=`<!DOCTYPE html><html><head><script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script><style>body{margin:0;font-family:sans-serif}</style></head><body><div id="app"></div><script>try{const{createApp}=Vue;const app=createApp({template:\`<div>${code.replace(/`/g,'\\`')}</div>\`});app.mount('#app')}catch(e){document.body.innerHTML='<pre>'+e+'</pre>'}<\/script></body></html>`;
+    }
+    
+    content.innerHTML='';
+    content.appendChild(iframe);
+  }else if(lang==='python'){
+    content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <p style="margin-top:12px;font-size:13px">Python live preview hali qo'llab-quvvatlanmaydi</p>
+      <p style="font-size:11px;margin-top:4px">Python kodini nusxalang va lokal muhitda ishga tushiring</p>
+    </div>`;
+  }else if(lang==='arduino'){
+    content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <p style="margin-top:12px;font-size:13px">Arduino IDE da ochish kerak</p>
+      <p style="font-size:11px;margin-top:4px">Kodni nusxalang va Arduino IDE ga yuqiring</p>
+    </div>`;
+  }else{
+    content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <p style="margin-top:12px;font-size:13px">Live preview hali mavjud emas</p>
+      <p style="font-size:11px;margin-top:4px">Kodni nusxalang va lokal muhitda ishga tushiring</p>
+    </div>`;
+  }
+  
+  overlay.classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+function closePreviewOverlay(){
+  document.getElementById('previewOverlay').classList.remove('on');
+  if(!document.getElementById('modal').classList.contains('on')&&!document.getElementById('instructionsOverlay').classList.contains('on')){
+    document.body.style.overflow='';
+  }
+}
+
+function switchAuthTab(tab){
+  document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector(`.auth-tab[data-tab="${tab}"]`).classList.add('active');
+  document.getElementById('nameField').style.display=tab==='register'?'block':'none';
+  document.getElementById('authTitle').textContent=tab==='register'?"Ro'yxatdan o'tish":'Kirish';
+}
 
 async function init(){
   try{
@@ -33,6 +185,7 @@ async function init(){
     if(!Array.isArray(data))throw new Error('Invalid template data');
     templates=data;
     renderSidebar();renderTabs();renderGrid();updateStats();
+    initAuth();
   }catch(e){
     console.error('Init error:',e);
     document.getElementById('grid').innerHTML=`<div class="empty" role="alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Templates yuklashda xatolik: ${e.message}. Sahifani yangilang.</p></div>`;
