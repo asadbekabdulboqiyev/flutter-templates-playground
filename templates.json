@@ -4553,5 +4553,245 @@
     ],
     "icon": "palette",
     "instructions": "## HTML Landing Page\n\n**Kategoriya:** HTML/CSS\n**Qiyinlik:** Easy\n**Teglar:** html, css, landing, responsive\n\n### Qanday ishlatish kerak:\n\n1. `index.html` faylini yarating\n2. Brauzerda oching\n3. O'zgartirishingiz mumkin\n\n### Xususiyatlar:\n- Responsive dizayn\n- Gradient fon\n- Kartalar\n- Form elementlari\n- Animatsiyalar\n"
+  },
+  {
+    "id": "responsive-layout",
+    "n": "Responsive Layout",
+    "i": "📱",
+    "diff": "medium",
+    "c": "ui",
+    "t": [
+      "responsive",
+      "layout",
+      "mediaquery",
+      "adaptive"
+    ],
+    "d": "Telefon, planshet, desktop uchun moslashuvchi layout. MediaQuery va LayoutBuilder.",
+    "f": [
+      {
+        "n": "responsive_layout.dart",
+        "p": "lib/widgets/responsive_layout.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass ResponsiveLayout extends StatelessWidget {\n  final Widget mobile;\n  final Widget? tablet;\n  final Widget desktop;\n\n  const ResponsiveLayout({\n    super.key,\n    required this.mobile,\n    this.tablet,\n    required this.desktop,\n  });\n\n  static bool isMobile(BuildContext context) =>\n      MediaQuery.of(context).size.width < 600;\n\n  static bool isTablet(BuildContext context) =>\n      MediaQuery.of(context).size.width >= 600 &&\n      MediaQuery.of(context).size.width < 1024;\n\n  static bool isDesktop(BuildContext context) =>\n      MediaQuery.of(context).size.width >= 1024;\n\n  @override\n  Widget build(BuildContext context) {\n    return LayoutBuilder(\n      builder: (context, constraints) {\n        if (constraints.maxWidth >= 1024) {\n          return desktop;\n        } else if (constraints.maxWidth >= 600) {\n          return tablet ?? mobile;\n        }\n        return mobile;\n      },\n    );\n  }\n}\n\nclass ResponsiveHomePage extends StatelessWidget {\n  const ResponsiveHomePage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Responsive Layout')),\n      body: ResponsiveLayout(\n        mobile: _buildMobileLayout(),\n        tablet: _buildTabletLayout(),\n        desktop: _buildDesktopLayout(),\n      ),\n    );\n  }\n\n  Widget _buildMobileLayout() {\n    return ListView(\n      padding: const EdgeInsets.all(16),\n      children: const [\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 1'))),\n        SizedBox(height: 8),\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 2'))),\n        SizedBox(height: 8),\n        Card(child: Padding(padding: EdgeInsets.all(16), child: Text('Mobile Card 3'))),\n      ],\n    );\n  }\n\n  Widget _buildTabletLayout() {\n    return GridView.count(\n      crossAxisCount: 2,\n      padding: const EdgeInsets.all(16),\n      children: List.generate(6, (i) =>\n        Card(child: Center(child: Text('Tablet Card ${i + 1}'))),\n      ),\n    );\n  }\n\n  Widget _buildDesktopLayout() {\n    return Row(\n      children: [\n        Container(\n          width: 250,\n          color: Colors.grey[200],\n          child: ListView(\n            padding: const EdgeInsets.all(16),\n            children: List.generate(8, (i) =>\n              ListTile(title: Text('Menu ${i + 1}')),\n            ),\n          ),\n        ),\n        Expanded(\n          child: GridView.count(\n            crossAxisCount: 3,\n            padding: const EdgeInsets.all(16),\n            children: List.generate(9, (i) =>\n              Card(child: Center(child: Text('Desktop Card ${i + 1}'))),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Responsive Layout\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** responsive, layout, mediaquery, adaptive\n\n### Qanday ishlatish kerak:\n\n1. `responsive_layout.dart` faylini yarating\n2. `ResponsiveLayout` ni istalgan joyda ishlating:\n```dart\nResponsiveLayout(\n  mobile: MobileWidget(),\n  tablet: TabletWidget(),\n  desktop: DesktopWidget(),\n)\n```\n\n### Funksiyalar:\n- `ResponsiveLayout.isMobile(context)` — Telefon tekshirish\n- `ResponsiveLayout.isTablet(context)` — Planshet tekshirish\n- `ResponsiveLayout.isDesktop(context)` — Desktop tekshirish\n"
+  },
+  {
+    "id": "adaptive-grid",
+    "n": "Adaptive Grid",
+    "i": "🔲",
+    "diff": "easy",
+    "c": "ui",
+    "t": [
+      "grid",
+      "adaptive",
+      "responsive",
+      "sliver"
+    ],
+    "d": "Ekran o'lchamiga qarab moslashuvchi grid. SliverGrid va LayoutBuilder.",
+    "f": [
+      {
+        "n": "adaptive_grid.dart",
+        "p": "lib/widgets/adaptive_grid.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass AdaptiveGrid extends StatelessWidget {\n  final List<Widget> children;\n  final double spacing;\n  final double runSpacing;\n  final double minItemWidth;\n\n  const AdaptiveGrid({\n    super.key,\n    required this.children,\n    this.spacing = 8.0,\n    this.runSpacing = 8.0,\n    this.minItemWidth = 150.0,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    return LayoutBuilder(\n      builder: (context, constraints) {\n        final columns = (constraints.maxWidth / minItemWidth).floor().clamp(1, 6);\n        final itemWidth = (constraints.maxWidth - (columns - 1) * spacing) / columns;\n\n        return Wrap(\n          spacing: spacing,\n          runSpacing: runSpacing,\n          children: children.map((child) => SizedBox(\n            width: itemWidth,\n            child: child,\n          )).toList(),\n        );\n      },\n    );\n  }\n}\n\nclass AdaptiveGridPage extends StatelessWidget {\n  const AdaptiveGridPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Adaptive Grid')),\n      body: Padding(\n        padding: const EdgeInsets.all(16),\n        child: AdaptiveGrid(\n          minItemWidth: 180,\n          children: List.generate(20, (i) => Card(\n            child: Container(\n              height: 120,\n              alignment: Alignment.center,\n              child: Text('Item ${i + 1}', style: const TextStyle(fontWeight: FontWeight.bold)),\n            ),\n          )),\n        ),\n      ),\n    );\n  }\n}"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Adaptive Grid\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Easy\n**Teglar:** grid, adaptive, responsive, sliver\n\n### Qanday ishlatish kerak:\n\n1. `adaptive_grid.dart` faylini yarating\n2. Ishlatish:\n```dart\nAdaptiveGrid(\n  minItemWidth: 180,\n  children: [\n    Card(child: Text('Item 1')),\n    Card(child: Text('Item 2')),\n  ],\n)\n```\n\n### Parametrlar:\n- `minItemWidth` — Minimal kenglik (default: 150)\n- `spacing` — Gorizontal bo'shliq (default: 8)\n- `runSpacing` — Vertikal bo'shliq (default: 8)\n"
+  },
+  {
+    "id": "sidebar-menu",
+    "n": "Sidebar Menu",
+    "i": "📋",
+    "diff": "medium",
+    "c": "ui",
+    "t": [
+      "sidebar",
+      "drawer",
+      "navigation",
+      "menu"
+    ],
+    "d": "Desktop uchun sidebar menu. Drawer bilan mobil versiya.",
+    "f": [
+      {
+        "n": "sidebar_menu.dart",
+        "p": "lib/widgets/sidebar_menu.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass SidebarMenu extends StatelessWidget {\n  final int selectedIndex;\n  final Function(int) onItemTap;\n\n  const SidebarMenu({\n    super.key,\n    required this.selectedIndex,\n    required this.onItemTap,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    final isDesktop = MediaQuery.of(context).size.width >= 1024;\n\n    final items = [\n      _MenuItem(icon: Icons.home, label: 'Bosh sahifa'),\n      _MenuItem(icon: Icons.person, label: 'Profil'),\n      _MenuItem(icon: Icons.settings, label: 'Sozlamalar'),\n      _MenuItem(icon: Icons.analytics, label: 'Statistika'),\n      _MenuItem(icon: Icons.help, label: 'Yordam'),\n    ];\n\n    if (isDesktop) {\n      return Container(\n        width: 250,\n        decoration: BoxDecoration(\n          color: Theme.of(context).colorScheme.surface,\n          border: Border(right: BorderSide(color: Theme.of(context).dividerColor)),\n        ),\n        child: Column(\n          children: [\n            const SizedBox(height: 20),\n            Padding(\n              padding: const EdgeInsets.all(16),\n              child: Text('CodeBase', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary)),\n            ),\n            const Divider(),\n            Expanded(\n              child: ListView.builder(\n                itemCount: items.length,\n                itemBuilder: (context, index) => ListTile(\n                  leading: Icon(items[index].icon, color: index == selectedIndex ? Theme.of(context).colorScheme.primary : null),\n                  title: Text(items[index].label, style: TextStyle(fontWeight: index == selectedIndex ? FontWeight.bold : FontWeight.normal)),\n                  selected: index == selectedIndex,\n                  selectedTileColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),\n                  onTap: () => onItemTap(index),\n                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),\n                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),\n                ),\n              ),\n            ),\n          ],\n        ),\n      );\n    }\n    return const SizedBox.shrink();\n  }\n}\n\nclass _MenuItem {\n  final IconData icon;\n  final String label;\n  _MenuItem({required this.icon, required this.label});\n}\n\nclass SidebarMenuPage extends StatefulWidget {\n  const SidebarMenuPage({super.key});\n\n  @override\n  State<SidebarMenuPage> createState() => _SidebarMenuPageState();\n}\n\nclass _SidebarMenuPageState extends State<SidebarMenuPage> {\n  int _selectedIndex = 0;\n\n  @override\n  Widget build(BuildContext context) {\n    final isDesktop = MediaQuery.of(context).size.width >= 1024;\n    final pages = ['Bosh sahifa', 'Profil', 'Sozlamalar', 'Statistika', 'Yordam'];\n\n    return Scaffold(\n      appBar: AppBar(title: const Text('Sidebar Menu')),\n      drawer: isDesktop ? null : Drawer(\n        child: ListView(\n          padding: EdgeInsets.zero,\n          children: [\n            const DrawerHeader(\n              decoration: BoxDecoration(color: Colors.blue),\n              child: Text('CodeBase', style: TextStyle(color: Colors.white, fontSize: 24)),\n            ),\n            for (int i = 0; i < pages.length; i++)\n              ListTile(\n                leading: Icon([Icons.home, Icons.person, Icons.settings, Icons.analytics, Icons.help][i]),\n                title: Text(pages[i]),\n                selected: i == _selectedIndex,\n                onTap: () { setState(() => _selectedIndex = i); Navigator.pop(context); },\n              ),\n          ],\n        ),\n      ),\n      body: Row(\n        children: [\n          if (isDesktop) SidebarMenu(selectedIndex: _selectedIndex, onItemTap: (i) => setState(() => _selectedIndex = i)),\n          Expanded(child: Center(child: Text(pages[_selectedIndex], style: const TextStyle(fontSize: 24)))),\n        ],\n      ),\n    );\n  }\n}"
+      }
+    ],
+    "icon": "compass",
+    "instructions": "## Sidebar Menu\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** sidebar, drawer, navigation, menu\n\n### Qanday ishlatish kerak:\n\n1. `sidebar_menu.dart` faylini yarating\n2. `SidebarMenuPage` ni asosiy sahifada ishlating\n\n### Xususiyatlar:\n- Desktop: Doimiy sidebar\n- Mobile: Drawer menu\n- Aktiv element ko'rsatiladi\n- Responsive dizayn\n"
+  },
+  {
+    "id": "data-table",
+    "n": "Data Table",
+    "i": "📊",
+    "diff": "medium",
+    "c": "ui",
+    "t": [
+      "table",
+      "data",
+      "sortable",
+      "pagination"
+    ],
+    "d": "Saralanadigan va sahifalangan data table. Qidiruv va filter bilan.",
+    "f": [
+      {
+        "n": "data_table.dart",
+        "p": "lib/widgets/data_table.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass DataTableWidget extends StatefulWidget {\n  const DataTableWidget({super.key});\n\n  @override\n  State<DataTableWidget> createState() => _DataTableWidgetState();\n}\n\nclass _DataTableWidgetState extends State<DataTableWidget> {\n  int _sortColumnIndex = 0;\n  bool _sortAscending = true;\n  int _currentPage = 0;\n  final int _rowsPerPage = 5;\n  String _searchQuery = '';\n\n  final List<Map<String, dynamic>> _data = [\n    {'name': 'Ali', 'email': 'ali@example.com', 'age': 25, 'role': 'Developer'},\n    {'name': 'Vali', 'email': 'vali@example.com', 'age': 30, 'role': 'Designer'},\n    {'name': 'Gani', 'email': 'gani@example.com', 'age': 28, 'role': 'Manager'},\n    {'name': 'Sardor', 'email': 'sardor@example.com', 'age': 22, 'role': 'Developer'},\n    {'name': 'Jasur', 'email': 'jasur@example.com', 'age': 35, 'role': 'Tester'},\n    {'name': 'Bobur', 'email': 'bobur@example.com', 'age': 27, 'role': 'Developer'},\n    {'name': 'Nodir', 'email': 'nodir@example.com', 'age': 32, 'role': 'Designer'},\n    {'name': 'Farrux', 'email': 'farrux@example.com', 'age': 29, 'role': 'Manager'},\n  ];\n\n  List<Map<String, dynamic>> get _filteredData {\n    return _data.where((row) =>\n      row['name'].toString().toLowerCase().contains(_searchQuery.toLowerCase()) ||\n      row['email'].toString().toLowerCase().contains(_searchQuery.toLowerCase())\n    ).toList();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final filteredData = _filteredData;\n    final startIndex = _currentPage * _rowsPerPage;\n    final paginatedData = filteredData.skip(startIndex).take(_rowsPerPage).toList();\n\n    return Column(\n      children: [\n        Padding(\n          padding: const EdgeInsets.all(16),\n          child: TextField(\n            decoration: InputDecoration(\n              hintText: 'Qidirish...',\n              prefixIcon: const Icon(Icons.search),\n              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),\n            ),\n            onChanged: (value) => setState(() {\n              _searchQuery = value;\n              _currentPage = 0;\n            }),\n          ),\n        ),\n        Expanded(\n          child: SingleChildScrollView(\n            scrollDirection: Axis.horizontal,\n            child: DataTable(\n              sortColumnIndex: _sortColumnIndex,\n              sortAscending: _sortAscending,\n              columns: [\n                DataColumn(label: const Text('Ism'), onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Email'), onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Yosh'), numeric: true, onSort: (i, asc) => _sort(i, asc)),\n                DataColumn(label: const Text('Lavozim'), onSort: (i, asc) => _sort(i, asc)),\n              ],\n              rows: paginatedData.map((row) => DataRow(cells: [\n                DataCell(Text(row['name'])),\n                DataCell(Text(row['email'])),\n                DataCell(Text('${row['age']}')),\n                DataCell(Chip(label: Text(row['role'], style: const TextStyle(fontSize: 12)))),\n              ])).toList(),\n            ),\n          ),\n        ),\n        Padding(\n          padding: const EdgeInsets.all(16),\n          child: Row(\n            mainAxisAlignment: MainAxisAlignment.center,\n            children: [\n              IconButton(\n                icon: const Icon(Icons.chevron_left),\n                onPressed: _currentPage > 0 ? () => setState(() => _currentPage--) : null,\n              ),\n              Text('${_currentPage + 1} / ${(filteredData.length / _rowsPerPage).ceil()}'),\n              IconButton(\n                icon: const Icon(Icons.chevron_right),\n                onPressed: _currentPage < (filteredData.length / _rowsPerPage).ceil() - 1 ? () => setState(() => _currentPage++) : null,\n              ),\n            ],\n          ),\n        ),\n      ],\n    );\n  }\n\n  void _sort(int columnIndex, bool ascending) {\n    setState(() {\n      _sortColumnIndex = columnIndex;\n      _sortAscending = ascending;\n      final keys = ['name', 'email', 'age', 'role'];\n      _data.sort((a, b) {\n        final aVal = a[keys[columnIndex]];\n        final bVal = b[keys[columnIndex]];\n        return ascending ? aVal.toString().compareTo(bVal.toString()) : bVal.toString().compareTo(aVal.toString());\n      });\n    });\n  }\n}"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Data Table\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** table, data, sortable, pagination\n\n### Qanday ishlatish kerak:\n\n1. `data_table.dart` faylini yarating\n2. Scaffold da ishlating:\n```dart\nScaffold(\n  body: DataTableWidget(),\n)\n```\n\n### Xususiyatlar:\n- Saralash (ustunlarga bosish)\n- Qidiruv\n- Sahifalash\n- Rol chip ko'rinishi\n"
+  },
+  {
+    "id": "chat-ui",
+    "n": "Chat UI",
+    "i": "💬",
+    "diff": "hard",
+    "c": "ui",
+    "t": [
+      "chat",
+      "messaging",
+      "input",
+      "bubble"
+    ],
+    "d": "To'liq chat interfeysi. Xabarlar, emoji, input field, avatar.",
+    "f": [
+      {
+        "n": "chat_page.dart",
+        "p": "lib/pages/chat_page.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass ChatMessage {\n  final String text;\n  final bool isMe;\n  final DateTime time;\n  ChatMessage({required this.text, required this.isMe, required this.time});\n}\n\nclass ChatPage extends StatefulWidget {\n  const ChatPage({super.key});\n\n  @override\n  State<ChatPage> createState() => _ChatPageState();\n}\n\nclass _ChatPageState extends State<ChatPage> {\n  final _controller = TextEditingController();\n  final List<ChatMessage> _messages = [\n    ChatMessage(text: 'Salom! Qalaysan?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 5))),\n    ChatMessage(text: 'Yaxshi, rahmat! Sen-chi?', isMe: true, time: DateTime.now().subtract(const Duration(minutes: 4))),\n    ChatMessage(text: 'Yaxshi, ishlaring qalay?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 3))),\n    ChatMessage(text: 'Zo'r! Yangi loyiha boshladim', isMe: true, time: DateTime.now().subtract(const Duration(minutes: 2))),\n    ChatMessage(text: 'Qaysi loyiha?', isMe: false, time: DateTime.now().subtract(const Duration(minutes: 1))),\n  ];\n\n  void _sendMessage() {\n    if (_controller.text.trim().isNotEmpty) {\n      setState(() {\n        _messages.add(ChatMessage(text: _controller.text.trim(), isMe: true, time: DateTime.now()));\n      });\n      _controller.clear();\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Row(\n          children: [\n            const CircleAvatar(radius: 18, child: Icon(Icons.person)),\n            const SizedBox(width: 12),\n            Column(\n              crossAxisAlignment: CrossAxisAlignment.start,\n              children: [\n                const Text('Chat', style: TextStyle(fontSize: 16)),\n                Text('Online', style: TextStyle(fontSize: 12, color: Colors.green[400])),\n              ],\n            ),\n          ],\n        ),\n      ),\n      body: Column(\n        children: [\n          Expanded(\n            child: ListView.builder(\n              padding: const EdgeInsets.all(16),\n              itemCount: _messages.length,\n              itemBuilder: (context, index) => _buildMessage(_messages[index]),\n            ),\n          ),\n          _buildInput(),\n        ],\n      ),\n    );\n  }\n\n  Widget _buildMessage(ChatMessage msg) {\n    return Align(\n      alignment: msg.isMe ? Alignment.centerRight : Alignment.centerLeft,\n      child: Container(\n        margin: const EdgeInsets.only(bottom: 8),\n        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),\n        decoration: BoxDecoration(\n          color: msg.isMe ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.surfaceContainerHighest,\n          borderRadius: BorderRadius.circular(16).copyWith(bottomRight: msg.isMe ? const Radius.circular(4) : null, bottomLeft: !msg.isMe ? const Radius.circular(4) : null),\n        ),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          children: [\n            Text(msg.text, style: TextStyle(color: msg.isMe ? Colors.white : null)),\n            const SizedBox(height: 4),\n            Text('${msg.time.hour}:${msg.time.minute.toString().padLeft(2, '0')}', style: TextStyle(fontSize: 10, color: msg.isMe ? Colors.white70 : Colors.grey)),\n          ],\n        ),\n      ),\n    );\n  }\n\n  Widget _buildInput() {\n    return Container(\n      padding: const EdgeInsets.all(16),\n      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -2))]),\n      child: Row(\n        children: [\n          IconButton(icon: const Icon(Icons.emoji_emotions_outlined), onPressed: () {}),\n          Expanded(\n            child: TextField(\n              controller: _controller,\n              decoration: InputDecoration(hintText: 'Xabar yozing...', border: OutlineInputBorder(borderRadius: BorderRadius.circular(24)), contentPadding: const EdgeInsets.symmetric(horizontal: 16)),\n              onSubmitted: (_) => _sendMessage(),\n            ),\n          ),\n          const SizedBox(width: 8),\n          CircleAvatar(\n            backgroundColor: Theme.of(context).colorScheme.primary,\n            child: IconButton(icon: const Icon(Icons.send, color: Colors.white), onPressed: _sendMessage),\n          ),\n        ],\n      ),\n    );\n  }\n}"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Chat UI\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Hard\n**Teglar:** chat, messaging, input, bubble\n\n### Qanday ishlatish kerak:\n\n1. `chat_page.dart` faylini yarating\n2. `ChatPage` ni navigator da ishlating\n\n### Xususiyatlar:\n- Xabarlar bubble ko'rinishi\n- Vaqt ko'rsatiladi\n- Emoji tugmasi\n- Input field\n- Online status\n"
+  },
+  {
+    "id": "form-validation",
+    "n": "Form Validation",
+    "i": "✅",
+    "diff": "medium",
+    "c": "ui",
+    "t": [
+      "form",
+      "validation",
+      "input",
+      "textfield"
+    ],
+    "d": "To'liq form validation. Email, parol, telefon, sanalar uchun.",
+    "f": [
+      {
+        "n": "form_validation.dart",
+        "p": "lib/widgets/form_validation.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass FormValidationPage extends StatefulWidget {\n  const FormValidationPage({super.key});\n\n  @override\n  State<FormValidationPage> createState() => _FormValidationPageState();\n}\n\nclass _FormValidationPageState extends State<FormValidationPage> {\n  final _formKey = GlobalKey<FormState>();\n  final _nameController = TextEditingController();\n  final _emailController = TextEditingController();\n  final _phoneController = TextEditingController();\n  final _passwordController = TextEditingController();\n  final _confirmPasswordController = TextEditingController();\n  bool _obscurePassword = true;\n  bool _obscureConfirm = true;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Form Validation')),\n      body: SingleChildScrollView(\n        padding: const EdgeInsets.all(24),\n        child: Form(\n          key: _formKey,\n          child: Column(\n            crossAxisAlignment: CrossAxisAlignment.stretch,\n            children: [\n              const Text('Ro\\'yxatdan o\\'tish', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),\n              const SizedBox(height: 8),\n              Text('Ma\\'lumotlaringizni kiriting', style: TextStyle(color: Colors.grey[600])),\n              const SizedBox(height: 32),\n\n              // Ism\n              TextFormField(\n                controller: _nameController,\n                decoration: const InputDecoration labelText: 'Ism', prefixIcon: Icon(Icons.person), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Ism kiriting';\n                  if (value.length < 2) return 'Kamida 2 ta belgi';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Email\n              TextFormField(\n                controller: _emailController,\n                keyboardType: TextInputType.emailAddress,\n                decoration: const InputDecoration labelText: 'Email', prefixIcon: Icon(Icons.email), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Email kiriting';\n                  if (!RegExp(r'^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}$').hasMatch(value)) return 'To\\'g\\'ri email kiriting';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Telefon\n              TextFormField(\n                controller: _phoneController,\n                keyboardType: TextInputType.phone,\n                decoration: const InputDecoration labelText: 'Telefon', prefixIcon: Icon(Icons.phone), border: OutlineInputBorder()),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Telefon kiriting';\n                  if (!RegExp(r'^\\+?[0-9]{10,13}$').hasMatch(value)) return 'To\\'g\\'ri telefon kiriting';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Parol\n              TextFormField(\n                controller: _passwordController,\n                obscureText: _obscurePassword,\n                decoration: InputDecoration labelText: 'Parol', prefixIcon: const Icon(Icons.lock), border: const OutlineInputBorder(),\n                  suffixIcon: IconButton(icon: Icon(_obscurePassword ? Icons.visibility : Icons.visibility_off), onPressed: () => setState(() => _obscurePassword = !_obscurePassword))),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Parol kiriting';\n                  if (value.length < 8) return 'Kamida 8 ta belgi';\n                  if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)').hasMatch(value)) return 'Katta-kichik harf va raqam bo\\'lishi kerak';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 16),\n\n              // Parolni tasdiqlash\n              TextFormField(\n                controller: _confirmPasswordController,\n                obscureText: _obscureConfirm,\n                decoration: InputDecoration labelText: 'Parolni tasdiqlang', prefixIcon: const Icon(Icons.lock_outline), border: const OutlineInputBorder(),\n                  suffixIcon: IconButton(icon: Icon(_obscureConfirm ? Icons.visibility : Icons.visibility_off), onPressed: () => setState(() => _obscureConfirm = !_obscureConfirm))),\n                validator: (value) {\n                  if (value == null || value.isEmpty) return 'Parolni tasdiqlang';\n                  if (value != _passwordController.text) return 'Parollar mos emas';\n                  return null;\n                },\n              ),\n              const SizedBox(height: 24),\n\n              // Yuborish tugmasi\n              FilledButton(\n                onPressed: () {\n                  if (_formKey.currentState!.validate()) {\n                    ScaffoldMessenger.of(context).showSnackBar(\n                      const SnackBar(content: Text('Muvaffaqiyatli!'), backgroundColor: Colors.green),\n                    );\n                  }\n                },\n                style: FilledButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),\n                child: const Text('Yuborish', style: TextStyle(fontSize: 16)),\n              ),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Form Validation\n\n**Kategoriya:** UI Widgets\n**Qiyinlik:** Medium\n**Teglar:** form, validation, input, textfield\n\n### Qanday ishlatish kerak:\n\n1. `form_validation.dart` faylini yarating\n2. `FormValidationPage` ni navigator da ishlating\n\n### Validation qoidalari:\n- Ism: kamida 2 ta belgi\n- Email: to'g'ri format\n- Telefon: 10-13 ta raqam\n- Parol: kamida 8 ta, katta-kichik harf + raqam\n- Parol tasdiqlash: mos kelishi kerak\n"
+  },
+  {
+    "id": "flutter-animation",
+    "n": "Animated Widgets",
+    "i": "✨",
+    "diff": "hard",
+    "c": "animations",
+    "t": [
+      "animation",
+      "animatedcontainer",
+      "herotween",
+      "fade"
+    ],
+    "d": "Turli xil animatsiyalar: Fade, Slide, Scale, Rotation, Hero.",
+    "f": [
+      {
+        "n": "animated_widgets.dart",
+        "p": "lib/pages/animated_widgets.dart",
+        "c": "import 'package:flutter/material.dart';\n\nclass AnimatedWidgetsPage extends StatefulWidget {\n  const AnimatedWidgetsPage({super.key});\n\n  @override\n  State<AnimatedWidgetsPage> createState() => _AnimatedWidgetsPageState();\n}\n\nclass _AnimatedWidgetsPageState extends State<AnimatedWidgetsPage> with TickerProviderStateMixin {\n  late AnimationController _fadeController;\n  late AnimationController _slideController;\n  late AnimationController _scaleController;\n  late AnimationController _rotationController;\n\n  @override\n  void initState() {\n    super.initState();\n    _fadeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));\n    _slideController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));\n    _scaleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 600));\n    _rotationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000))..repeat();\n  }\n\n  @override\n  void dispose() {\n    _fadeController.dispose();\n    _slideController.dispose();\n    _scaleController.dispose();\n    _rotationController.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Animated Widgets')),\n      body: SingleChildScrollView(\n        padding: const EdgeInsets.all(24),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.stretch,\n          children: [\n            // Fade Transition\n            const Text('Fade Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            FadeTransition(\n              opacity: CurvedAnimation(parent: _fadeController, curve: Curves.easeIn),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _fadeController.forward(from: 0), child: const Text('Play Fade')),\n            const SizedBox(height: 24),\n\n            // Slide Transition\n            const Text('Slide Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            SlideTransition(\n              position: Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero).animate(CurvedAnimation(parent: _slideController, curve: Curves.easeOut)),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _slideController.forward(from: 0), child: const Text('Play Slide')),\n            const SizedBox(height: 24),\n\n            // Scale Transition\n            const Text('Scale Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            ScaleTransition(\n              scale: CurvedAnimation(parent: _scaleController, curve: Curves.elasticOut),\n              child: Container(height: 100, decoration: BoxDecoration(color: Colors.orange, borderRadius: BorderRadius.circular(12))),\n            ),\n            const SizedBox(height: 8),\n            FilledButton(onPressed: () => _scaleController.forward(from: 0), child: const Text('Play Scale')),\n            const SizedBox(height: 24),\n\n            // Rotation\n            const Text('Rotation Animation', style: TextStyle(fontWeight: FontWeight.bold)),\n            const SizedBox(height: 8),\n            RotationTransition(\n              turns: _rotationController,\n              child: Container(\n                height: 100,\n                decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(12)),\n                child: const Center(child: Icon(Icons.refresh, color: Colors.white, size: 40)),\n              ),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Animated Widgets\n\n**Kategoriya:** Animations\n**Qiyinlik:** Hard\n**Teglar:** animation, animatedcontainer, herotween, fade\n\n### Qanday ishlatish kerak:\n\n1. `animated_widgets.dart` faylini yarating\n2. `AnimatedWidgetsPage` ni navigator da ishlating\n\n### Animatsiya turlari:\n- Fade — asta-sekin paydo bo'lish\n- Slide — surilish\n- Scale — o'lcham o'zgarishi\n- Rotation — aylanish\n- Elastic — maysimon effekt\n"
+  },
+  {
+    "id": "django-rest",
+    "n": "Django REST API",
+    "i": "🐍",
+    "diff": "hard",
+    "c": "python",
+    "t": [
+      "django",
+      "rest",
+      "api",
+      "serializers"
+    ],
+    "d": "Django REST Framework bilan to'liq API. Serializers, ViewSets, Authentication.",
+    "f": [
+      {
+        "n": "views.py",
+        "p": "api/views.py",
+        "c": "from rest_framework import viewsets, status\nfrom rest_framework.decorators import action\nfrom rest_framework.response import Response\nfrom rest_framework.permissions import IsAuthenticated\nfrom django.contrib.auth.models import User\nfrom .serializers import UserSerializer\n\n\nclass UserViewSet(viewsets.ModelViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [IsAuthenticated]\n\n    def get_queryset(self):\n        return User.objects.filter(id=self.request.user.id)\n\n    @action(detail=False, methods=['get'])\n    def me(self, request):\n        serializer = self.get_serializer(request.user)\n        return Response(serializer.data)\n\n    @action(detail=False, methods=['put'])\n    def update_profile(self, request):\n        user = request.user\n        user.first_name = request.data.get('first_name', user.first_name)\n        user.last_name = request.data.get('last_name', user.last_name)\n        user.email = request.data.get('email', user.email)\n        user.save()\n        return Response({'status': 'profile updated'})"
+      },
+      {
+        "n": "serializers.py",
+        "p": "api/serializers.py",
+        "c": "from rest_framework import serializers\nfrom django.contrib.auth.models import User\n\n\nclass UserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'date_joined']\n        read_only_fields = ['id', 'date_joined']\n\n\nclass RegisterSerializer(serializers.ModelSerializer):\n    password = serializers.CharField(write_only=True, min_length=8)\n    password_confirm = serializers.CharField(write_only=True)\n\n    class Meta:\n        model = User\n        fields = ['username', 'email', 'password', 'password_confirm']\n\n    def validate(self, data):\n        if data['password'] != data['password_confirm']:\n            raise serializers.ValidationError('Parollar mos emas')\n        return data\n\n    def create(self, validated_data):\n        user = User.objects.create_user(\n            username=validated_data['username'],\n            email=validated_data['email'],\n            password=validated_data['password']\n        )\n        return user"
+      },
+      {
+        "n": "urls.py",
+        "p": "api/urls.py",
+        "c": "from django.urls import path, include\nfrom rest_framework.routers import DefaultRouter\nfrom rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView\nfrom .views import UserViewSet\n\nrouter = DefaultRouter()\nrouter.register(r'users', UserViewSet)\n\nurlpatterns = [\n    path('', include(router.urls)),\n    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n]"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Django REST API\n\n**Kategoriya:** Python\n**Qiyinlik:** Hard\n**Teglar:** django, rest, api, serializers\n\n### Qanday ishlatish kerak:\n\n1. Django loyiha yarating:\n```bash\ndjango-admin startproject myproject\ncd myproject\npython manage.py startapp api\n```\n\n2. O'rnating:\n```bash\npip install djangorestframework djangorestframework-simplejwt\n```\n\n3. `settings.py` ga qo'shing:\n```python\nINSTALLED_APPS = [..., 'rest_framework', 'rest_framework_simplejwt']\n```\n\n4. Fayllarni joylashtiring va ishga tushiring:\n```bash\npython manage.py migrate\npython manage.py runserver\n```\n\n### API endpointlari:\n- `GET /api/users/` — Foydalanuvchilar\n- `GET /api/users/me/` — Joriy foydalanuvchi\n- `PUT /api/users/update_profile/` — Profil yangilash\n- `POST /api/token/` — Token olish\n"
+  },
+  {
+    "id": "react-dashboard",
+    "n": "React Dashboard",
+    "i": "⚛️",
+    "diff": "hard",
+    "c": "react",
+    "t": [
+      "react",
+      "dashboard",
+      "charts",
+      "layout"
+    ],
+    "d": "To'liq admin dashboard. Sidebar, charts, stats cards, responsive.",
+    "f": [
+      {
+        "n": "Dashboard.jsx",
+        "p": "src/Dashboard.jsx",
+        "c": "import { useState } from 'react';\n\nconst stats = [\n  { title: 'Foydalanuvchilar', value: '12,345', change: '+12%', color: '#3b82f6' },\n  { title: 'Daromad', value: '$45,678', change: '+8%', color: '#22c55e' },\n  { title: 'Buyurtmalar', value: '1,234', change: '+5%', color: '#f97316' },\n  { title: 'Sahifalar', value: '56,789', change: '+23%', color: '#a855f7' },\n];\n\nconst menuItems = ['Bosh sahifa', 'Analitika', 'Buyurtmalar', 'Foydalanuvchilar', 'Sozlamalar'];\n\nfunction Dashboard() {\n  const [activeMenu, setActiveMenu] = useState(0);\n  const [sidebarOpen, setSidebarOpen] = useState(true);\n\n  return (\n    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'system-ui', background: '#f5f5f5' }}>\n      {/* Sidebar */}\n      <aside style={{\n        width: sidebarOpen ? 250 : 60,\n        background: '#1a1a2e',\n        color: '#fff',\n        transition: 'width 0.3s',\n        overflow: 'hidden'\n      }}>\n        <div style={{ padding: '20px', borderBottom: '1px solid #333' }}>\n          <h2 style={{ fontSize: '18px', whiteSpace: 'nowrap' }}>{sidebarOpen ? 'Dashboard' : 'D'}</h2>\n        </div>\n        <nav style={{ padding: '10px' }}>\n          {menuItems.map((item, i) => (\n            <div\n              key={i}\n              onClick={() => setActiveMenu(i)}\n              style={{\n                padding: '12px 16px',\n                marginBottom: '4px',\n                borderRadius: '8px',\n                cursor: 'pointer',\n                background: i === activeMenu ? '#3b82f6' : 'transparent',\n                whiteSpace: 'nowrap'\n              }}\n            >\n              {sidebarOpen ? item : item[0]}\n            </div>\n          ))}\n        </nav>\n      </aside>\n\n      {/* Main */}\n      <main style={{ flex: 1, overflow: 'auto' }}>\n        <header style={{ padding: '20px', background: '#fff', borderBottom: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>\n          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ border: 'none', background: 'none', fontSize: '20px', cursor: 'pointer' }}>☰</button>\n          <h1 style={{ fontSize: '20px' }}>{menuItems[activeMenu]}</h1>\n          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>\n            <span>Salom, Admin</span>\n            <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>A</div>\n          </div>\n        </header>\n\n        <div style={{ padding: '20px' }}>\n          {/* Stats */}\n          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '24px' }}>\n            {stats.map((stat, i) => (\n              <div key={i} style={{ background: '#fff', borderRadius: '12px', padding: '20px', border: '1px solid #e5e5e5' }}>\n                <div style={{ color: '#666', fontSize: '14px', marginBottom: '8px' }}>{stat.title}</div>\n                <div style={{ fontSize: '28px', fontWeight: 'bold' }}>{stat.value}</div>\n                <div style={{ color: stat.color, fontSize: '14px', marginTop: '8px' }}>{stat.change}</div>\n              </div>\n            ))}\n          </div>\n\n          {/* Chart placeholder */}\n          <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid #e5e5e5' }}>\n            <h3 style={{ marginBottom: '16px' }}>Statistika</h3>\n            <div style={{ height: 300, background: 'linear-gradient(180deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0) 100%)', borderRadius: '8px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', padding: '20px' }}>\n              {[40, 70, 45, 90, 65, 80, 55, 75, 60, 85, 50, 70].map((h, i) => (\n                <div key={i} style={{ width: '8%', height: `${h}%`, background: 'linear-gradient(180deg, #3b82f6, #1d4ed8)', borderRadius: '4px 4px 0 0' }} />\n              ))}\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  );\n}\n\nexport default Dashboard;"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## React Dashboard\n\n**Kategoriya:** React\n**Qiyinlik:** Hard\n**Teglar:** react, dashboard, charts, layout\n\n### Qanday ishlatish kerak:\n\n1. React loyiha yarating:\n```bash\nnpx create-react-app dashboard\n```\n\n2. `Dashboard.jsx` faylini yarating\n3. `App.js` da import qiling\n\n### Xususiyatlar:\n- Sidebar menu\n- Stats cards\n- Bar chart\n- Responsive dizayn\n- Dark sidebar\n"
+  },
+  {
+    "id": "vue-dashboard",
+    "n": "Vue Dashboard",
+    "i": "💚",
+    "diff": "hard",
+    "c": "vue",
+    "t": [
+      "vue",
+      "dashboard",
+      "composition",
+      " reactive"
+    ],
+    "d": "Vue 3 Composition API bilan admin dashboard.",
+    "f": [
+      {
+        "n": "Dashboard.vue",
+        "p": "src/Dashboard.vue",
+        "c": "<template>\n  <div class=\"dashboard\">\n    <aside class=\"sidebar\">\n      <h2>Vue Dashboard</h2>\n      <nav>\n        <div\n          v-for=\"(item, i) in menuItems\"\n          :key=\"i\"\n          :class=\"{ active: activeMenu === i }\"\n          @click=\"activeMenu = i\"\n        >\n          {{ item }}\n        </div>\n      </nav>\n    </aside>\n    <main>\n      <header>\n        <h1>{{ menuItems[activeMenu] }}</h1>\n      </header>\n      <div class=\"stats\">\n        <div v-for=\"(stat, i) in stats\" :key=\"i\" class=\"stat-card\">\n          <div class=\"stat-title\">{{ stat.title }}</div>\n          <div class=\"stat-value\">{{ stat.value }}</div>\n          <div class=\"stat-change\" :style=\"{ color: stat.color }\">{{ stat.change }}</div>\n        </div>\n      </div>\n    </main>\n  </div>\n</template>\n\n<script setup>\nimport { ref } from 'vue'\n\nconst activeMenu = ref(0)\nconst menuItems = ['Bosh sahifa', 'Analitika', 'Buyurtmalar', 'Foydalanuvchilar', 'Sozlamalar']\nconst stats = [\n  { title: 'Foydalanuvchilar', value: '12,345', change: '+12%', color: '#3b82f6' },\n  { title: 'Daromad', value: '$45,678', change: '+8%', color: '#22c55e' },\n  { title: 'Buyurtmalar', value: '1,234', change: '+5%', color: '#f97316' },\n  { title: 'Sahifalar', value: '56,789', change: '+23%', color: '#a855f7' },\n]\n</script>\n\n<style scoped>\n.dashboard { display: flex; min-height: 100vh; font-family: system-ui; }\n.sidebar { width: 250px; background: #1a1a2e; color: #fff; padding: 20px; }\n.sidebar h2 { margin-bottom: 20px; }\nnav div { padding: 12px; margin-bottom: 4px; border-radius: 8px; cursor: pointer; }\nnav div:hover { background: rgba(255,255,255,0.1); }\nnav div.active { background: #3b82f6; }\nmain { flex: 1; background: #f5f5f5; }\nheader { padding: 20px; background: #fff; border-bottom: 1px solid #e5e5e5; }\n.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 20px; }\n.stat-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e5e5e5; }\n.stat-title { color: #666; font-size: 14px; margin-bottom: 8px; }\n.stat-value { font-size: 28px; font-weight: bold; }\n.stat-change { font-size: 14px; margin-top: 8px; }\n</style>"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Vue Dashboard\n\n**Kategoriya:** Vue.js\n**Qiyinlik:** Hard\n**Teglar:** vue, dashboard, composition, reactive\n\n### Qanday ishlatish kerak:\n\n1. Vue loyiha yarating:\n```bash\nnpm create vue@latest\n```\n\n2. `Dashboard.vue` faylini yarating\n3. `App.vue` da import qiling\n\n### Xususiyatlar:\n- Sidebar menu\n- Stats cards\n- Responsive dizayn\n- Composition API\n"
   }
 ]
