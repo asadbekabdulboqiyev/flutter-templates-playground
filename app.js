@@ -12,11 +12,24 @@ const ICONS = {
 };
 
 const CATEGORIES = [
-  {id:'all',n:'Barchasi',icon:'sparkle'},{id:'flutter',n:'Flutter',icon:'rocket'},
-  {id:'arduino',n:'Arduino',icon:'building'},{id:'python',n:'Python',icon:'document'},
-  {id:'javascript',n:'JavaScript',icon:'globe'},{id:'react',n:'React',icon:'sparkle'},
-  {id:'vue',n:'Vue.js',icon:'sparkle'},{id:'nodejs',n:'Node.js',icon:'globe'},
-  {id:'html-css',n:'HTML/CSS',icon:'palette'},{id:'advanced',n:'Advanced',icon:'building'}
+  {id:'all',n:'Barchasi',icon:'sparkle'},
+  {id:'flutter',n:'Flutter',icon:'rocket'},
+  {id:'arduino',n:'Arduino',icon:'building'},
+  {id:'python',n:'Python',icon:'document'},
+  {id:'javascript',n:'JavaScript',icon:'globe'},
+  {id:'react',n:'React',icon:'sparkle'},
+  {id:'vue',n:'Vue.js',icon:'sparkle'},
+  {id:'nodejs',n:'Node.js',icon:'globe'},
+  {id:'html-css',n:'HTML/CSS',icon:'palette'},
+  {id:'starter',n:'Starter',icon:'rocket'},
+  {id:'pages',n:'Sahifalar',icon:'document'},
+  {id:'auth',n:'Auth',icon:'lock'},
+  {id:'navigation',n:'Navigation',icon:'compass'},
+  {id:'state',n:'State Mgmt',icon:'lightning'},
+  {id:'api',n:'API & Backend',icon:'globe'},
+  {id:'animations',n:'Animations',icon:'sparkle'},
+  {id:'ui',n:'UI Widgets',icon:'palette'},
+  {id:'advanced',n:'Advanced',icon:'building'}
 ];
 
 const LANGUAGES = {
@@ -28,6 +41,12 @@ const LANGUAGES = {
   'vue':{name:'Vue.js',ext:'.vue',color:'#4FC08D'},
   'nodejs':{name:'Node.js',ext:'.js',color:'#339933'},
   'html-css':{name:'HTML/CSS',ext:'.html',color:'#E34F26'}
+};
+
+const LANG_COLORS={
+  'flutter':'#02569B','arduino':'#00979D','python':'#3776AB',
+  'javascript':'#F7DF1E','react':'#61DAFB','vue':'#4FC08D',
+  'nodejs':'#339933','html-css':'#E34F26'
 };
 
 const DIFF_COLORS = {easy:'var(--green)',medium:'var(--yellow)',hard:'var(--red)',expert:'var(--purple)'};
@@ -140,17 +159,9 @@ function runLivePreview(){
     content.innerHTML='';
     content.appendChild(iframe);
   }else if(lang==='python'){
-    content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      <p style="margin-top:12px;font-size:13px">Python live preview hali qo'llab-quvvatlanmaydi</p>
-      <p style="font-size:11px;margin-top:4px">Python kodini nusxalang va lokal muhitda ishga tushiring</p>
-    </div>`;
+    runPythonPreview(code,content);
   }else if(lang==='arduino'){
-    content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      <p style="margin-top:12px;font-size:13px">Arduino IDE da ochish kerak</p>
-      <p style="font-size:11px;margin-top:4px">Kodni nusxalang va Arduino IDE ga yuqiring</p>
-    </div>`;
+    runArduinoPreview(code,content);
   }else{
     content.innerHTML=`<div style="padding:20px;text-align:center;color:var(--text3)">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -161,6 +172,131 @@ function runLivePreview(){
   
   overlay.classList.add('on');
   document.body.style.overflow='hidden';
+}
+
+function runPythonPreview(code,content){
+  content.innerHTML=`<div style="height:100%;display:flex;flex-direction:column">
+    <div style="padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+      <span style="font-size:12px;font-weight:600;color:var(--text)">Python Terminal</span>
+      <span style="font-size:10px;color:var(--text3)">Pyodide yuklanmoqda...</span>
+    </div>
+    <div id="pythonOutput" style="flex:1;padding:16px;font-family:var(--mono);font-size:12px;line-height:1.6;overflow:auto;background:#1e1e1e;color:#d4d4d4;white-space:pre-wrap"></div>
+  </div>`;
+  
+  const output=document.getElementById('pythonOutput');
+  
+  if(!window.loadPyodide){
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js';
+    script.onload=()=>executePython(code,output);
+    script.onerror=()=>{
+      output.innerHTML='<span style="color:#ef4444">Pyodide yuklashda xatolik. Internetni tekshiring.</span>';
+    };
+    document.head.appendChild(script);
+  }else{
+    executePython(code,output);
+  }
+}
+
+async function executePython(code,output){
+  try{
+    output.innerHTML='<span style="color:#22c55e">>>> Pyodide yuklandi. Bajarilmoqda...</span>\n\n';
+    const pyodide=await loadPyodide();
+    
+    let outputBuffer='';
+    pyodide.setStdout({batched:(text)=>{outputBuffer+=text}});
+    pyodide.setStderr({batched:(text)=>{outputBuffer+=text}});
+    
+    await pyodide.runPythonAsync(code);
+    
+    output.innerHTML+=outputBuffer||'<span style="color:#22c55e">>>> Kod muvaffaqiyatli bajarildi (stdout yo\'q)</span>';
+  }catch(e){
+    output.innerHTML+=`\n<span style="color:#ef4444">Xatolik: ${e.message}</span>`;
+  }
+}
+
+function runArduinoPreview(code,content){
+  const lines=code.split('\n');
+  const setupMatch=code.match(/void\s+setup\s*\(\s*\)\s*\{([\s\S]*?)\}/);
+  const loopMatch=code.match(/void\s+loop\s*\(\s*\)\s*\{([\s\S]*?)\}/);
+  
+  const setupCode=setupMatch?setupMatch[1].trim():'';
+  const loopCode=loopMatch?loopMatch[1].trim():'';
+  
+  const pins={};
+  const serialOutput=[];
+  let loopCount=0;
+  
+  function parseLine(line){
+    line=line.trim();
+    if(line.startsWith('//')||line.startsWith('/*')||line.startsWith('*'))return;
+    
+    const pinMatch=line.match(/pinMode\s*\(\s*(\w+)\s*,\s*(OUTPUT|INPUT)\s*\)/);
+    if(pinMatch){
+      pins[pinMatch[1]]={mode:pinMatch[2],value:0};
+      return;
+    }
+    
+    const digitalWriteMatch=line.match(/digitalWrite\s*\(\s*(\w+)\s*,\s*(HIGH|LOW)\s*\)/);
+    if(digitalWriteMatch){
+      const pin=digitalWriteMatch[1];
+      const value=digitalWriteMatch[2]==='HIGH'?1:0;
+      if(pins[pin])pins[pin].value=value;
+      serialOutput.push(`digitalWrite(${pin}, ${digitalWriteMatch[2]})`);
+      return;
+    }
+    
+    const serialMatch=line.match(/Serial\.println\s*\(\s*['"](.+?)['"]\s*\)/);
+    if(serialMatch){
+      serialOutput.push(serialMatch[1]);
+      return;
+    }
+    
+    const delayMatch=line.match(/delay\s*\(\s*(\d+)\s*\)/);
+    if(delayMatch){
+      serialOutput.push(`delay(${delayMatch[1]}ms)`);
+      return;
+    }
+  }
+  
+  setupCode.split('\n').forEach(parseLine);
+  
+  for(let i=0;i<3;i++){
+    loopCode.split('\n').forEach(parseLine);
+    loopCount++;
+  }
+  
+  const pinHTML=Object.entries(pins).map(([name,pin])=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border-radius:6px;border:1px solid var(--border)">
+      <div style="width:12px;height:12px;border-radius:50%;background:${pin.value?'#22c55e':'#52525b'};box-shadow:${pin.value?'0 0 8px #22c55e':''}"></div>
+      <span style="font-size:11px;font-family:var(--mono)">${name}</span>
+      <span style="font-size:10px;color:var(--text3);margin-left:auto">${pin.mode} — ${pin.value?'HIGH':'LOW'}</span>
+    </div>
+  `).join('');
+  
+  content.innerHTML=`<div style="height:100%;display:flex;flex-direction:column">
+    <div style="padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+      <span style="font-size:12px;font-weight:600;color:var(--text)">Arduino Simulator</span>
+      <span style="font-size:10px;color:var(--text3)">Simulyatsiya — haqiqiy hardware emas</span>
+    </div>
+    <div style="flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:16px">
+      <div>
+        <h4 style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Pin Holati</h4>
+        <div style="display:flex;flex-direction:column;gap:4px">${pinHTML||'<div style="color:var(--text3);font-size:12px">Pin aniqlanmadi</div>'}</div>
+      </div>
+      <div>
+        <h4 style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Serial Monitor</h4>
+        <div style="background:#1e1e1e;border-radius:6px;padding:12px;font-family:var(--mono);font-size:11px;line-height:1.6;color:#d4d4d4;max-height:300px;overflow:auto">
+          ${serialOutput.map((line,i)=>`<div style="color:${line.startsWith('delay')?'#eab308':line.startsWith('digitalWrite')?'#22c55e':'#d4d4d4'}">${line}</div>`).join('')||'<div style="color:#52525b">Serial output yo\'q</div>'}
+        </div>
+      </div>
+      <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
+        <p style="font-size:11px;color:var(--text3);line-height:1.6">
+          <strong style="color:var(--text)">Eslatma:</strong> Bu simulyatsiya. Haqiqiy Arduino ishlatish uchun Arduino IDE da kodni yuklang.
+        </p>
+      </div>
+    </div>
+  </div>`;
 }
 
 function closePreviewOverlay(){
@@ -231,19 +367,26 @@ function renderGrid(){
     grid.innerHTML=`<div class="empty" role="status">${icon('search')}<p>Hech narsa topilmadi</p></div>`;
     return;
   }
-  grid.innerHTML=filtered.map(t=>`<div class="card" role="button" tabindex="0" aria-label="${t.n}" onclick="openModal('${t.id}')" onkeydown="if(event.key==='Enter')openModal('${t.id}')">
-    <div class="card-top"><div class="card-icon" aria-hidden="true">${icon(t.icon||'sparkle')}</div><span class="diff diff-${t.diff}" aria-label="${t.diff} difficulty">${t.diff}</span></div>
+  grid.innerHTML=filtered.map(t=>{
+    const langColor=LANG_COLORS[t.c]||'#3b82f6';
+    return `<div class="card" role="button" tabindex="0" aria-label="${t.n}" onclick="openModal('${t.id}')" onkeydown="if(event.key==='Enter')openModal('${t.id}')">
+    <div class="card-top"><div class="card-icon" aria-hidden="true" style="background:${langColor}20"><div style="width:16px;height:16px;border-radius:4px;background:${langColor}"></div></div><span class="diff diff-${t.diff}" aria-label="${t.diff} difficulty">${t.diff}</span></div>
     <h3>${t.n}</h3><p>${t.d}</p>
-    <div class="tags" aria-label="Tags">${t.t.slice(0,3).map(x=>`<span class="tag">${x}</span>`).join('')}</div>
+    <div class="tags" aria-label="Tags"><span class="tag" style="background:${langColor}20;color:${langColor}">${LANGUAGES[t.c]?.name||t.c}</span>${t.t.slice(0,2).map(x=>`<span class="tag">${x}</span>`).join('')}</div>
     <div class="card-actions">
       <button class="c-btn copy" aria-label="Copy ${t.n}" onclick="event.stopPropagation();copyTemplate('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copy</button>
       <button class="c-btn view" aria-label="View ${t.n} code" onclick="event.stopPropagation();openModal('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code</button>
       <button class="c-btn download" aria-label="Download ${t.n}" onclick="event.stopPropagation();downloadTemplate('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Save</button>
       <button class="c-btn info" aria-label="Show ${t.n} instructions" onclick="event.stopPropagation();openInstructions('${t.id}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Info</button>
-    </div></div>`).join('');
+    </div></div>`;
+  }).join('');
 }
 
-function updateStats(){document.getElementById('totalCount').textContent=templates.length;}
+function updateStats(){
+  document.getElementById('totalCount').textContent=templates.length;
+  const langs=new Set(templates.map(t=>t.c));
+  document.getElementById('langCount').textContent=langs.size;
+}
 function setCategory(id){category=id;difficultyFilter='';renderTabs();renderSidebar();renderGrid();}
 function filterDifficulty(d){
   difficultyFilter=difficultyFilter===d?'':d;
