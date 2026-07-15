@@ -6,6 +6,7 @@
     "diff": "easy",
     "c": "starter",
     "t": [
+      "flutter",
       "material",
       "theme",
       "setup"
@@ -29,6 +30,7 @@
     "diff": "medium",
     "c": "navigation",
     "t": [
+      "flutter",
       "bottomnav",
       "indexedstack",
       "navigation"
@@ -52,6 +54,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "profile",
       "settings",
       "avatar"
@@ -74,6 +77,7 @@
     "diff": "medium",
     "c": "auth",
     "t": [
+      "flutter",
       "login",
       "register",
       "form",
@@ -97,6 +101,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "dio",
       "api",
       "http",
@@ -120,6 +125,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "animatedlist",
       "animation",
       "list"
@@ -142,6 +148,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "settings",
       "switch",
       "slider"
@@ -164,6 +171,7 @@
     "diff": "medium",
     "c": "state",
     "t": [
+      "flutter",
       "provider",
       "statemanagement",
       "change-notifier"
@@ -187,6 +195,7 @@
     "diff": "easy",
     "c": "navigation",
     "t": [
+      "flutter",
       "drawer",
       "navigation",
       "menu"
@@ -209,6 +218,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "onboarding",
       "pageview",
       "intro"
@@ -231,6 +241,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "splash",
       "loading",
       "animation"
@@ -253,6 +264,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "dashboard",
       "stats",
       "chart"
@@ -275,6 +287,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "chat",
       "message",
       "conversation"
@@ -297,6 +310,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "cart",
       "shopping",
       "checkout"
@@ -319,6 +333,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "feed",
       "social",
       "post"
@@ -341,6 +356,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "gallery",
       "image",
       "photo"
@@ -363,6 +379,7 @@
     "diff": "easy",
     "c": "auth",
     "t": [
+      "flutter",
       "otp",
       "verify",
       "code"
@@ -385,6 +402,7 @@
     "diff": "easy",
     "c": "auth",
     "t": [
+      "flutter",
       "forgot",
       "password",
       "reset"
@@ -407,6 +425,7 @@
     "diff": "easy",
     "c": "auth",
     "t": [
+      "flutter",
       "social",
       "google",
       "apple"
@@ -429,6 +448,7 @@
     "diff": "easy",
     "c": "navigation",
     "t": [
+      "flutter",
       "tabbar",
       "tabs"
     ],
@@ -450,6 +470,7 @@
     "diff": "medium",
     "c": "navigation",
     "t": [
+      "flutter",
       "pageview",
       "swipe",
       "gesture"
@@ -472,6 +493,7 @@
     "diff": "medium",
     "c": "navigation",
     "t": [
+      "flutter",
       "rail",
       "side",
       "responsive"
@@ -494,6 +516,7 @@
     "diff": "medium",
     "c": "navigation",
     "t": [
+      "flutter",
       "sidebar",
       "navigation",
       "panel"
@@ -516,6 +539,7 @@
     "diff": "medium",
     "c": "state",
     "t": [
+      "flutter",
       "riverpod",
       "provider",
       "state"
@@ -539,6 +563,7 @@
     "diff": "hard",
     "c": "state",
     "t": [
+      "flutter",
       "bloc",
       "cubit",
       "event"
@@ -562,6 +587,7 @@
     "diff": "medium",
     "c": "state",
     "t": [
+      "flutter",
       "getx",
       "reactive",
       "simple"
@@ -584,6 +610,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "form",
       "validation",
       "input"
@@ -606,6 +633,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "search",
       "filter",
       "realtime"
@@ -628,6 +656,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "product",
       "card",
       "shop"
@@ -650,6 +679,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "implicit",
       "animatedcontainer"
     ],
@@ -671,6 +701,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "hero",
       "animation",
       "transition"
@@ -693,6 +724,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "scale",
       "zoom",
       "transform"
@@ -715,6 +747,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "firebase",
       "auth"
     ],
@@ -736,6 +769,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "rest",
       "api",
       "client"
@@ -758,6 +792,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "skeleton",
       "loading",
       "placeholder"
@@ -780,6 +815,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "shimmer",
       "glow",
       "loading"
@@ -802,6 +838,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "timeline",
       "history",
       "steps"
@@ -824,6 +861,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "chat",
       "bubble",
       "message"
@@ -846,6 +884,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "rating",
       "star",
       "score"
@@ -868,6 +907,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "pricing",
       "plan",
       "subscription"
@@ -890,6 +930,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "tooltip",
       "hint",
       "info"
@@ -912,6 +953,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "chip",
       "tag",
       "filter"
@@ -934,6 +976,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "swipe",
       "dismiss",
       "dismissible"
@@ -956,6 +999,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "refresh",
       "pull",
       "reload"
@@ -978,6 +1022,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "lottie",
       "json",
       "animation"
@@ -1000,6 +1045,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "staggered",
       "grid",
       "mosaic"
@@ -1022,6 +1068,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "parallax",
       "scroll",
       "effect"
@@ -1044,6 +1091,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "transition",
       "route",
       "animation"
@@ -1066,6 +1114,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "video",
       "player",
       "media"
@@ -1088,6 +1137,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "audio",
       "player",
       "music"
@@ -1110,6 +1160,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "timeline",
       "steps",
       "history"
@@ -1132,6 +1183,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "about",
       "info",
       "app"
@@ -1154,6 +1206,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "contact",
       "form",
       "message"
@@ -1176,6 +1229,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "file",
       "folder",
       "storage"
@@ -1198,6 +1252,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "map",
       "location",
       "geo"
@@ -1220,6 +1275,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "calendar",
       "date",
       "event"
@@ -1242,6 +1298,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "list",
       "scroll",
       "item"
@@ -1264,6 +1321,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "detail",
       "view",
       "info"
@@ -1286,6 +1344,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "create",
       "add",
       "form"
@@ -1308,6 +1367,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "edit",
       "update",
       "form"
@@ -1330,6 +1390,7 @@
     "diff": "easy",
     "c": "auth",
     "t": [
+      "flutter",
       "biometric",
       "fingerprint",
       "face"
@@ -1352,6 +1413,7 @@
     "diff": "medium",
     "c": "starter",
     "t": [
+      "flutter",
       "responsive",
       "adaptive",
       "layout"
@@ -1374,6 +1436,7 @@
     "diff": "easy",
     "c": "state",
     "t": [
+      "flutter",
       "valuenotifier",
       "simple"
     ],
@@ -1395,6 +1458,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "firestore",
       "crud",
       "cloud"
@@ -1417,6 +1481,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "graphql",
       "query",
       "mutation"
@@ -1439,6 +1504,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "websocket",
       "realtime",
       "socket"
@@ -1461,6 +1527,7 @@
     "diff": "medium",
     "c": "state",
     "t": [
+      "flutter",
       "cubit",
       "bloc",
       "simple"
@@ -1483,6 +1550,7 @@
     "diff": "medium",
     "c": "state",
     "t": [
+      "flutter",
       "inherited",
       "widget",
       "tree"
@@ -1505,6 +1573,7 @@
     "diff": "medium",
     "c": "starter",
     "t": [
+      "flutter",
       "responsive",
       "adaptive",
       "layout"
@@ -1527,6 +1596,7 @@
     "diff": "medium",
     "c": "starter",
     "t": [
+      "flutter",
       "multi",
       "screen",
       "route"
@@ -1549,6 +1619,7 @@
     "diff": "hard",
     "c": "animations",
     "t": [
+      "flutter",
       "custompaint",
       "canvas",
       "draw"
@@ -1571,6 +1642,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "rotation",
       "spin",
       "rotate"
@@ -1593,6 +1665,7 @@
     "diff": "hard",
     "c": "animations",
     "t": [
+      "flutter",
       "explicit",
       "animationcontroller",
       "tween"
@@ -1615,6 +1688,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "staggered",
       "grid",
       "mosaic"
@@ -1637,6 +1711,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "parallax",
       "scroll",
       "effect"
@@ -1659,6 +1734,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "transition",
       "route",
       "animation"
@@ -1681,6 +1757,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "video",
       "player",
       "media"
@@ -1703,6 +1780,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "audio",
       "player",
       "music"
@@ -1725,6 +1803,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "carousel",
       "slider",
       "swipe"
@@ -1747,6 +1826,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "feature",
       "grid",
       "showcase"
@@ -1769,6 +1849,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "testimonial",
       "review",
       "feedback"
@@ -1791,6 +1872,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "accordion",
       "expand",
       "collapse"
@@ -1813,6 +1895,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "progress",
       "loading",
       "indicator"
@@ -1835,6 +1918,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "timeline",
       "history",
       "steps"
@@ -1857,6 +1941,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "notification",
       "item",
       "list"
@@ -1879,6 +1964,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "article",
       "blog",
       "post"
@@ -1901,6 +1987,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "skeleton",
       "loading",
       "placeholder"
@@ -1923,6 +2010,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "shimmer",
       "glow",
       "loading"
@@ -1945,6 +2033,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "swipe",
       "dismiss",
       "dismissible"
@@ -1967,6 +2056,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "refresh",
       "pull",
       "reload"
@@ -1989,6 +2079,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "lottie",
       "json",
       "animation"
@@ -2011,6 +2102,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "implicit",
       "animatedcontainer"
     ],
@@ -2032,6 +2124,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "scale",
       "zoom",
       "transform"
@@ -2054,6 +2147,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "hero",
       "animation",
       "transition"
@@ -2076,6 +2170,7 @@
     "diff": "medium",
     "c": "pages",
     "t": [
+      "flutter",
       "timeline",
       "steps",
       "history"
@@ -2098,6 +2193,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "pricing",
       "plan",
       "subscription"
@@ -2120,6 +2216,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "tooltip",
       "hint",
       "info"
@@ -2142,6 +2239,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "chip",
       "tag",
       "filter"
@@ -2164,6 +2262,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "lottie",
       "json",
       "animation"
@@ -2186,6 +2285,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "splash",
       "animation",
       "launch"
@@ -2208,6 +2308,7 @@
     "diff": "easy",
     "c": "pages",
     "t": [
+      "flutter",
       "error",
       "404",
       "notfound"
@@ -2230,6 +2331,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "empty",
       "placeholder",
       "nostate"
@@ -2252,6 +2354,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "search",
       "bar",
       "input"
@@ -2274,6 +2377,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "badge",
       "notification",
       "count"
@@ -2296,6 +2400,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "avatar",
       "group",
       "stack"
@@ -2318,6 +2423,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "expandable",
       "card",
       "toggle"
@@ -2340,6 +2446,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "countdown",
       "timer",
       "clock"
@@ -2362,6 +2469,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "qr",
       "scanner",
       "barcode"
@@ -2384,6 +2492,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "color",
       "picker",
       "select"
@@ -2406,6 +2515,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "rating",
       "dialog",
       "feedback"
@@ -2428,6 +2538,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "date",
       "range",
       "picker"
@@ -2450,6 +2561,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "time",
       "picker",
       "clock"
@@ -2472,6 +2584,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "bottomsheet",
       "modal",
       "sheet"
@@ -2494,6 +2607,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "alert",
       "dialog",
       "confirm"
@@ -2516,6 +2630,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "snackbar",
       "toast",
       "message"
@@ -2538,6 +2653,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "opacity",
       "fade",
       "animated"
@@ -2560,6 +2676,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "slide",
       "transition",
       "page"
@@ -2582,6 +2699,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "fade",
       "transition",
       "page"
@@ -2604,6 +2722,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "scale",
       "transition",
       "page"
@@ -2626,6 +2745,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "size",
       "transition",
       "expand"
@@ -2648,6 +2768,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "positioned",
       "animated",
       "move"
@@ -2670,6 +2791,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "switcher",
       "animated",
       "change"
@@ -2692,6 +2814,7 @@
     "diff": "hard",
     "c": "animations",
     "t": [
+      "flutter",
       "controller",
       "advanced",
       "custom"
@@ -2714,6 +2837,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "form",
       "multistep",
       "wizard"
@@ -2736,6 +2860,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "wizard",
       "step",
       "form"
@@ -2758,6 +2883,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "animated",
       "listtile",
       "item"
@@ -2780,6 +2906,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "flip",
       "card",
       "rotate"
@@ -2802,6 +2929,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "marquee",
       "scroll",
       "text"
@@ -2824,6 +2952,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "counter",
       "number",
       "animated"
@@ -2846,6 +2975,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "loading",
       "overlay",
       "spinner"
@@ -2868,6 +2998,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "network",
       "image",
       "cache"
@@ -2890,6 +3021,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "cached",
       "image",
       "offline"
@@ -2912,6 +3044,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "lifecycle",
       "init",
       "dispose"
@@ -2934,6 +3067,7 @@
     "diff": "easy",
     "c": "starter",
     "t": [
+      "flutter",
       "orientation",
       "builder",
       "responsive"
@@ -2956,6 +3090,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "keyboard",
       "dismiss",
       "tap"
@@ -2978,6 +3113,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "scroll",
       "hide",
       "fab"
@@ -3000,6 +3136,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "slidable",
       "swipe",
       "action"
@@ -3022,6 +3159,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "draggable",
       "drag",
       "move"
@@ -3044,6 +3182,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "reorder",
       "drag",
       "sort"
@@ -3066,6 +3205,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "popup",
       "menu",
       "action"
@@ -3088,6 +3228,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "stepper",
       "step",
       "wizard"
@@ -3110,6 +3251,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "expansion",
       "tile",
       "expand"
@@ -3132,6 +3274,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "table",
       "data",
       "grid"
@@ -3154,6 +3297,7 @@
     "diff": "easy",
     "c": "ui",
     "t": [
+      "flutter",
       "listtile",
       "custom",
       "item"
@@ -3176,6 +3320,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "tab",
       "indicator",
       "custom"
@@ -3198,6 +3343,7 @@
     "diff": "hard",
     "c": "ui",
     "t": [
+      "flutter",
       "drag",
       "reorder",
       "grid"
@@ -3220,6 +3366,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "sliver",
       "header",
       "sticky"
@@ -3242,6 +3389,7 @@
     "diff": "hard",
     "c": "ui",
     "t": [
+      "flutter",
       "persistent",
       "header",
       "collapse"
@@ -3264,6 +3412,7 @@
     "diff": "medium",
     "c": "ui",
     "t": [
+      "flutter",
       "sticky",
       "header",
       "list"
@@ -3286,6 +3435,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "animated",
       "container",
       "size"
@@ -3308,6 +3458,7 @@
     "diff": "easy",
     "c": "animations",
     "t": [
+      "flutter",
       "physical",
       "model",
       "elevation"
@@ -3330,6 +3481,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "hero",
       "detail",
       "page"
@@ -3352,6 +3504,7 @@
     "diff": "medium",
     "c": "animations",
     "t": [
+      "flutter",
       "builder",
       "animated",
       "rebuild"
@@ -3374,6 +3527,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "clean-architecture",
       "domain",
       "data",
@@ -3442,6 +3596,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "bloc",
       "cubit",
       "state-management",
@@ -3485,6 +3640,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "riverpod",
       "state-management",
       "providers",
@@ -3533,6 +3689,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "gorouter",
       "navigation",
       "routing",
@@ -3581,6 +3738,7 @@
     "diff": "expert",
     "c": "api",
     "t": [
+      "flutter",
       "websocket",
       "realtime",
       "chat",
@@ -3609,6 +3767,7 @@
     "diff": "expert",
     "c": "api",
     "t": [
+      "flutter",
       "firebase",
       "auth",
       "firestore",
@@ -3642,6 +3801,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "animation",
       "controller",
       "tween",
@@ -3690,6 +3850,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "platform-channels",
       "native",
       "ios",
@@ -3718,6 +3879,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "render-object",
       "custom-layout",
       "layout",
@@ -3746,6 +3908,7 @@
     "diff": "hard",
     "c": "ui",
     "t": [
+      "flutter",
       "form",
       "validation",
       "text-field",
@@ -3779,6 +3942,7 @@
     "diff": "expert",
     "c": "api",
     "t": [
+      "flutter",
       "in-app-purchase",
       "billing",
       "subscription",
@@ -3802,6 +3966,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "isolate",
       "background",
       "compute",
@@ -3830,6 +3995,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "shader",
       "fragment",
       "custom-paint",
@@ -3858,6 +4024,7 @@
     "diff": "hard",
     "c": "ui",
     "t": [
+      "flutter",
       "slivers",
       "scroll",
       "custom-scroll",
@@ -3886,6 +4053,7 @@
     "diff": "expert",
     "c": "advanced",
     "t": [
+      "flutter",
       "state-machine",
       "pattern",
       "fsm",
@@ -3914,6 +4082,7 @@
     "diff": "hard",
     "c": "starter",
     "t": [
+      "flutter",
       "responsive",
       "layout",
       "adaptive",
@@ -3947,6 +4116,7 @@
     "diff": "hard",
     "c": "ui",
     "t": [
+      "flutter",
       "data-table",
       "sorting",
       "pagination",
@@ -3980,6 +4150,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "fcm",
       "push",
       "notifications",
@@ -4003,6 +4174,7 @@
     "diff": "hard",
     "c": "state",
     "t": [
+      "flutter",
       "cubit",
       "bloc",
       "state-management",
@@ -4031,6 +4203,7 @@
     "diff": "hard",
     "c": "api",
     "t": [
+      "flutter",
       "websocket",
       "realtime",
       "stream",
@@ -4054,6 +4227,7 @@
     "diff": "medium",
     "c": "auth",
     "t": [
+      "flutter",
       "google",
       "login",
       "material3",
@@ -4087,6 +4261,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "instagram",
       "feed",
       "stories",
@@ -4131,6 +4306,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "whatsapp",
       "chat",
       "calls",
@@ -4170,6 +4346,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "spotify",
       "music",
       "player",
@@ -4214,6 +4391,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "telegram",
       "chat",
       "messaging",
@@ -4243,6 +4421,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "netflix",
       "streaming",
       "movies",
@@ -4282,6 +4461,7 @@
     "diff": "hard",
     "c": "pages",
     "t": [
+      "flutter",
       "tiktok",
       "video",
       "feed",

@@ -330,9 +330,17 @@ async function init(){
 
 function renderSidebar(){
   const nav=document.getElementById('sidebarNav');
+  const flutterCats=['starter','pages','auth','navigation','state','api','animations','ui','advanced'];
   let html='<div class="s-section">Categories</div>';
   CATEGORIES.forEach(c=>{
-    const count=c.id==='all'?templates.length:templates.filter(t=>t.c===c.id).length;
+    let count;
+    if(c.id==='all'){
+      count=templates.length;
+    }else if(c.id==='flutter'){
+      count=templates.filter(t=>flutterCats.includes(t.c)||t.t.includes('flutter')).length;
+    }else{
+      count=templates.filter(t=>t.c===c.id).length;
+    }
     html+=`<div class="s-item ${c.id===category?'active':''}" role="button" tabindex="0" aria-pressed="${c.id===category}" onclick="setCategory('${c.id}')" onkeydown="if(event.key==='Enter')setCategory('${c.id}')">${icon(c.icon)}${c.n}<span class="count">${count}</span></div>`;
   });
   html+='<div class="s-section">Difficulty</div>';
@@ -350,9 +358,17 @@ function renderTabs(){
 }
 
 function getFiltered(){
+  const flutterCats=['starter','pages','auth','navigation','state','api','animations','ui','advanced'];
   return templates.filter(t=>{
     const matchQ=!query||t.n.toLowerCase().includes(query.toLowerCase())||t.d.toLowerCase().includes(query.toLowerCase())||t.t.some(x=>x.toLowerCase().includes(query.toLowerCase()));
-    const matchC=category==='all'||t.c===category;
+    let matchC=category==='all';
+    if(!matchC){
+      if(category==='flutter'){
+        matchC=flutterCats.includes(t.c)||t.t.includes('flutter');
+      }else{
+        matchC=t.c===category;
+      }
+    }
     const matchD=!difficultyFilter||t.diff===difficultyFilter;
     return matchQ&&matchC&&matchD;
   });
