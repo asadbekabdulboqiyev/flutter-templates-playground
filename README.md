@@ -67,8 +67,11 @@ Visit the [live demo](https://asadbekabdulboqiyev.github.io/flutter-templates-pl
 git clone https://github.com/asadbekabdulboqiyev/flutter-templates-playground.git
 cd flutter-templates-playground
 
+# Start local server (required for fetch() to work)
+python3 -m http.server 8080
+
 # Open in browser
-open index.html
+open http://localhost:8080
 ```
 
 ### Option 3: Use a Template
@@ -103,9 +106,11 @@ flutter run
 
 ```
 flutter-templates-playground/
-├── index.html          # Main website
-├── templates.json      # All template data
-├── code_info/          # Preview screenshots (optional)
+├── index.html          # Main HTML (semantic, accessible)
+├── styles.css          # All CSS styles
+├── app.js              # All JavaScript logic
+├── templates.json      # 180+ template data
+├── code_info/          # Preview screenshots
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml  # GitHub Actions
