@@ -1,6 +1,6 @@
-# CodeBase
+# NestoCodebase
 
-> 200+ multi-language code templates with live preview, copy-paste ready code, and step-by-step instructions.
+> 212+ multi-language code templates with live preview, copy-paste ready code, and step-by-step instructions.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
 [![Arduino](https://img.shields.io/badge/Arduino-1.x-00979D?style=flat-square&logo=arduino)](https://www.arduino.cc)

@@ -4856,7 +4856,7 @@
     "instructions": "## Bluetooth Boshqaruvi\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- HC-05/HC-06 Bluetooth\n- L298N Motor Driver\n- 2x DC Motor\n- Telefon (Bluetooth App)\n\n### Ulanma:\n- HC-05 TX -> Pin 10 (RX)\n- HC-05 RX -> Pin 11 (TX) + voltage divider\n- Motor A: EN->5, IN1->6, IN2->7\n- Motor B: EN->9, IN1->8, IN2->12\n\n### Buyruqlar:\n- F = Oldga\n- B = Orqaga\n- L = Chapga\n- R = O'ngga\n- S = To'xtash\n- 1-4 = Tezlik darajasi"
   },
   {
-    "id": "arduino-mqtt",
+    "id": "mqtt-iot",
     "n": "MQTT IoT Sensor",
     "i": "📡",
     "diff": "hard",
@@ -4874,10 +4874,374 @@
       {
         "n": "mqtt_sensor.ino",
         "p": "mqtt_sensor.ino",
-        "c": "#include <ESP8266WiFi.h>\n#include <PubSubClient.h>\n\n// WiFi\nconst char* ssid = 'WiFi_Nomi';\nconst char* password = 'WiFi_Parol';\n\n// MQTT\nconst char* mqtt_server = 'broker.hivemq.com';\nconst int mqtt_port = 1883;\nconst char* topic_temp = 'codebase/temperature';\nconst char* topic_humid = 'codebase/humidity';\nconst char* topic_led = 'codebase/led';\n\n// Sensor\nconst int SENSOR_PIN = A0;\nconst int LED_PIN = 2;\n\nWiFiClient espClient;\nPubSubClient client(espClient);\n\nvoid setup_wifi() {\n  delay(10);\n  Serial.println();\n  Serial.print('Connecting to ');\n  Serial.println(ssid);\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(500);\n    Serial.print('.');\n  }\n  Serial.println('');\n  Serial.println('WiFi connected');\n  Serial.println('IP: ');\n  Serial.println(WiFi.localIP());\n}\n\nvoid callback(char* topic, byte* payload, unsigned int length) {\n  String message;\n  for (int i = 0; i < length; i++) {\n    message += (char)payload[i];\n  }\n  Serial.print('Message [');\n  Serial.print(topic);\n  Serial.print(']: ');\n  Serial.println(message);\n  \n  if (String(topic) == topic_led) {\n    if (message == \"ON\") digitalWrite(LED_PIN, HIGH);\n    else if (message == \"OFF\") digitalWrite(LED_PIN, LOW);\n  }\n}\n\nvoid reconnect() {\n  while (!client.connected()) {\n    Serial.print('MQTT connecting...');\n    if (client.connect('CodeBaseESP8266')) {\n      Serial.println('connected');\n      client.subscribe(topic_led);\n    } else {\n      Serial.print('failed, rc=');\n      Serial.print(client.state());\n      Serial.println(' retry in 5 sec');\n      delay(5000);\n    }\n  }\n}\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  setup_wifi();\n  client.setServer(mqtt_server, mqtt_port);\n  client.setCallback(callback);\n}\n\nvoid loop() {\n  if (!client.connected()) reconnect();\n  client.loop();\n  \n  static unsigned long lastPublish = 0;\n  if (millis() - lastPublish > 5000) {\n    float temp = analogRead(SENSOR_PIN) * 0.48828125;\n    float humid = 60 + random(-10, 10);\n    \n    char tempStr[8];\n    char humidStr[8];\n    dtostrf(temp, 4, 1, tempStr);\n    dtostrf(humid, 4, 1, humidStr);\n    \n    client.publish(topic_temp, tempStr);\n    client.publish(topic_humid, humidStr);\n    \n    Serial.print('Published - Temp: ');\n    Serial.print(tempStr);\n    Serial.print(' C, Humid: ');\n    Serial.print(humidStr);\n    Serial.println(' %');\n    \n    lastPublish = millis();\n  }\n}"
+        "c": "#include <ESP8266WiFi.h>\n#include <PubSubClient.h>\n\nconst char* ssid = 'WiFi_Nomi';\nconst char* password = 'WiFi_Parol';\nconst char* mqtt_server = 'broker.hivemq.com';\n\nWiFiClient espClient;\nPubSubClient client(espClient);\n\nvoid setup_wifi() {\n  WiFi.begin(ssid, password);\n  while (WiFi.status() != WL_CONNECTED) delay(500);\n}\n\nvoid callback(char* topic, byte* payload, unsigned int length) {\n  String msg;\n  for (int i = 0; i < length; i++) msg += (char)payload[i];\n  Serial.println(msg);\n}\n\nvoid reconnect() {\n  while (!client.connected()) {\n    client.connect('ESP8266Client');\n    client.subscribe('codebase/led');\n  }\n}\n\nvoid setup() {\n  Serial.begin(9600);\n  setup_wifi();\n  client.setServer(mqtt_server, 1883);\n  client.setCallback(callback);\n}\n\nvoid loop() {\n  if (!client.connected()) reconnect();\n  client.loop();\n  static unsigned long last = 0;\n  if (millis() - last > 5000) {\n    float temp = analogRead(A0) * 0.488;\n    char buf[8];\n    dtostrf(temp, 4, 1, buf);\n    client.publish('codebase/temp', buf);\n    last = millis();\n  }\n}"
       }
     ],
     "icon": "globe",
-    "instructions": "## MQTT IoT Sensor\n\n### Kerakli uskunalar:\n- ESP8266 (NodeMCU/Wemos D1 Mini)\n- Harorat sensori (LM35 yoki DHT11)\n- LED\n\n### Kutubxonalari:\n- ESP8266WiFi\n- PubSubClient\n\n### O'rnash:\n- Arduino IDE → Preferences → Additional Board URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json\n- Tools → Board → ESP8266 Boards\n\n### MQTT Topiklari:\n- codebase/temperature → Harorat\n- codebase/humidity → Namlik\n- codebase/led → LED boshqaruvi (ON/OFF)\n\n### Broker:\n- HiveMQ: broker.hivemq.com:1883\n- Test: mqtt-explorer.com"
+    "instructions": "## MQTT IoT\n\n### Kerakli:\n- ESP8266 (NodeMCU)\n- DHT11/LM35 sensor\n\n### Ulanma:\n- Sensor -> A0\n- WiFi va MQTT broker kerak"
+  },
+  {
+    "id": "python-fibonacci",
+    "n": "Python Fibonacci",
+    "i": "🐍",
+    "diff": "easy",
+    "c": "python",
+    "t": [
+      "python",
+      "fibonacci",
+      "algorithm"
+    ],
+    "d": "Fibonacci ketma-ketligini hisoblash.",
+    "f": [
+      {
+        "n": "fibonacci.py",
+        "p": "fibonacci.py",
+        "c": "def fibonacci(n):\n    if n <= 1: return n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n\nfor i in range(10):\n    print(f'Fib({i}) = {fibonacci(i)}')"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Python Fibonacci\n\n```bash\npython fibonacci.py\n```"
+  },
+  {
+    "id": "python-flask-api",
+    "n": "Flask REST API",
+    "i": "🌐",
+    "diff": "medium",
+    "c": "python",
+    "t": [
+      "python",
+      "flask",
+      "api",
+      "rest"
+    ],
+    "d": "Flask bilan REST API yaratish.",
+    "f": [
+      {
+        "n": "app.py",
+        "p": "app.py",
+        "c": "from flask import Flask, jsonify, request\napp = Flask(__name__)\nusers = [{'id':1,'name':'Ali'}]\n\n@app.route('/api/users')\ndef get_users(): return jsonify(users)\n\n@app.route('/api/users',methods=['POST'])\ndef add_user():\n    users.append({'id':len(users)+1,'name':request.json['name']})\n    return jsonify({'ok':True})\n\nif __name__=='__main__': app.run(debug=True)"
+      }
+    ],
+    "icon": "globe",
+    "instructions": "## Flask API\n\n```bash\npip install flask\npython app.py\n```"
+  },
+  {
+    "id": "python-web-scraper",
+    "n": "Web Scraper",
+    "i": "🕷️",
+    "diff": "medium",
+    "c": "python",
+    "t": [
+      "python",
+      "scraper",
+      "beautifulsoup"
+    ],
+    "d": "BeautifulSoup bilan web skraper.",
+    "f": [
+      {
+        "n": "scraper.py",
+        "p": "scraper.py",
+        "c": "import requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://example.com'\nres = requests.get(url)\nsoup = BeautifulSoup(res.text, 'html.parser')\nfor title in soup.find_all('h1'):\n    print(title.text)"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Web Scraper\n\n```bash\npip install requests beautifulsoup4\npython scraper.py\n```"
+  },
+  {
+    "id": "python-tkinter",
+    "n": "Tkinter GUI",
+    "i": "🖥️",
+    "diff": "medium",
+    "c": "python",
+    "t": [
+      "python",
+      "tkinter",
+      "gui",
+      "desktop"
+    ],
+    "d": "Tkinter bilan desktop ilova.",
+    "f": [
+      {
+        "n": "gui_app.py",
+        "p": "gui_app.py",
+        "c": "import tkinter as tk\nfrom tkinter import messagebox\n\ndef on_click():\n    name = entry.get()\n    if name: messagebox.showinfo('Salom', f'Xush kelibsiz, {name}!')\n\nroot = tk.Tk()\nroot.title('CodeBase App')\nroot.geometry('300x200')\ntk.Label(root, text='Ismingiz:', font=('Arial',14)).pack(pady=10)\nentry = tk.Entry(root, font=('Arial',12))\nentry.pack(pady=5)\ntk.Button(root, text='Salomlash', command=on_click, bg='#3b82f6', fg='white').pack(pady=20)\nroot.mainloop()"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## Tkinter GUI\n\n```bash\npython gui_app.py\n```"
+  },
+  {
+    "id": "python-decorators",
+    "n": "Python Decorators",
+    "i": "🎭",
+    "diff": "medium",
+    "c": "python",
+    "t": [
+      "python",
+      "decorator",
+      "closure"
+    ],
+    "d": "Custom decorator yaratish.",
+    "f": [
+      {
+        "n": "decorators.py",
+        "p": "decorators.py",
+        "c": "import time\nfrom functools import wraps\n\ndef timer(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        start = time.time()\n        result = func(*args, **kwargs)\n        print(f'{func.__name__}: {time.time()-start:.4f}s')\n        return result\n    return wrapper\n\n@timer\ndef slow():\n    time.sleep(1)\n    return 'Done'\n\nprint(slow())"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Decorators\n\n```bash\npython decorators.py\n```"
+  },
+  {
+    "id": "python-oop",
+    "n": "Python OOP",
+    "i": "📦",
+    "diff": "easy",
+    "c": "python",
+    "t": [
+      "python",
+      "class",
+      "oop"
+    ],
+    "d": "Python OOP asoslari.",
+    "f": [
+      {
+        "n": "oop.py",
+        "p": "oop.py",
+        "c": "class Animal:\n    def __init__(self, name, sound):\n        self.name = name\n        self.sound = sound\n    def speak(self): return f'{self.name}: {self.sound}'\n\nclass Dog(Animal):\n    def __init__(self, name): super().__init__(name, 'Vov-vov')\n    def fetch(self): return f'{self.name} koptokni olib keldi!'\n\ndog = Dog('Rex')\nprint(dog.speak())\nprint(dog.fetch())"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Python OOP\n\n```bash\npython oop.py\n```"
+  },
+  {
+    "id": "python-json-csv",
+    "n": "JSON/CSV Handler",
+    "i": "📊",
+    "diff": "easy",
+    "c": "python",
+    "t": [
+      "python",
+      "json",
+      "csv",
+      "file"
+    ],
+    "d": "JSON va CSV fayllar bilan ishlash.",
+    "f": [
+      {
+        "n": "data_handler.py",
+        "p": "data_handler.py",
+        "c": "import json, csv\n\nusers = [{'name':'Ali','age':25},{'name':'Vali','age':30}]\n\nwith open('users.json','w') as f: json.dump(users, f, indent=2)\nwith open('users.json','r') as f: print(json.load(f))\n\nwith open('users.csv','w',newline='') as f:\n    w = csv.DictWriter(f, fieldnames=['name','age'])\n    w.writeheader()\n    w.writerows(users)"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## JSON/CSV\n\n```bash\npython data_handler.py\n```"
+  },
+  {
+    "id": "python-async",
+    "n": "Python Async/Await",
+    "i": "⚡",
+    "diff": "hard",
+    "c": "python",
+    "t": [
+      "python",
+      "async",
+      "await",
+      "concurrent"
+    ],
+    "d": "Asinxron dasturlash.",
+    "f": [
+      {
+        "n": "async_example.py",
+        "p": "async_example.py",
+        "c": "import asyncio\n\nasync def fetch(n):\n    print(f'Start {n}')\n    await asyncio.sleep(n)\n    print(f'End {n}')\n    return n\n\nasync def main():\n    tasks = [fetch(i) for i in [1,2,3]]\n    results = await asyncio.gather(*tasks)\n    print(f'Results: {results}')\n\nasyncio.run(main())"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Async\n\n```bash\npython async_example.py\n```"
+  },
+  {
+    "id": "js-todo",
+    "n": "Todo App",
+    "i": "📝",
+    "diff": "easy",
+    "c": "javascript",
+    "t": [
+      "javascript",
+      "todo",
+      "dom",
+      "localstorage"
+    ],
+    "d": "Vanilla JS Todo App.",
+    "f": [
+      {
+        "n": "index.html",
+        "p": "index.html",
+        "c": "<!DOCTYPE html><html><head><title>Todo</title><style>body{font-family:system-ui;max-width:500px;margin:40px auto;padding:20px}input{padding:10px;width:70%;border:1px solid #ddd;border-radius:6px}button{padding:10px 20px;background:#3b82f6;color:#fff;border:none;border-radius:6px;cursor:pointer}li{padding:10px;margin:5px 0;background:#f5f5f5;border-radius:6px;display:flex;justify-content:space-between}</style></head><body><h1>Todo App</h1><input id='inp' placeholder='Yangi vazifa...'><button onclick='add()'>Qoshish</button><ul id='list'></ul><script>let todos=JSON.parse(localStorage.getItem('todos'))||[];function render(){document.getElementById('list').innerHTML=todos.map((t,i)=>`<li>${t.text}<button onclick='del(${i})'>X</button></li>`).join('');localStorage.setItem('todos',JSON.stringify(todos));}function add(){const v=document.getElementById('inp').value.trim();if(v){todos.push({text:v});document.getElementById('inp').value='';render();}}function del(i){todos.splice(i,1);render();}render();<\\/script></body></html>"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## JS Todo\n\nBrauzerda index.html ni oching."
+  },
+  {
+    "id": "js-calculator",
+    "n": "Calculator",
+    "i": "🔢",
+    "diff": "easy",
+    "c": "javascript",
+    "t": [
+      "javascript",
+      "calculator",
+      "math",
+      "dom"
+    ],
+    "d": "Kalkulyator.",
+    "f": [
+      {
+        "n": "index.html",
+        "p": "index.html",
+        "c": "<!DOCTYPE html><html><head><title>Calc</title><style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#1a1a2e}.calc{background:#16213e;padding:20px;border-radius:12px;width:300px}#d{background:#0f3460;color:#fff;padding:15px;text-align:right;font-size:24px;border-radius:8px;margin-bottom:10px}.b{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}button{padding:15px;font-size:18px;border:none;border-radius:8px;cursor:pointer;background:#1a1a2e;color:#fff}.o{background:#e94560}</style></head><body><div class='calc'><div id='d'>0</div><div class='b'><button onclick='c()'>C</button><button onclick='b()'>⌫</button><button class='o' onclick='o(\"/\")'>/</button><button class='o' onclick='o(\"*\")'>*</button><button onclick='n(\"7\")'>7</button><button onclick='n(\"8\")'>8</button><button onclick='n(\"9\")'>9</button><button class='o' onclick='o(\"-\")'>-</button><button onclick='n(\"4\")'>4</button><button onclick='n(\"5\")'>5</button><button onclick='n(\"6\")'>6</button><button class='o' onclick='o(\"+\")'>+</button><button onclick='n(\"1\")'>1</button><button onclick='n(\"2\")'>2</button><button onclick='n(\"3\")'>3</button><button class='o' onclick='e()'>=</button><button onclick='n(\"0\")' style='grid-column:span 2'>0</button><button onclick='d()'>.</button></div></div><script>let v='0',p='',o='';function n(x){v=v==='0'?x:v+x;u()}function d(){if(!v.includes('.'))v+='.';u()}function o(x){p=v;o=x;v='0'}function e(){v=String(eval(p+o+v));u()}function c(){v='0';p='';o='';u()}function b(){v=v.slice(0,-1)||'0';u()}function u(){document.getElementById('d').textContent=v}<\\/script></body></html>"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Calculator\n\nBrauzerda index.html ni oching."
+  },
+  {
+    "id": "react-counter",
+    "n": "React Counter",
+    "i": "⚛️",
+    "diff": "easy",
+    "c": "react",
+    "t": [
+      "react",
+      "counter",
+      "hooks",
+      "useState"
+    ],
+    "d": "React useState Counter.",
+    "f": [
+      {
+        "n": "Counter.jsx",
+        "p": "src/Counter.jsx",
+        "c": "import { useState } from 'react';\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <div style={{textAlign:'center',padding:'40px'}}>\n      <h1 style={{fontSize:'4rem'}}>{count}</h1>\n      <button onClick={()=>setCount(count-1)}>Kamaytirish</button>\n      <button onClick={()=>setCount(0)}>Reset</button>\n      <button onClick={()=>setCount(count+1)}>Oshirish</button>\n    </div>\n  );\n}\nexport default Counter;"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## React Counter\n\n```bash\nnpx create-react-app my-app\nnpm start\n```"
+  },
+  {
+    "id": "react-todo",
+    "n": "React Todo",
+    "i": "✅",
+    "diff": "easy",
+    "c": "react",
+    "t": [
+      "react",
+      "todo",
+      "hooks",
+      "state"
+    ],
+    "d": "React Todo App.",
+    "f": [
+      {
+        "n": "TodoApp.jsx",
+        "p": "src/TodoApp.jsx",
+        "c": "import { useState } from 'react';\nfunction TodoApp() {\n  const [todos, setTodos] = useState([]);\n  const [input, setInput] = useState('');\n  const add = () => { if(input.trim()){setTodos([...todos,{text:input,done:false}]);setInput('');} };\n  return (\n    <div style={{maxWidth:500,margin:'40px auto'}}>\n      <h1>React Todo</h1>\n      <input value={input} onChange={e=>setInput(e.target.value)} onKeyPress={e=>e.key==='Enter'&&add()}/>\n      <button onClick={add}>Qoshish</button>\n      <ul>{todos.map((t,i)=><li key={i} onClick={()=>{const n=[...todos];n[i].done=!n[i].done;setTodos(n);}} style={{textDecoration:t.done?'line-through':'none'}}>{t.text}</li>)}</ul>\n    </div>\n  );\n}\nexport default TodoApp;"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## React Todo\n\n```bash\nnpx create-react-app my-app\nnpm start\n```"
+  },
+  {
+    "id": "vue-counter",
+    "n": "Vue Counter",
+    "i": "💚",
+    "diff": "easy",
+    "c": "vue",
+    "t": [
+      "vue",
+      "counter",
+      "composition",
+      "reactive"
+    ],
+    "d": "Vue 3 Counter.",
+    "f": [
+      {
+        "n": "Counter.vue",
+        "p": "src/Counter.vue",
+        "c": "<template>\n  <div style='text-align:center;padding:40px'>\n    <h1 style='font-size:4rem'>{{ count }}</h1>\n    <button @click='count--'>Kamaytirish</button>\n    <button @click='count=0'>Reset</button>\n    <button @click='count++'>Oshirish</button>\n  </div>\n</template>\n<script setup>\nimport { ref } from 'vue'\nconst count = ref(0)\n</script>"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Vue Counter\n\n```bash\nnpm create vue@latest\nnpm run dev\n```"
+  },
+  {
+    "id": "vue-todo",
+    "n": "Vue Todo",
+    "i": "✅",
+    "diff": "easy",
+    "c": "vue",
+    "t": [
+      "vue",
+      "todo",
+      "composition",
+      "reactive"
+    ],
+    "d": "Vue Todo App.",
+    "f": [
+      {
+        "n": "TodoApp.vue",
+        "p": "src/TodoApp.vue",
+        "c": "<template>\n  <div style='max-width:500px;margin:40px auto'>\n    <h1>Vue Todo</h1>\n    <input v-model='input' @keyup.enter='add' placeholder='Yangi vazifa...'>\n    <button @click='add'>Qoshish</button>\n    <ul>\n      <li v-for='(t,i) in todos' :key='i' @click='t.done=!t.done' :style=\"{textDecoration:t.done?'line-through':'none'}\">{{ t.text }}</li>\n    </ul>\n  </div>\n</template>\n<script setup>\nimport { ref } from 'vue'\nconst input = ref('')\nconst todos = ref([])\nconst add = () => { if(input.value.trim()){todos.value.push({text:input.value,done:false});input.value='';} }\n</script>"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Vue Todo\n\n```bash\nnpm create vue@latest\nnpm run dev\n```"
+  },
+  {
+    "id": "nodejs-express",
+    "n": "Express REST API",
+    "i": "🟢",
+    "diff": "medium",
+    "c": "nodejs",
+    "t": [
+      "nodejs",
+      "express",
+      "api",
+      "rest"
+    ],
+    "d": "Express.js REST API.",
+    "f": [
+      {
+        "n": "server.js",
+        "p": "server.js",
+        "c": "const express = require('express');\nconst app = express();\napp.use(express.json());\nlet books = [{id:1,title:'Dart',author:'Asadbek'}];\napp.get('/api/books', (req,res) => res.json(books));\napp.post('/api/books', (req,res) => { books.push({id:books.length+1,...req.body}); res.status(201).json({ok:true}); });\napp.listen(3000, () => console.log('Server port 3000'));"
+      }
+    ],
+    "icon": "globe",
+    "instructions": "## Express API\n\n```bash\nnpm init -y && npm install express\nnode server.js\n```"
+  },
+  {
+    "id": "html-landing",
+    "n": "Landing Page",
+    "i": "🌐",
+    "diff": "easy",
+    "c": "html-css",
+    "t": [
+      "html",
+      "css",
+      "landing",
+      "responsive"
+    ],
+    "d": "Responsive landing page.",
+    "f": [
+      {
+        "n": "index.html",
+        "p": "index.html",
+        "c": "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Landing</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui;background:#0f0f1c;color:#fff}.hero{text-align:center;padding:100px 20px}.hero h1{font-size:clamp(36px,5vw,64px);margin-bottom:20px}.hero span{background:linear-gradient(135deg,#3b82f6,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.btn{padding:14px 32px;background:#3b82f6;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1000px;margin:60px auto;padding:0 20px}.card{background:rgba(255,255,255,.03);border:1px solid #27272a;border-radius:12px;padding:32px}.card h3{margin-bottom:8px}.card p{color:#a1a1aa}</style></head><body><section class='hero'><h1>Kodingizni <span>Keyingi Darajaga</span> Olib Chiqing</h1><p style='color:#a1a1aa;margin-bottom:30px'>200+ tayyor kod shablonlari</p><button class='btn'>Bepul Boshlash</button></section><div class='features'><div class='card'><h3>Flutter</h3><p>180+ mobile templates</p></div><div class='card'><h3>Arduino</h3><p>16+ IoT templates</p></div><div class='card'><h3>Python</h3><p>8+ scripting templates</p></div></div></body></html>"
+      }
+    ],
+    "icon": "palette",
+    "instructions": "## Landing Page\n\nBrauzerda index.html ni oching."
   }
 ]
