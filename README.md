@@ -14,8 +14,8 @@
 
 ## Features
 
-- **200+ Templates** — Flutter, Arduino, Python, JavaScript, React, Vue.js, Node.js, HTML/CSS
-- **Multi-Language Support** — Code templates for 6+ programming languages
+- **212+ Templates** — Flutter, Arduino, Python, JavaScript, React, Vue.js, Node.js, HTML/CSS
+- **Multi-Language Support** — Code templates for 8 programming languages
 - **Live Preview** — Run HTML/CSS/JS/React/Vue code directly in browser
 - **User Authentication** — Save favorites and sync across devices
 - **Copy-Paste Ready** — One click to copy any template code
@@ -29,7 +29,7 @@
 
 ## Live Demo
 
-**[Flutter Templates Playground](https://asadbekabdulboqiyev.github.io/flutter-templates-playground/)**
+**[NestoCodebase](https://asadbekabdulboqiyev.github.io/nesto-codebase/)**
 
 ---
 
@@ -37,41 +37,27 @@
 
 | Language | Count | Description |
 |----------|-------|-------------|
-| Flutter | 180+ | Mobile app development with Dart |
-| Arduino | 3+ | IoT and hardware programming |
-| Python | 2+ | Scripts, APIs, data science |
-| JavaScript | 1+ | Vanilla JS, DOM manipulation |
-| React | 1+ | Component-based UI |
-| Vue.js | 1+ | Progressive framework |
-| HTML/CSS | — | Web templates (coming soon) |
-| Node.js | — | Backend development (coming soon) |
-
----
-
-## Famous App Clones
-
-| App | Preview | Files |
-|-----|---------|-------|
-| Instagram Clone | Feed, Stories, Profile, Search, Reels | 5 files |
-| WhatsApp Clone | Chats, Calls, Status | 3 files |
-| Spotify Clone | Home, Search, Library, Player | 5 files |
-| Telegram Clone | Chats, Messages | 2 files |
-| Netflix Clone | Home, Search, Profile | 4 files |
-| TikTok Clone | Feed, Discover, Profile | 4 files |
-| Google-Style Login | Login, Register, Auth Service | 3 files |
+| Flutter | 180 | Mobile app development with Dart |
+| Arduino | 16 | IoT and hardware programming |
+| Python | 8 | Scripts, APIs, data science |
+| JavaScript | 2 | Vanilla JS, DOM manipulation |
+| React | 2 | Component-based UI |
+| Vue.js | 2 | Progressive framework |
+| Node.js | 1 | Backend development |
+| HTML/CSS | 1 | Web templates |
 
 ---
 
 ## Quick Start
 
 ### Option 1: Use Online
-Visit the [live demo](https://asadbekabdulboqiyev.github.io/codebase/) and copy any template.
+Visit the [live demo](https://asadbekabdulboqiyev.github.io/nesto-codebase/) and copy any template.
 
 ### Option 2: Clone & Run
 ```bash
 # Clone the repository
-git clone https://github.com/asadbekabdulboqiyev/codebase.git
-cd codebase
+git clone https://github.com/asadbekabdulboqiyev/nesto-codebase.git
+cd nesto-codebase
 
 # Start local server (required for fetch() to work)
 python3 -m http.server 8080
@@ -116,11 +102,11 @@ python template.py
 ## Project Structure
 
 ```
-codebase/
+nesto-codebase/
 ├── index.html          # Main HTML (semantic, accessible)
 ├── styles.css          # All CSS styles
 ├── app.js              # All JavaScript logic
-├── templates.json      # 200+ template data
+├── templates.json      # 212+ template data
 ├── code_info/          # Preview screenshots
 ├── .github/
 │   └── workflows/
@@ -162,11 +148,10 @@ codebase/
    - `javascript` — JavaScript files (.js)
    - `react` — React components (.jsx)
    - `vue` — Vue components (.vue)
+   - `nodejs` — Node.js files (.js)
    - `html-css` — HTML/CSS files (.html)
 
-3. Take a simulator screenshot and save as `code_info/my-template.png`
-
-4. Push to GitHub — the site auto-deploys!
+3. Push to GitHub — the site auto-deploys!
 
 ---
 
@@ -177,10 +162,9 @@ Contributions are welcome! Here's how:
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-template`)
 3. Add your template to `templates.json`
-4. Take a simulator screenshot
-5. Commit your changes (`git commit -m 'Add amazing template'`)
-6. Push to the branch (`git push origin feature/amazing-template`)
-7. Open a Pull Request
+4. Commit your changes (`git commit -m 'Add amazing template'`)
+5. Push to the branch (`git push origin feature/amazing-template`)
+6. Open a Pull Request
 
 ---
 
