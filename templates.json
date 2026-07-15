@@ -4313,5 +4313,154 @@
         "c": "import 'package:flutter/material.dart';\n\n/// TikTok Profil sahifasi\nclass ProfilePage extends StatelessWidget {\n  const ProfilePage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return SafeArea(\n      child: SingleChildScrollView(\n        child: Column(\n          children: [\n            const SizedBox(height: 20),\n            const CircleAvatar(radius: 40, backgroundColor: Colors.pink, child: Text('U', style: TextStyle(fontSize: 32, color: Colors.white))),\n            const SizedBox(height: 8),\n            const Text('@username', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),\n            const SizedBox(height: 16),\n            Row(\n              mainAxisAlignment: MainAxisAlignment.center,\n              children: [\n                _buildStat('128', 'Following'),\n                const SizedBox(width: 24),\n                _buildStat('1.2K', 'Followers'),\n                const SizedBox(width: 24),\n                _buildStat('34.5K', 'Likes'),\n              ],\n            ),\n            const SizedBox(height: 16),\n            Row(\n              mainAxisAlignment: MainAxisAlignment.center,\n              children: [\n                FilledButton(onPressed: () {}, child: const Text('Edit profile')),\n                const SizedBox(width: 8),\n                OutlinedButton(onPressed: () {}, child: const Icon(Icons.share)),\n              ],\n            ),\n            const SizedBox(height: 20),\n            GridView.builder(\n              shrinkWrap: true,\n              physics: const NeverScrollableScrollPhysics(),\n              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisSpacing: 2, crossAxisSpacing: 2),\n              itemCount: 15,\n              itemBuilder: (context, index) {\n                return Container(color: Colors.grey[800], child: Icon(Icons.play_circle_outline, color: Colors.grey[600]));\n              },\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n\n  Widget _buildStat(String count, String label) {\n    return Column(\n      children: [\n        Text(count, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),\n        Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),\n      ],\n    );\n  }\n}"
       }
     ]
+  },
+  {
+    "id": "arduino-blink",
+    "n": "Arduino LED Blink",
+    "i": "💡",
+    "diff": "easy",
+    "c": "arduino",
+    "t": ["arduino", "led", "blink", "basic"],
+    "d": "Asosiy LED yonish-o'chish. Arduino uchun birinchi qadam.",
+    "f": [
+      {
+        "n": "blink.ino",
+        "p": "blink.ino",
+        "c": "const int LED_PIN = 13;\n\nvoid setup() {\n  pinMode(LED_PIN, OUTPUT);\n  Serial.begin(9600);\n  Serial.println('Arduino LED Blink');\n}\n\nvoid loop() {\n  digitalWrite(LED_PIN, HIGH);\n  Serial.println('LED ON');\n  delay(1000);\n  \n  digitalWrite(LED_PIN, LOW);\n  Serial.println('LED OFF');\n  delay(1000);\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Arduino LED Blink\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Easy\n**Teglar:** arduino, led, blink\n\n### Qanday ishlatish kerak:\n\n1. Arduino IDE ni oching\n2. Yangi sketch yarating\n3. Kodni kiriting\n4. Arduino-ni USB ga ulang\n5. Upload tugmasini bosing\n\n### Kerakli uskunalar:\n- Arduino UNO/Nano/Mega\n- LED\n- 220Ω rezistor\n- Simlar\n\n### sxema:\n- LED anode (uzun oyoq) → Pin 13\n- LED katode (qisqa oyoq) → GND (rezistor orqali)\n"
+  },
+  {
+    "id": "arduino-servo",
+    "n": "Arduino Servo Motor",
+    "i": "⚙️",
+    "diff": "medium",
+    "c": "arduino",
+    "t": ["arduino", "servo", "motor", "pwm"],
+    "d": "Servo motor boshqaruvi. 0-180 daraja oralig'ida aylanish.",
+    "f": [
+      {
+        "n": "servo_control.ino",
+        "p": "servo_control.ino",
+        "c": "#include <Servo.h>\n\nServo myServo;\nconst int SERVO_PIN = 9;\nconst int POT_PIN = A0;\n\nvoid setup() {\n  myServo.attach(SERVO_PIN);\n  Serial.begin(9600);\n  Serial.println('Servo Motor Control');\n}\n\nvoid loop() {\n  int potValue = analogRead(POT_PIN);\n  int angle = map(potValue, 0, 1023, 0, 180);\n  \n  myServo.write(angle);\n  \n  Serial.print('Potentiometer: ');\n  Serial.print(potValue);\n  Serial.print(' | Angle: ');\n  Serial.println(angle);\n  \n  delay(15);\n}"
+      }
+    ],
+    "icon": "building",
+    "instructions": "## Arduino Servo Motor\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Medium\n**Teglar:** arduino, servo, motor\n\n### Qanday ishlatish kerak:\n\n1. Servo kutubxonasini yuklang: `Sketch → Include Library → Servo`\n2. Servo ni Arduino ga ulang\n3. Potentiometrni A0 ga ulang\n4. Kodni upload qiling\n\n### Ulanma sxemasi:\n- Servo qizil → 5V\n- Servo jigarrang → GND\n- Servo sariq → Pin 9\n- Potentiometr markazi → A0\n"
+  },
+  {
+    "id": "arduino-sensor",
+    "n": "Arduino DHT11 Sensor",
+    "i": "🌡️",
+    "diff": "medium",
+    "c": "arduino",
+    "t": ["arduino", "dht11", "temperature", "humidity"],
+    "d": "DHT11 harorat va namlik sensorini o'qish.",
+    "f": [
+      {
+        "n": "dht11_read.ino",
+        "p": "dht11_read.ino",
+        "c": "#include <DHT.h>\n\n#define DHT_PIN 2\n#define DHT_TYPE DHT11\n\nDHT dht(DHT_PIN, DHT_TYPE);\n\nvoid setup() {\n  Serial.begin(9600);\n  dht.begin();\n  Serial.println('DHT11 Sensor Ready');\n}\n\nvoid loop() {\n  float humidity = dht.readHumidity();\n  float temperature = dht.readTemperature();\n  \n  if (isnan(humidity) || isnan(temperature)) {\n    Serial.println('Sensor read error!');\n    return;\n  }\n  \n  Serial.print('Harorat: ');\n  Serial.print(temperature);\n  Serial.print(' C | Namlik: ');\n  Serial.print(humidity);\n  Serial.println(' %');\n  \n  delay(2000);\n}"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Arduino DHT11 Sensor\n\n**Kategoriya:** Arduino\n**Qiyinlik:** Medium\n**Teglar:** arduino, dht11, sensor\n\n### Qanday ishlatish kerak:\n\n1. DHT kutubxonasini o'rnating: `Sketch → Include Library → Manage Libraries → DHT sensor`\n2. DHT11 ni Arduino ga ulang\n3. Kodni upload qiling\n\n### Ulanma sxemasi:\n- DHT11 VCC → 5V\n- DHT11 GND → GND\n- DHT11 DATA → Pin 2\n"
+  },
+  {
+    "id": "python-fibonacci",
+    "n": "Python Fibonacci",
+    "i": "🐍",
+    "diff": "easy",
+    "c": "python",
+    "t": ["python", "fibonacci", "algorithm", "recursion"],
+    "d": "Fibonacci ketma-ketligini hisoblash. Rekursiv va iterativ usul.",
+    "f": [
+      {
+        "n": "fibonacci.py",
+        "p": "fibonacci.py",
+        "c": "# Fibonacci ketma-ketligi\n\ndef fibonacci_recursive(n):\n    \"\"\"Rekursiv usul\"\"\"\n    if n <= 1:\n        return n\n    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)\n\ndef fibonacci_iterative(n):\n    \"\"\"Iterativ usul\"\"\"\n    if n <= 1:\n        return n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n\ndef fibonacci_generator(limit):\n    \"\"\"Generator usuli\"\"\"\n    a, b = 0, 1\n    while a < limit:\n        yield a\n        a, b = b, a + b\n\nif __name__ == '__main__':\n    n = 10\n    print(f'Fibonacci({n}) rekursiv: {fibonacci_recursive(n)}')\n    print(f'Fibonacci({n}) iterativ: {fibonacci_iterative(n)}')\n    print('\\nBirinchi 10 ta Fibonacci soni:')\n    for num in fibonacci_generator(100):\n        print(num, end=' ')\n    print()"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## Python Fibonacci\n\n**Kategoriya:** Python\n**Qiyinlik:** Easy\n**Teglar:** python, fibonacci, algorithm\n\n### Qanday ishlatish kerak:\n\n1. `fibonacci.py` faylini yarating\n2. Kodni kiriting\n3. Terminalda ishga tushiring:\n```bash\npython fibonacci.py\n```\n\n### O'rganish:\n- Rekursiya\n- Iteratsiya\n- Generatorlar\n"
+  },
+  {
+    "id": "python-api",
+    "n": "Python Flask API",
+    "i": "🌐",
+    "diff": "medium",
+    "c": "python",
+    "t": ["python", "flask", "api", "rest"],
+    "d": "Flask bilan oddiy REST API yaratish.",
+    "f": [
+      {
+        "n": "app.py",
+        "p": "app.py",
+        "c": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\n# Mock ma'lumotlar\nusers = [\n    {'id': 1, 'name': 'Ali', 'email': 'ali@example.com'},\n    {'id': 2, 'name': 'Vali', 'email': 'vali@example.com'},\n]\n\n@app.route('/')\ndef home():\n    return jsonify({'message': 'Welcome to API'})\n\n@app.route('/api/users', methods=['GET'])\ndef get_users():\n    return jsonify(users)\n\n@app.route('/api/users/<int:user_id>', methods=['GET'])\ndef get_user(user_id):\n    user = next((u for u in users if u['id'] == user_id), None)\n    if user:\n        return jsonify(user)\n    return jsonify({'error': 'User not found'}), 404\n\n@app.route('/api/users', methods=['POST'])\ndef create_user():\n    data = request.get_json()\n    new_user = {\n        'id': len(users) + 1,\n        'name': data['name'],\n        'email': data['email']\n    }\n    users.append(new_user)\n    return jsonify(new_user), 201\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)"
+      }
+    ],
+    "icon": "globe",
+    "instructions": "## Python Flask API\n\n**Kategoriya:** Python\n**Qiyinlik:** Medium\n**Teglar:** python, flask, api\n\n### Qanday ishlatish kerak:\n\n1. Flask ni o'rnating:\n```bash\npip install flask\n```\n\n2. `app.py` faylini yarating\n3. API ni ishga tushiring:\n```bash\npython app.py\n```\n\n4. Test qiling:\n```bash\ncurl http://localhost:5000/api/users\n```\n\n### API endpointlari:\n- `GET /` — Bosh sahifa\n- `GET /api/users` — Barcha foydalanuvchilar\n- `GET /api/users/<id>` — Bitta foydalanuvchi\n- `POST /api/users` — Yangi foydalanuvchi\n"
+  },
+  {
+    "id": "js-todo",
+    "n": "JavaScript Todo App",
+    "i": "📝",
+    "diff": "easy",
+    "c": "javascript",
+    "t": ["javascript", "todo", "dom", "localstorage"],
+    "d": "Vanilla JavaScript bilan Todo ilova. LocalStorage bilan saqlash.",
+    "f": [
+      {
+        "n": "index.html",
+        "p": "index.html",
+        "c": "<!DOCTYPE html>\n<html lang=\"uz\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Todo App</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: system-ui; background: #1a1a2e; color: #fff; min-height: 100vh; display: flex; justify-content: center; padding: 40px 20px; }\n    .container { width: 100%; max-width: 500px; }\n    h1 { text-align: center; margin-bottom: 30px; font-size: 2rem; }\n    .input-group { display: flex; gap: 10px; margin-bottom: 20px; }\n    input { flex: 1; padding: 12px 16px; border: none; border-radius: 8px; font-size: 1rem; background: #16213e; color: #fff; }\n    button { padding: 12px 24px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; background: #e94560; color: #fff; }\n    button:hover { background: #c73e54; }\n    .todo-list { list-style: none; }\n    .todo-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin-bottom: 8px; background: #16213e; border-radius: 8px; }\n    .todo-item.done span { text-decoration: line-through; opacity: 0.5; }\n    .todo-item span { flex: 1; }\n    .delete-btn { background: #ff6b6b; padding: 6px 12px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h1>📝 Todo App</h1>\n    <div class=\"input-group\">\n      <input type=\"text\" id=\"todoInput\" placeholder=\"Yangi vazifa...\">\n      <button onclick=\"addTodo()\">Qo'shish</button>\n    </div>\n    <ul class=\"todo-list\" id=\"todoList\"></ul>\n  </div>\n  <script src=\"app.js\"></script>\n</body>\n</html>"
+      },
+      {
+        "n": "app.js",
+        "p": "app.js",
+        "c": "let todos = JSON.parse(localStorage.getItem('todos')) || [];\n\nfunction render() {\n  const list = document.getElementById('todoList');\n  list.innerHTML = todos.map((todo, i) => `\n    <li class=\"todo-item ${todo.done ? 'done' : ''}\">\n      <input type=\"checkbox\" ${todo.done ? 'checked' : ''} onchange=\"toggle(${i})\">\n      <span>${todo.text}</span>\n      <button class=\"delete-btn\" onclick=\"remove(${i})\">O'chirish</button>\n    </li>\n  `).join('');\n  localStorage.setItem('todos', JSON.stringify(todos));\n}\n\nfunction addTodo() {\n  const input = document.getElementById('todoInput');\n  if (input.value.trim()) {\n    todos.push({ text: input.value.trim(), done: false });\n    input.value = '';\n    render();\n  }\n}\n\nfunction toggle(i) {\n  todos[i].done = !todos[i].done;\n  render();\n}\n\nfunction remove(i) {\n  todos.splice(i, 1);\n  render();\n}\n\ndocument.getElementById('todoInput').addEventListener('keypress', e => {\n  if (e.key === 'Enter') addTodo();\n});\n\nrender();"
+      }
+    ],
+    "icon": "document",
+    "instructions": "## JavaScript Todo App\n\n**Kategoriya:** JavaScript\n**Qiyinlik:** Easy\n**Teglar:** javascript, todo, dom\n\n### Qanday ishlatish kerak:\n\n1. `index.html` va `app.js` fayllarini yarating\n2. Brauzerda `index.html` ni oching\n3. Vazifalarni qo'shing, tahrirlang, o'chiring\n\n### O'rganish:\n- DOM manipulyatsiyasi\n- LocalStorage\n- Event handling\n"
+  },
+  {
+    "id": "react-counter",
+    "n": "React Counter",
+    "i": "⚛️",
+    "diff": "easy",
+    "c": "react",
+    "t": ["react", "counter", "hooks", "useState"],
+    "d": "React useState hook bilan Counter komponenti.",
+    "f": [
+      {
+        "n": "Counter.jsx",
+        "p": "src/Counter.jsx",
+        "c": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div style={{ textAlign: 'center', padding: '40px', fontFamily: 'system-ui' }}>\n      <h1 style={{ fontSize: '4rem', marginBottom: '20px' }}>{count}</h1>\n      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>\n        <button \n          onClick={() => setCount(count - 1)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: 'none', borderRadius: '8px', background: '#e94560', color: '#fff', cursor: 'pointer' }}\n        >\n          - Kamaytirish\n        </button>\n        <button \n          onClick={() => setCount(0)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: '2px solid #333', borderRadius: '8px', background: 'transparent', color: '#fff', cursor: 'pointer' }}\n        >\n          Reset\n        </button>\n        <button \n          onClick={() => setCount(count + 1)}\n          style={{ padding: '12px 24px', fontSize: '1.2rem', border: 'none', borderRadius: '8px', background: '#22c55e', color: '#fff', cursor: 'pointer' }}\n        >\n          + Oshirish\n        </button>\n      </div>\n    </div>\n  );\n}\n\nexport default Counter;"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## React Counter\n\n**Kategoriya:** React\n**Qiyinlik:** Easy\n**Teglar:** react, counter, hooks\n\n### Qanday ishlatish kerak:\n\n1. React loyiha yarating:\n```bash\nnpx create-react-app my-counter\n```\n\n2. `Counter.jsx` faylini yarating\n3. `App.js` da import qiling:\n```jsx\nimport Counter from './Counter';\nfunction App() { return <Counter />; }\n```\n\n4. Ishga tushiring:\n```bash\nnpm start\n```\n\n### O'rganish:\n- React hooks (useState)\n- Component composition\n- Event handling\n"
+  },
+  {
+    "id": "vue-todo",
+    "n": "Vue.js Todo App",
+    "i": "💚",
+    "diff": "easy",
+    "c": "vue",
+    "t": ["vue", "todo", "composition", "reactivity"],
+    "d": "Vue 3 Composition API bilan Todo ilova.",
+    "f": [
+      {
+        "n": "TodoApp.vue",
+        "p": "src/TodoApp.vue",
+        "c": "<template>\n  <div class=\"todo-app\">\n    <h1>📝 Vue Todo</h1>\n    <div class=\"input-group\">\n      <input v-model=\"newTodo\" @keyup.enter=\"addTodo\" placeholder=\"Yangi vazifa...\">\n      <button @click=\"addTodo\">Qo'shish</button>\n    </div>\n    <ul>\n      <li v-for=\"(todo, index) in todos\" :key=\"index\" :class=\"{ done: todo.done }\">\n        <input type=\"checkbox\" v-model=\"todo.done\">\n        <span>{{ todo.text }}</span>\n        <button @click=\"removeTodo(index)\">O'chirish</button>\n      </li>\n    </ul>\n  </div>\n</template>\n\n<script setup>\nimport { ref, watch } from 'vue'\n\nconst newTodo = ref('')\nconst todos = ref(JSON.parse(localStorage.getItem('todos')) || [])\n\nwatch(todos, (val) => {\n  localStorage.setItem('todos', JSON.stringify(val))\n}, { deep: true })\n\nfunction addTodo() {\n  if (newTodo.value.trim()) {\n    todos.value.push({ text: newTodo.value.trim(), done: false })\n    newTodo.value = ''\n  }\n}\n\nfunction removeTodo(index) {\n  todos.value.splice(index, 1)\n}\n</script>\n\n<style scoped>\n.todo-app { max-width: 500px; margin: 40px auto; font-family: system-ui; }\nh1 { text-align: center; margin-bottom: 20px; }\n.input-group { display: flex; gap: 10px; margin-bottom: 20px; }\ninput { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; }\nbutton { padding: 10px 20px; border: none; border-radius: 6px; background: #42b883; color: #fff; cursor: pointer; }\nli { display: flex; align-items: center; gap: 10px; padding: 10px; margin-bottom: 8px; background: #f5f5f5; border-radius: 6px; }\nli.done span { text-decoration: line-through; opacity: 0.5; }\nspan { flex: 1; }\n</style>"
+      }
+    ],
+    "icon": "sparkle",
+    "instructions": "## Vue.js Todo App\n\n**Kategoriya:** Vue.js\n**Qiyinlik:** Easy\n**Teglar:** vue, todo, composition\n\n### Qanday ishlatish kerak:\n\n1. Vue loyiha yarating:\n```bash\nnpm create vue@latest\n```\n\n2. `TodoApp.vue` faylini yarating\n3. `App.vue` da import qiling\n4. Ishga tushiring:\n```bash\nnpm run dev\n```\n\n### O'rganish:\n- Vue 3 Composition API\n- ref, watch\n- Two-way binding (v-model)\n"
   }
 ]
